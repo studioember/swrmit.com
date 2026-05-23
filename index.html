@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swrm - the social media task marketplace</title>
+  <meta name="description" content="Brands post campaigns. Swrmers earn credits. Cash out to PayPal. The social media task marketplace, rebuilt.">
+  <meta property="og:title" content="Swrm - the social media task marketplace">
+  <meta property="og:description" content="Brands post campaigns. Swrmers earn credits. Cash out to PayPal.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://swrmit.com">
+  <meta property="og:image" content="https://swrmit.com/assets/og.png">
+  <meta property="og:image:secure_url" content="https://swrmit.com/assets/og.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="2400">
+  <meta property="og:image:height" content="1260">
+  <meta property="og:image:alt" content="Swrm - the social media task marketplace">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://swrmit.com/assets/og.png">
+  <meta name="twitter:image:alt" content="Swrm - the social media task marketplace">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#C5E309',
+            'primary-hover': '#b3d008',
+            bg: '#090909',
+            'bg-elevated': '#1a1a1a',
+            'bg-card': '#000000',
+            border: '#2a2a2a',
+            'border-light': '#333333',
+            muted: '#737373',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 0 1px rgba(197, 227, 9, 0.4), 0 0 24px rgba(197, 227, 9, 0.25);
+    }
+    .btn-ghost:hover {
+      box-shadow: 0 0 0 1px rgba(197, 227, 9, 0.2), 0 0 16px rgba(197, 227, 9, 0.1);
+    }
+    .card:hover {
+      box-shadow: 0 0 0 1px rgba(197, 227, 9, 0.25), 0 0 28px rgba(197, 227, 9, 0.10);
+    }
+
+    .hero-glow {
+      background:
+        radial-gradient(60% 50% at 50% 0%, rgba(197, 227, 9, 0.18) 0%, rgba(197, 227, 9, 0) 70%),
+        radial-gradient(40% 40% at 80% 60%, rgba(197, 227, 9, 0.08) 0%, rgba(197, 227, 9, 0) 70%);
+    }
+
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .marquee-track { animation: marquee 90s linear infinite; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    @keyframes livePulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+    .live-dot { animation: livePulse 1.6s ease-in-out infinite; }
+
+    .text-glow {
+      background: linear-gradient(180deg, #FFFFFF 0%, #B8B8B8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .phone-frame {
+      aspect-ratio: 9 / 16;
+      border-radius: 2rem;
+      overflow: hidden;
+      border: 2px solid rgba(255,255,255,0.1);
+      box-shadow: 0 32px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04) inset;
+      background: #111;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .phone-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .phone-frame .placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(160deg, #1a1a1a 0%, #0d0d0d 100%);
+      color: #333;
+      font-size: 2rem;
+    }
+
+    .phone-ticker-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 70s linear infinite;
+    }
+    .phone-ticker-track .phone-frame {
+      margin-right: 1.25rem;
+    }
+    .phone-ticker-wrap {
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+
+    @keyframes marquee-reverse {
+      from { transform: translateX(-50%); }
+      to   { transform: translateX(0); }
+    }
+
+    .comment-card {
+      width: 300px;
+      flex-shrink: 0;
+      margin-right: 1rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 1rem;
+      padding: 1rem 1.25rem;
+    }
+
+    .comment-ticker-track {
+      display: flex;
+      width: max-content;
+      animation: marquee-reverse 90s linear infinite;
+    }
+
+    .comment-ticker-wrap {
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+  </style>
+</head>
+<body class="bg-bg text-gray-100 min-h-screen antialiased selection:bg-primary selection:text-bg">
+
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-bg/70 border-b border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+      <a href="#top" class="flex items-center" aria-label="Swrm home">
+        <img src="/assets/logo-full.svg" alt="Swrm" width="78" height="25">
+      </a>
+      <nav class="hidden md:flex items-center gap-7 text-sm text-muted">
+        <a href="#how" class="hover:text-gray-100 transition-colors">How it works</a>
+        <a href="#brands" class="hover:text-gray-100 transition-colors">For brands</a>
+        <a href="#swrmers" class="hover:text-gray-100 transition-colors">For Swrmers</a>
+        <a href="#faq" class="hover:text-gray-100 transition-colors">FAQ</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href="https://lets.swrmit.com/login" class="hidden sm:inline-block text-sm text-gray-300 px-3 py-2 rounded-lg hover:text-gray-100 transition-colors">Log in</a>
+        <a href="https://lets.swrmit.com/signup" class="btn-primary text-sm bg-primary text-bg px-4 py-2 rounded-lg font-medium hover:bg-primary-hover transition-all">Get started</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="top" class="relative overflow-hidden pt-32 sm:pt-40 pb-8 sm:pb-12">
+    <div class="absolute inset-0 grid-bg opacity-50 pointer-events-none"></div>
+    <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-center mb-6">
+        <div class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted border border-border bg-bg-elevated/60 backdrop-blur px-3 py-1.5 rounded-full">
+          <span class="relative flex h-1.5 w-1.5">
+            <span class="absolute inset-0 rounded-full bg-primary live-dot"></span>
+          </span>
+          Now in beta
+        </div>
+      </div>
+
+      <h1 class="text-center font-bold tracking-tight text-5xl sm:text-7xl md:text-8xl leading-[1.02]">
+        <span class="text-glow">The social media</span><br>
+        <span class="text-primary">task marketplace</span>
+      </h1>
+
+      <p class="mt-7 max-w-2xl mx-auto text-center text-lg sm:text-xl text-muted leading-relaxed">
+        Get paid to create buzz online.
+
+      <div class="mt-10 flex justify-center">
+        <a href="https://lets.swrmit.com/signup" class="btn-primary bg-primary text-bg px-6 py-3.5 rounded-lg font-semibold hover:bg-primary-hover transition-all text-center">
+          See What’s Buzzing →
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- video ticker with text overlay -->
+  <section class="relative overflow-hidden py-24 sm:py-32">
+
+    <!-- dimmed ticker in background -->
+    <div class="opacity-25 pointer-events-none">
+    <div class="phone-ticker-wrap overflow-hidden">
+      <div class="phone-ticker-track">
+
+        <!-- set 1 -->
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-1.mp4"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-2.mp4"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-3.mp4"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-4.mp4"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-5.mp4"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-1.mp4"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-2.mp4"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-3.mp4"><div class="placeholder">▶</div></div>
+
+        <!-- set 2 — duplicate for seamless loop -->
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-1.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-2.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-3.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-4.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-5.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-1.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-2.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-3.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
+
+      </div>
+    </div>
+    </div><!-- /dimmed wrapper -->
+
+
+    <!-- text overlay -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pointer-events-none">
+      <div class="reveal flex flex-col items-center">
+      <p class="text-xs uppercase tracking-[0.25em] text-muted mb-5">For Swrmers</p>
+      <h2 class="text-3xl sm:text-5xl font-bold tracking-tight leading-tight max-w-xl">
+        Make money completing tasks on <span class="text-primary">social media.</span>
+      </h2>
+      <div class="mt-8 flex items-center gap-5 text-gray-500 pointer-events-auto">
+        <span title="Instagram"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span>
+        <span title="TikTok"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></span>
+        <span title="YouTube"><svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></span>
+        <span title="X"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></span>
+        <span title="Threads"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Zm1.003-11.69c-.242 0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5 0 0 0-2.215-.221z"/></svg></span>
+      </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- brands comment ticker with text overlay -->
+  <section class="relative overflow-hidden py-24 sm:py-32">
+
+    <!-- dimmed comment ticker in background -->
+    <div class="opacity-25 pointer-events-none">
+    <div class="comment-ticker-wrap overflow-hidden py-5">
+      <div class="comment-ticker-track">
+
+        <!-- set 1 -->
+        <div class="comment-card">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#7c3aed;color:#fff">AC</div>
+            <div>
+              <div class="text-sm font-semibold text-white leading-none">@alexchenfilms</div>
+              <div class="text-xs text-gray-500 mt-0.5">Instagram</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300 leading-snug">Just followed! Been looking for content like this for a while 🔥</p>
+          <div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 24</div>
+        </div>
+
+        <div class="comment-card">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#0ea5e9;color:#fff">TM</div>
+            <div>
+              <div class="text-sm font-semibold text-white leading-none">@taylormarketco</div>
+              <div class="text-xs text-gray-500 mt-0.5">TikTok</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300 leading-snug">This is exactly what my feed needed. Already shared with my team!</p>
+          <div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 18</div>
+        </div>
+
+        <div class="comment-card">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#16a34a;color:#fff">MJ</div>
+            <div>
+              <div class="text-sm font-semibold text-white leading-none">@mikejordansocial</div>
+              <div class="text-xs text-gray-500 mt-0.5">YouTube</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300 leading-snug">New follow from me! Love the vibe here 👏</p>
+          <div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 31</div>
+        </div>
+
+        <div class="comment-card">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#b45309;color:#fff">BL</div>
+            <div>
+              <div class="text-sm font-semibold text-white leading-none">@brandstrategybylen</div>
+              <div class="text-xs text-gray-500 mt-0.5">Threads</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300 leading-snug">Incredible content. Liked and saved this one.</p>
+          <div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 45</div>
+        </div>
+
+        <div class="comment-card">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#db2777;color:#fff">DC</div>
+            <div>
+              <div class="text-sm font-semibold text-white leading-none">@daniellecreatesco</div>
+              <div class="text-xs text-gray-500 mt-0.5">Instagram</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300 leading-snug">Followed! This deserves way more views 🚀</p>
+          <div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 12</div>
+        </div>
+
+        <div class="comment-card">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#0f766e;color:#fff">SM</div>
+            <div>
+              <div class="text-sm font-semibold text-white leading-none">@sam_the_marketer</div>
+              <div class="text-xs text-gray-500 mt-0.5">X</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300 leading-snug">Just completed this campaign. Love the format! 💯</p>
+          <div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 8</div>
+        </div>
+
+        <div class="comment-card">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#7c3aed;color:#fff">PK</div>
+            <div>
+              <div class="text-sm font-semibold text-white leading-none">@priyakaur.social</div>
+              <div class="text-xs text-gray-500 mt-0.5">TikTok</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300 leading-snug">Already liked and shared. Amazing work 💯</p>
+          <div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 27</div>
+        </div>
+
+        <div class="comment-card">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#ea580c;color:#fff">GK</div>
+            <div>
+              <div class="text-sm font-semibold text-white leading-none">@growthwithkyle</div>
+              <div class="text-xs text-gray-500 mt-0.5">YouTube</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300 leading-snug">New sub! Been searching for exactly this type of content</p>
+          <div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 19</div>
+        </div>
+
+        <div class="comment-card">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#0ea5e9;color:#fff">BE</div>
+            <div>
+              <div class="text-sm font-semibold text-white leading-none">@socialbyemma</div>
+              <div class="text-xs text-gray-500 mt-0.5">Instagram</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300 leading-snug">Liked and shared to my story. This is gold.</p>
+          <div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 22</div>
+        </div>
+
+        <div class="comment-card">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#16a34a;color:#fff">JR</div>
+            <div>
+              <div class="text-sm font-semibold text-white leading-none">@jess.runs.reels</div>
+              <div class="text-xs text-gray-500 mt-0.5">Threads</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300 leading-snug">Followed and commented. Brands should be doing this 🙌</p>
+          <div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 37</div>
+        </div>
+
+        <!-- set 2 — duplicate for seamless loop -->
+        <div class="comment-card" aria-hidden="true">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#7c3aed;color:#fff">AC</div>
+            <div>
+              <div class="text-sm font-semibold text-white leading-none">@alexchenfilms</div>
+              <div class="text-xs text-gray-500 mt-0.5">Instagram</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300 leading-snug">Just followed! Been looking for content like this for a while 🔥</p>
+          <div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 24</div>
+        </div>
+
+        <div class="comment-card" aria-hidden="true">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#0ea5e9;color:#fff">TM</div>
+            <div>
+              <div class="text-sm font-semibold text-white leading-none">@taylormarketco</div>
+              <div class="text-xs text-gray-500 mt-0.5">TikTok</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300 leading-snug">This is exactly what my feed needed. Already shared with my team!</p>
+          <div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 18</div>
+        </div>
+
+        <div class="comment-card" aria-hidden="true">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#16a34a;color:#fff">MJ</div>
+            <div>
+              <div class="text-sm font-semibold text-white leading-none">@mikejordansocial</div>
+              <div class="text-xs text-gray-500 mt-0.5">YouTube</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300 leading-snug">New follow from me! Love the vibe here 👏</p>
+          <div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 31</div>
+        </div>
+
+        <div class="comment-card" aria-hidden="true">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#b45309;color:#fff">BL</div>
+            <div>
+              <div class="text-sm font-semibold text-white leading-none">@brandstrategybylen</div>
+              <div class="text-xs text-gray-500 mt-0.5">Threads</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300 leading-snug">Incredible content. Liked and saved this one.</p>
+          <div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 45</div>
+        </div>
+
+        <div class="comment-card" aria-hidden="true">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#db2777;color:#fff">DC</div>
+            <div>
+              <div class="text-sm font-semibold text-white leading-none">@daniellecreatesco</div>
+              <div class="text-xs text-gray-500 mt-0.5">Instagram</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300 leading-snug">Followed! This deserves way more views 🚀</p>
+          <div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 12</div>
+        </div>
+
+        <div class="comment-card" aria-hidden="true">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#0f766e;color:#fff">SM</div>
+            <div>
+              <div class="text-sm font-semibold text-white leading-none">@sam_the_marketer</div>
+              <div class="text-xs text-gray-500 mt-0.5">X</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300 leading-snug">Just completed this campaign. Love the format! 💯</p>
+          <div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 8</div>
+        </div>
+
+        <div class="comment-card" aria-hidden="true">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#7c3aed;color:#fff">PK</div>
+            <div>
+              <div class="text-sm font-semibold text-white leading-none">@priyakaur.social</div>
+              <div class="text-xs text-gray-500 mt-0.5">TikTok</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300 leading-snug">Already liked and shared. Amazing work 💯</p>
+          <div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 27</div>
+        </div>
+
+        <div class="comment-card" aria-hidden="true">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#ea580c;color:#fff">GK</div>
+            <div>
+              <div class="text-sm font-semibold text-white leading-none">@growthwithkyle</div>
+              <div class="text-xs text-gray-500 mt-0.5">YouTube</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300 leading-snug">New sub! Been searching for exactly this type of content</p>
+          <div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 19</div>
+        </div>
+
+        <div class="comment-card" aria-hidden="true">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#0ea5e9;color:#fff">BE</div>
+            <div>
+              <div class="text-sm font-semibold text-white leading-none">@socialbyemma</div>
+              <div class="text-xs text-gray-500 mt-0.5">Instagram</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300 leading-snug">Liked and shared to my story. This is gold.</p>
+          <div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 22</div>
+        </div>
+
+        <div class="comment-card" aria-hidden="true">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#16a34a;color:#fff">JR</div>
+            <div>
+              <div class="text-sm font-semibold text-white leading-none">@jess.runs.reels</div>
+              <div class="text-xs text-gray-500 mt-0.5">Threads</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-300 leading-snug">Followed and commented. Brands should be doing this 🙌</p>
+          <div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 37</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- row 2: left-scrolling, 68s -->
+    <div class="comment-ticker-wrap overflow-hidden py-5">
+      <div class="comment-ticker-track" style="animation-name:marquee;animation-duration:110s;">
+        <!-- set 1 -->
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#a855f7;color:#fff">LC</div><div><div class="text-sm font-semibold text-white leading-none">@luisa_content</div><div class="text-xs text-gray-500 mt-0.5">TikTok</div></div></div><p class="text-sm text-gray-300 leading-snug">Shared this to 3 stories, the reach was insane</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 52</div></div>
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#2563eb;color:#fff">BM</div><div><div class="text-sm font-semibold text-white leading-none">@brandboostmeg</div><div class="text-xs text-gray-500 mt-0.5">Instagram</div></div></div><p class="text-sm text-gray-300 leading-snug">Followed from 3 accounts lol. Can't get enough 🙌</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 33</div></div>
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#dc2626;color:#fff">RM</div><div><div class="text-sm font-semibold text-white leading-none">@ryanfrommarketing</div><div class="text-xs text-gray-500 mt-0.5">X</div></div></div><p class="text-sm text-gray-300 leading-snug">Finally a brand that actually pays for real engagement</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 41</div></div>
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#059669;color:#fff">CK</div><div><div class="text-sm font-semibold text-white leading-none">@contentcreatorkai</div><div class="text-xs text-gray-500 mt-0.5">TikTok</div></div></div><p class="text-sm text-gray-300 leading-snug">Left a comment and liked. This blew up my FYP 🤩</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 15</div></div>
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#d97706;color:#fff">SG</div><div><div class="text-sm font-semibold text-white leading-none">@sophiagrowthco</div><div class="text-xs text-gray-500 mt-0.5">YouTube</div></div></div><p class="text-sm text-gray-300 leading-snug">Watched the full video twice. Worth every second</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 28</div></div>
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#7c3aed;color:#fff">MD</div><div><div class="text-sm font-semibold text-white leading-none">@marcusdigital_</div><div class="text-xs text-gray-500 mt-0.5">YouTube</div></div></div><p class="text-sm text-gray-300 leading-snug">Subscribed and shared to my community. 10/10</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 9</div></div>
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#0891b2;color:#fff">NS</div><div><div class="text-sm font-semibold text-white leading-none">@niasocialmedia</div><div class="text-xs text-gray-500 mt-0.5">Instagram</div></div></div><p class="text-sm text-gray-300 leading-snug">Followed and liked the last 5 posts. Addicted now 😍</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 44</div></div>
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#be185d;color:#fff">TC</div><div><div class="text-sm font-semibold text-white leading-none">@trevorcreates_</div><div class="text-xs text-gray-500 mt-0.5">Threads</div></div></div><p class="text-sm text-gray-300 leading-snug">Reposted to my followers. This needs to be seen</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 17</div></div>
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#65a30d;color:#fff">EM</div><div><div class="text-sm font-semibold text-white leading-none">@ellamarketsco</div><div class="text-xs text-gray-500 mt-0.5">X</div></div></div><p class="text-sm text-gray-300 leading-snug">Completed in 2 mins. Super smooth experience 💪</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 6</div></div>
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#6d28d9;color:#fff">ZE</div><div><div class="text-sm font-semibold text-white leading-none">@zach.engages</div><div class="text-xs text-gray-500 mt-0.5">Instagram</div></div></div><p class="text-sm text-gray-300 leading-snug">Left the most genuine comment I've ever written lol</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 29</div></div>
+        <!-- set 2 -->
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#a855f7;color:#fff">LC</div><div><div class="text-sm font-semibold text-white leading-none">@luisa_content</div><div class="text-xs text-gray-500 mt-0.5">TikTok</div></div></div><p class="text-sm text-gray-300 leading-snug">Shared this to 3 stories, the reach was insane</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 52</div></div>
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#2563eb;color:#fff">BM</div><div><div class="text-sm font-semibold text-white leading-none">@brandboostmeg</div><div class="text-xs text-gray-500 mt-0.5">Instagram</div></div></div><p class="text-sm text-gray-300 leading-snug">Followed from 3 accounts lol. Can't get enough 🙌</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 33</div></div>
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#dc2626;color:#fff">RM</div><div><div class="text-sm font-semibold text-white leading-none">@ryanfrommarketing</div><div class="text-xs text-gray-500 mt-0.5">X</div></div></div><p class="text-sm text-gray-300 leading-snug">Finally a brand that actually pays for real engagement</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 41</div></div>
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#059669;color:#fff">CK</div><div><div class="text-sm font-semibold text-white leading-none">@contentcreatorkai</div><div class="text-xs text-gray-500 mt-0.5">TikTok</div></div></div><p class="text-sm text-gray-300 leading-snug">Left a comment and liked. This blew up my FYP 🤩</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 15</div></div>
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#d97706;color:#fff">SG</div><div><div class="text-sm font-semibold text-white leading-none">@sophiagrowthco</div><div class="text-xs text-gray-500 mt-0.5">YouTube</div></div></div><p class="text-sm text-gray-300 leading-snug">Watched the full video twice. Worth every second</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 28</div></div>
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#7c3aed;color:#fff">MD</div><div><div class="text-sm font-semibold text-white leading-none">@marcusdigital_</div><div class="text-xs text-gray-500 mt-0.5">YouTube</div></div></div><p class="text-sm text-gray-300 leading-snug">Subscribed and shared to my community. 10/10</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 9</div></div>
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#0891b2;color:#fff">NS</div><div><div class="text-sm font-semibold text-white leading-none">@niasocialmedia</div><div class="text-xs text-gray-500 mt-0.5">Instagram</div></div></div><p class="text-sm text-gray-300 leading-snug">Followed and liked the last 5 posts. Addicted now 😍</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 44</div></div>
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#be185d;color:#fff">TC</div><div><div class="text-sm font-semibold text-white leading-none">@trevorcreates_</div><div class="text-xs text-gray-500 mt-0.5">Threads</div></div></div><p class="text-sm text-gray-300 leading-snug">Reposted to my followers. This needs to be seen</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 17</div></div>
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#65a30d;color:#fff">EM</div><div><div class="text-sm font-semibold text-white leading-none">@ellamarketsco</div><div class="text-xs text-gray-500 mt-0.5">X</div></div></div><p class="text-sm text-gray-300 leading-snug">Completed in 2 mins. Super smooth experience 💪</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 6</div></div>
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#6d28d9;color:#fff">ZE</div><div><div class="text-sm font-semibold text-white leading-none">@zach.engages</div><div class="text-xs text-gray-500 mt-0.5">Instagram</div></div></div><p class="text-sm text-gray-300 leading-snug">Left the most genuine comment I've ever written lol</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 29</div></div>
+      </div>
+    </div>
+
+    <!-- row 3: right-scrolling, 42s -->
+    <div class="comment-ticker-wrap overflow-hidden py-5">
+      <div class="comment-ticker-track" style="animation-duration:70s;">
+        <!-- set 1 -->
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#9333ea;color:#fff">NB</div><div><div class="text-sm font-semibold text-white leading-none">@naomibrandco</div><div class="text-xs text-gray-500 mt-0.5">Instagram</div></div></div><p class="text-sm text-gray-300 leading-snug">Liked, saved, and shared. The trifecta ✅</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 38</div></div>
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#3b82f6;color:#fff">LC</div><div><div class="text-sm font-semibold text-white leading-none">@liamcreative.io</div><div class="text-xs text-gray-500 mt-0.5">TikTok</div></div></div><p class="text-sm text-gray-300 leading-snug">New follower here. You earned it with this content</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 21</div></div>
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#ef4444;color:#fff">AA</div><div><div class="text-sm font-semibold text-white leading-none">@abby_runs_ads</div><div class="text-xs text-gray-500 mt-0.5">X</div></div></div><p class="text-sm text-gray-300 leading-snug">Screenshot submitted. Already seeing results 📈</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 14</div></div>
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#10b981;color:#fff">DS</div><div><div class="text-sm font-semibold text-white leading-none">@diegosocial_</div><div class="text-xs text-gray-500 mt-0.5">Threads</div></div></div><p class="text-sm text-gray-300 leading-snug">Dropped a genuine comment. This is the future of marketing</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 47</div></div>
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#f59e0b;color:#fff">HG</div><div><div class="text-sm font-semibold text-white leading-none">@hannahgrows</div><div class="text-xs text-gray-500 mt-0.5">YouTube</div></div></div><p class="text-sm text-gray-300 leading-snug">Watched the whole series. New sub for life 🎬</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 35</div></div>
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#6366f1;color:#fff">CM</div><div><div class="text-sm font-semibold text-white leading-none">@carlosmarket</div><div class="text-xs text-gray-500 mt-0.5">Instagram</div></div></div><p class="text-sm text-gray-300 leading-snug">Liked every post this week. Incredible content strategy</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 11</div></div>
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#06b6d4;color:#fff">EB</div><div><div class="text-sm font-semibold text-white leading-none">@emilybuiltbrand</div><div class="text-xs text-gray-500 mt-0.5">TikTok</div></div></div><p class="text-sm text-gray-300 leading-snug">Shared to LinkedIn AND TikTok. You're welcome 😂</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 53</div></div>
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#ec4899;color:#fff">NS</div><div><div class="text-sm font-semibold text-white leading-none">@noahstrategy</div><div class="text-xs text-gray-500 mt-0.5">Instagram</div></div></div><p class="text-sm text-gray-300 leading-snug">Followed and already have ideas for a collab 💡</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 26</div></div>
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#84cc16;color:#fff">SC</div><div><div class="text-sm font-semibold text-white leading-none">@siennacreates</div><div class="text-xs text-gray-500 mt-0.5">X</div></div></div><p class="text-sm text-gray-300 leading-snug">This campaign is the smartest thing I've seen all year</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 42</div></div>
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#8b5cf6;color:#fff">FC</div><div><div class="text-sm font-semibold text-white leading-none">@finn.content</div><div class="text-xs text-gray-500 mt-0.5">YouTube</div></div></div><p class="text-sm text-gray-300 leading-snug">Liked, commented, shared, subscribed. Did I miss anything?</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 7</div></div>
+        <!-- set 2 -->
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#9333ea;color:#fff">NB</div><div><div class="text-sm font-semibold text-white leading-none">@naomibrandco</div><div class="text-xs text-gray-500 mt-0.5">Instagram</div></div></div><p class="text-sm text-gray-300 leading-snug">Liked, saved, and shared. The trifecta ✅</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 38</div></div>
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#3b82f6;color:#fff">LC</div><div><div class="text-sm font-semibold text-white leading-none">@liamcreative.io</div><div class="text-xs text-gray-500 mt-0.5">TikTok</div></div></div><p class="text-sm text-gray-300 leading-snug">New follower here. You earned it with this content</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 21</div></div>
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#ef4444;color:#fff">AA</div><div><div class="text-sm font-semibold text-white leading-none">@abby_runs_ads</div><div class="text-xs text-gray-500 mt-0.5">X</div></div></div><p class="text-sm text-gray-300 leading-snug">Screenshot submitted. Already seeing results 📈</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 14</div></div>
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#10b981;color:#fff">DS</div><div><div class="text-sm font-semibold text-white leading-none">@diegosocial_</div><div class="text-xs text-gray-500 mt-0.5">Threads</div></div></div><p class="text-sm text-gray-300 leading-snug">Dropped a genuine comment. This is the future of marketing</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 47</div></div>
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#f59e0b;color:#fff">HG</div><div><div class="text-sm font-semibold text-white leading-none">@hannahgrows</div><div class="text-xs text-gray-500 mt-0.5">YouTube</div></div></div><p class="text-sm text-gray-300 leading-snug">Watched the whole series. New sub for life 🎬</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 35</div></div>
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#6366f1;color:#fff">CM</div><div><div class="text-sm font-semibold text-white leading-none">@carlosmarket</div><div class="text-xs text-gray-500 mt-0.5">Instagram</div></div></div><p class="text-sm text-gray-300 leading-snug">Liked every post this week. Incredible content strategy</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 11</div></div>
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#06b6d4;color:#fff">EB</div><div><div class="text-sm font-semibold text-white leading-none">@emilybuiltbrand</div><div class="text-xs text-gray-500 mt-0.5">TikTok</div></div></div><p class="text-sm text-gray-300 leading-snug">Shared to LinkedIn AND TikTok. You're welcome 😂</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 53</div></div>
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#ec4899;color:#fff">NS</div><div><div class="text-sm font-semibold text-white leading-none">@noahstrategy</div><div class="text-xs text-gray-500 mt-0.5">Instagram</div></div></div><p class="text-sm text-gray-300 leading-snug">Followed and already have ideas for a collab 💡</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 26</div></div>
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#84cc16;color:#fff">SC</div><div><div class="text-sm font-semibold text-white leading-none">@siennacreates</div><div class="text-xs text-gray-500 mt-0.5">X</div></div></div><p class="text-sm text-gray-300 leading-snug">This campaign is the smartest thing I've seen all year</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 42</div></div>
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#8b5cf6;color:#fff">FC</div><div><div class="text-sm font-semibold text-white leading-none">@finn.content</div><div class="text-xs text-gray-500 mt-0.5">YouTube</div></div></div><p class="text-sm text-gray-300 leading-snug">Liked, commented, shared, subscribed. Did I miss anything?</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 7</div></div>
+      </div>
+    </div>
+
+    </div><!-- /dimmed wrapper -->
+
+    <!-- text overlay -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pointer-events-none">
+      <div class="reveal">
+        <p class="text-xs uppercase tracking-[0.25em] text-muted mb-5">For Brands</p>
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight leading-tight max-w-xl">
+          Get real engagement to help <span class="text-primary">grow your brand.</span>
+        </h2>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="how" class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal max-w-2xl">
+        <div class="text-xs uppercase tracking-[0.25em] text-primary mb-4">How it works</div>
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight">
+          A two-sided marketplace for the <span class="text-primary">attention economy.</span>
+        </h2>
+        <p class="mt-5 text-muted text-lg leading-relaxed">
+          Real engagement, exchanged out in the open. No bots. No ad managers.
+          Just brands paying Swrmers, directly, for tasks completed.
+        </p>
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-3 gap-4">
+        <div class="reveal card relative bg-bg-card border border-border rounded-2xl p-7 transition-all">
+          <div class="text-primary text-sm font-mono">01</div>
+          <h3 class="mt-3 text-xl font-semibold">Post a campaign</h3>
+          <p class="mt-2 text-muted text-sm leading-relaxed">
+            Brands set the task - follow, like, share, comment, watch - fund credits, and publish.
+            Live in minutes.
+          </p>
+        </div>
+        <div class="reveal card relative bg-bg-card border border-border rounded-2xl p-7 transition-all">
+          <div class="text-primary text-sm font-mono">02</div>
+          <h3 class="mt-3 text-xl font-semibold">Swrmers complete it</h3>
+          <p class="mt-2 text-muted text-sm leading-relaxed">
+            Swrmers browse open campaigns, complete the task on the platform,
+            and submit a screenshot as proof.
+          </p>
+        </div>
+        <div class="reveal card relative bg-bg-card border border-border rounded-2xl p-7 transition-all">
+          <div class="text-primary text-sm font-mono">03</div>
+          <h3 class="mt-3 text-xl font-semibold">Credits → cash</h3>
+          <p class="mt-2 text-muted text-sm leading-relaxed">
+            Verified submissions release credits, then Swrmers cash out to PayPal.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="brands" class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div class="reveal">
+        <div class="text-xs uppercase tracking-[0.25em] text-primary mb-4">For brands</div>
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight leading-tight">
+          Real humans.<br>
+          <span class="text-primary">Real engagement.</span>
+        </h2>
+        <p class="mt-5 text-muted text-lg leading-relaxed">
+          Skip the ad-platform black box. Spin up a campaign, set a per-task rate,
+          and watch real users follow, share, or comment - with screenshot proof on every submission.
+        </p>
+
+        <ul class="mt-8 space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary/15 text-primary flex-shrink-0">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </span>
+            <div>
+              <div class="font-medium">Pay per completion</div>
+              <div class="text-sm text-muted">Set the rate. Only pay for verified, screenshot-backed submissions.</div>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary/15 text-primary flex-shrink-0">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </span>
+            <div>
+              <div class="font-medium">Any platform, any task</div>
+              <div class="text-sm text-muted">Follow, like, share, comment, watch. Mix and match.</div>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary/15 text-primary flex-shrink-0">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </span>
+            <div>
+              <div class="font-medium">Pause or edit anytime</div>
+              <div class="text-sm text-muted">Cap reach, swap creative, or kill a campaign mid-flight.</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="mt-10 flex gap-3">
+          <a href="https://lets.swrmit.com/signup" class="btn-primary bg-primary text-bg px-5 py-3 rounded-lg font-semibold hover:bg-primary-hover transition-all">Run a campaign →</a>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="bg-bg-card border border-border rounded-2xl p-6 shadow-2xl shadow-primary/5">
+          <div class="flex items-center justify-between mb-5">
+            <div class="flex items-center gap-3">
+              <div class="h-9 w-9 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">B</div>
+              <div>
+                <div class="font-semibold text-sm">@badbunnypr</div>
+                <div class="text-xs text-muted">posted a campaign</div>
+              </div>
+            </div>
+            <span class="text-xs px-2 py-1 rounded-md bg-primary/15 text-primary border border-primary/30 font-medium">LIVE</span>
+          </div>
+
+          <div class="text-lg font-semibold mb-1">Follow on Instagram</div>
+          <div class="text-sm text-muted mb-5">Follow our profile + comment on the latest reel.</div>
+
+          <div class="grid grid-cols-3 gap-px bg-border rounded-xl overflow-hidden border border-border mb-5">
+            <div class="bg-bg-card p-3 text-center">
+              <div class="text-xs uppercase tracking-wider text-muted">Rate</div>
+              <div class="text-base font-semibold mt-0.5">$0.18</div>
+            </div>
+            <div class="bg-bg-card p-3 text-center">
+              <div class="text-xs uppercase tracking-wider text-muted">Cap</div>
+              <div class="text-base font-semibold mt-0.5">5,000</div>
+            </div>
+            <div class="bg-bg-card p-3 text-center">
+              <div class="text-xs uppercase tracking-wider text-muted">Done</div>
+              <div class="text-base font-semibold text-primary mt-0.5">2,418</div>
+            </div>
+          </div>
+
+          <div class="h-1.5 w-full bg-border rounded-full overflow-hidden">
+            <div class="h-full bg-primary rounded-full" style="width: 48%"></div>
+          </div>
+          <div class="mt-2 text-xs text-muted flex justify-between">
+            <span>48% complete</span>
+            <span>$435.24 spent of $900</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="swrmers" class="py-24 sm:py-32 bg-bg-card/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div class="reveal lg:order-1">
+        <div class="bg-bg-card border border-border rounded-2xl p-6 shadow-2xl shadow-primary/5">
+          <div class="flex items-center justify-between">
+            <div class="text-xs uppercase tracking-widest text-muted">Wallet balance</div>
+            <span class="text-xs text-primary">Available</span>
+          </div>
+          <div class="mt-2 text-4xl sm:text-5xl font-bold tracking-tight">
+            $<span class="text-primary">87</span><span class="text-muted text-3xl">.40</span>
+          </div>
+          <div class="mt-1 text-sm text-muted">128 tasks completed this month</div>
+
+          <div class="mt-6 space-y-2">
+            <div class="flex items-center justify-between bg-bg-elevated/60 border border-border rounded-lg px-4 py-3">
+              <div class="flex items-center gap-3">
+                <div class="h-8 w-8 rounded-md bg-primary/15 flex items-center justify-center text-primary text-sm font-bold">♡</div>
+                <div>
+                  <div class="text-sm font-medium">Like a TikTok</div>
+                  <div class="text-xs text-muted">@taylorswift</div>
+                </div>
+              </div>
+              <div class="text-sm font-semibold text-primary">+$0.12</div>
+            </div>
+            <div class="flex items-center justify-between bg-bg-elevated/60 border border-border rounded-lg px-4 py-3">
+              <div class="flex items-center gap-3">
+                <div class="h-8 w-8 rounded-md bg-primary/15 flex items-center justify-center text-primary text-sm font-bold">+</div>
+                <div>
+                  <div class="text-sm font-medium">Follow on Instagram</div>
+                  <div class="text-xs text-muted">@champagnepapi</div>
+                </div>
+              </div>
+              <div class="text-sm font-semibold text-primary">+$0.20</div>
+            </div>
+            <div class="flex items-center justify-between bg-bg-elevated/60 border border-border rounded-lg px-4 py-3">
+              <div class="flex items-center gap-3">
+                <div class="h-8 w-8 rounded-md bg-primary/15 flex items-center justify-center text-primary text-sm font-bold">▶</div>
+                <div>
+                  <div class="text-sm font-medium">Watch on YouTube</div>
+                  <div class="text-xs text-muted">@coachella</div>
+                </div>
+              </div>
+              <div class="text-sm font-semibold text-primary">+$0.08</div>
+            </div>
+          </div>
+
+          <button class="mt-5 w-full btn-primary bg-primary text-bg px-4 py-2.5 rounded-lg font-semibold hover:bg-primary-hover transition-all text-sm">
+            Cash out to PayPal
+          </button>
+        </div>
+      </div>
+
+      <div class="reveal lg:order-2">
+        <div class="text-xs uppercase tracking-[0.25em] text-primary mb-4">For Swrmers</div>
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight leading-tight">
+          Get paid for what<br>
+          <span class="text-primary">you already do.</span>
+        </h2>
+        <p class="mt-5 text-muted text-lg leading-relaxed">
+          Follow, like, share, watch - turn your scroll into income.
+          Real campaigns from real brands, paid out in real money.
+        </p>
+
+        <ul class="mt-8 space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary/15 text-primary flex-shrink-0">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </span>
+            <div>
+              <div class="font-medium">Free to join</div>
+              <div class="text-sm text-muted">No subscription, no fees, no catch. Sign up in 30 seconds.</div>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary/15 text-primary flex-shrink-0">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </span>
+            <div>
+              <div class="font-medium">PayPal cashout</div>
+              <div class="text-sm text-muted">Cash out at $20 to PayPal. No gift cards, no points scams.</div>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary/15 text-primary flex-shrink-0">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </span>
+            <div>
+              <div class="font-medium">You stay in control</div>
+              <div class="text-sm text-muted">Pick what you do, on which platforms, and at what pace. Skip anything.</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="mt-10 flex gap-3">
+          <a href="https://lets.swrmit.com/signup" class="btn-primary bg-primary text-bg px-5 py-3 rounded-lg font-semibold hover:bg-primary-hover transition-all">Start earning →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal text-center max-w-2xl mx-auto mb-14">
+        <div class="text-xs uppercase tracking-[0.25em] text-primary mb-4">Task types</div>
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight">Every action that <span class="text-primary">moves the needle.</span></h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div class="reveal card bg-bg-card border border-border rounded-xl p-6 transition-all">
+          <div class="text-primary text-3xl mb-4">＋</div>
+          <div class="font-semibold text-base">Follow</div>
+          <div class="text-sm text-muted mt-2 leading-relaxed">Grow your audience with real people who genuinely chose to follow.</div>
+        </div>
+        <div class="reveal card bg-bg-card border border-border rounded-xl p-6 transition-all">
+          <div class="text-primary text-3xl mb-4">♡</div>
+          <div class="font-semibold text-base">Like</div>
+          <div class="text-sm text-muted mt-2 leading-relaxed">Signal content quality to algorithms with genuine likes from real accounts.</div>
+        </div>
+        <div class="reveal card bg-bg-card border border-border rounded-xl p-6 transition-all">
+          <div class="text-primary text-3xl mb-4">↗</div>
+          <div class="font-semibold text-base">Share</div>
+          <div class="text-sm text-muted mt-2 leading-relaxed">Reach new audiences organically through reposts and shares.</div>
+        </div>
+        <div class="reveal card bg-bg-card border border-border rounded-xl p-6 transition-all">
+          <div class="text-primary text-3xl mb-4">❝</div>
+          <div class="font-semibold text-base">Comment</div>
+          <div class="text-sm text-muted mt-2 leading-relaxed">Drive authentic conversation that boosts engagement signals for the algorithm.</div>
+        </div>
+        <div class="reveal card bg-bg-card border border-border rounded-xl p-6 transition-all">
+          <div class="text-primary text-3xl mb-4">▶</div>
+          <div class="font-semibold text-base">Watch</div>
+          <div class="text-sm text-muted mt-2 leading-relaxed">Improve algorithmic ranking with real watch time from real viewers.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="py-24 sm:py-32">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="reveal text-center mb-14">
+        <div class="text-xs uppercase tracking-[0.25em] text-primary mb-4">FAQ</div>
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight">Questions, answered.</h2>
+      </div>
+
+      <div class="space-y-3">
+        <details class="group bg-bg-card border border-border rounded-xl px-5 py-4 transition-all open:bg-bg-elevated/40">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">
+            Is this just bots?
+            <span class="text-primary group-open:rotate-45 transition-transform text-xl leading-none">＋</span>
+          </summary>
+          <p class="mt-3 text-muted text-sm leading-relaxed">
+            No. Every submission requires a screenshot from a real account.
+            Brands review work before credits release. Bot detection runs on every action.
+          </p>
+        </details>
+
+        <details class="group bg-bg-card border border-border rounded-xl px-5 py-4 transition-all open:bg-bg-elevated/40">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">
+            How do payouts work?
+            <span class="text-primary group-open:rotate-45 transition-transform text-xl leading-none">＋</span>
+          </summary>
+          <p class="mt-3 text-muted text-sm leading-relaxed">
+            Verified submissions release credits to your wallet. Cash out to PayPal
+            once you hit the $20 minimum - no waiting weeks, no gift cards.
+          </p>
+        </details>
+
+        <details class="group bg-bg-card border border-border rounded-xl px-5 py-4 transition-all open:bg-bg-elevated/40">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">
+            What does it cost brands?
+            <span class="text-primary group-open:rotate-45 transition-transform text-xl leading-none">＋</span>
+          </summary>
+          <p class="mt-3 text-muted text-sm leading-relaxed">
+            Brands fund campaigns with credits and set a per-task rate.
+            You only pay for completed, verified work.
+          </p>
+        </details>
+
+        <details class="group bg-bg-card border border-border rounded-xl px-5 py-4 transition-all open:bg-bg-elevated/40">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">
+            Which platforms are supported?
+            <span class="text-primary group-open:rotate-45 transition-transform text-xl leading-none">＋</span>
+          </summary>
+          <p class="mt-3 text-muted text-sm leading-relaxed">
+            Instagram, TikTok, YouTube, X / Twitter, and Threads - with more on the way.
+            Anything that takes a screenshot, we can run a campaign for.
+          </p>
+        </details>
+
+        <details class="group bg-bg-card border border-border rounded-xl px-5 py-4 transition-all open:bg-bg-elevated/40">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">
+            Is Swrm new?
+            <span class="text-primary group-open:rotate-45 transition-transform text-xl leading-none">＋</span>
+          </summary>
+          <p class="mt-3 text-muted text-sm leading-relaxed">
+            New build, battle-tested playbook. Modern stack, fast payouts, real screenshot proof.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 sm:py-32 relative overflow-hidden">
+    <div class="absolute inset-0 hero-glow opacity-70 pointer-events-none"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-4xl sm:text-6xl font-bold tracking-tight">
+        Ready to <span class="text-primary">join the Swrm?</span>
+      </h2>
+      <p class="mt-5 text-muted text-lg max-w-xl mx-auto">
+        Free to sign up. Try it in under a minute.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+        <a href="https://lets.swrmit.com/signup" class="btn-primary bg-primary text-bg px-8 py-4 rounded-lg font-semibold hover:bg-primary-hover transition-all text-lg">
+          Get started - it's free
+        </a>
+        <a href="https://lets.swrmit.com/login" class="btn-ghost border border-border text-gray-200 px-8 py-4 rounded-lg font-medium hover:bg-white/[0.03] transition-all text-lg">
+          I already have an account
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-border py-12 bg-bg-card/40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row gap-8 justify-between items-start">
+      <div>
+        <img src="/assets/logo-full.svg" alt="Swrm" width="78" height="25">
+        <p class="mt-4 text-sm text-muted max-w-xs leading-relaxed">
+          The social media task marketplace.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-10 text-sm">
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted mb-3">Product</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="#how" class="hover:text-primary transition-colors">How it works</a></li>
+            <li><a href="#brands" class="hover:text-primary transition-colors">For brands</a></li>
+            <li><a href="#swrmers" class="hover:text-primary transition-colors">For Swrmers</a></li>
+            <li><a href="#faq" class="hover:text-primary transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted mb-3">Account</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="https://lets.swrmit.com/login" class="hover:text-primary transition-colors">Log in</a></li>
+            <li><a href="https://lets.swrmit.com/signup" class="hover:text-primary transition-colors">Sign up</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mt-10 max-w-6xl mx-auto px-4 sm:px-6 text-xs text-muted/70 flex flex-col sm:flex-row gap-3 justify-between">
+      <span>© <span id="year"></span> Swrm. All rights reserved.</span>
+      <span>The social media task marketplace</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    // Swap placeholder for <video> when a data-video src is set
+    document.querySelectorAll('.phone-frame[data-video]').forEach((frame) => {
+      const src = frame.dataset.video;
+      if (!src) return;
+      const video = document.createElement('video');
+      video.src = src;
+      video.autoplay = true;
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      frame.innerHTML = '';
+      frame.appendChild(video);
+    });
+  </script>
+</body>
+</html>
