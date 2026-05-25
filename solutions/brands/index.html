@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Solutions — SWRM</title>
+  <meta name="description" content="SWRM helps brands of every kind activate real people for real social actions. Music, ecommerce, gaming, events, creators, tech, and sports.">
+  <meta property="og:title" content="Brand Solutions — SWRM">
+  <meta property="og:description" content="Launch campaigns that drive social buzz. Real engagement for every industry.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://swrmit.com/solutions/brands">
+  <meta property="og:image" content="https://swrmit.com/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://swrmit.com/assets/og.png">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#C5E309',
+            'primary-hover': '#b3d008',
+            bg: '#090909',
+            'bg-elevated': '#1a1a1a',
+            'bg-card': '#000000',
+            border: '#2a2a2a',
+            'border-light': '#333333',
+            muted: '#737373',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="/solutions/solutions-data.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .btn-primary:hover { box-shadow: 0 0 0 1px rgba(197, 227, 9, 0.4), 0 0 24px rgba(197, 227, 9, 0.25); }
+    .btn-ghost:hover { box-shadow: 0 0 0 1px rgba(197, 227, 9, 0.2), 0 0 16px rgba(197, 227, 9, 0.1); }
+    .card:hover { box-shadow: 0 0 0 1px rgba(197, 227, 9, 0.25), 0 0 28px rgba(197, 227, 9, 0.10); }
+    .hero-glow {
+      background:
+        radial-gradient(60% 50% at 50% 0%, rgba(197, 227, 9, 0.18) 0%, rgba(197, 227, 9, 0) 70%),
+        radial-gradient(40% 40% at 80% 60%, rgba(197, 227, 9, 0.08) 0%, rgba(197, 227, 9, 0) 70%);
+    }
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .text-glow {
+      background: linear-gradient(180deg, #FFFFFF 0%, #B8B8B8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-bg text-gray-100 min-h-screen antialiased selection:bg-primary selection:text-bg">
+
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-bg/70 border-b border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+      <a href="/" class="flex items-center" aria-label="Swrm home">
+        <img src="/assets/logo-full.svg" alt="Swrm" width="78" height="25">
+      </a>
+      <nav class="hidden md:flex items-center gap-7 text-sm text-muted">
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href="https://lets.swrmit.com/login" class="hidden sm:inline-block text-sm text-gray-300 px-3 py-2 rounded-lg hover:text-gray-100 transition-colors">Log in</a>
+        <a href="https://lets.swrmit.com/signup" class="btn-primary text-sm bg-primary text-bg px-4 py-2 rounded-lg font-medium hover:bg-primary-hover transition-all">Get started</a>
+      </div>
+    </div>
+  </header>
+  <script src="/assets/mega-nav.js"></script>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden pt-32 sm:pt-40 pb-16 sm:pb-20 min-h-[660px] sm:min-h-[820px]">
+    <img src="/assets/hero-bee-brands.png" class="absolute inset-0 w-full h-full object-cover object-right pointer-events-none select-none" style="opacity:0.13;" alt="" aria-hidden="true">
+    <div class="absolute inset-0 grid-bg opacity-50 pointer-events-none"></div>
+    <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 text-center">
+      <div class="reveal">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">For Brands</p>
+        <h1 class="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight leading-[1.02]">
+          <span class="text-glow">Built for Every</span><br>
+          <span class="text-primary">Kind of Buzz</span>
+        </h1>
+        <p class="mt-7 max-w-2xl mx-auto text-lg sm:text-xl text-muted leading-relaxed">
+          Whether you're dropping an album, launching a product, filling an event, or building a movement — SWRM activates real people to take real social actions.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="https://lets.swrmit.com/signup" class="btn-primary bg-primary text-bg px-6 py-3.5 rounded-lg font-semibold hover:bg-primary-hover transition-all">
+            Launch a campaign →
+          </a>
+          <a href="https://lets.swrmit.com/login" class="btn-ghost border border-border text-gray-200 px-6 py-3.5 rounded-lg font-medium hover:bg-white/[0.03] transition-all">
+            I already have an account
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution cards grid -->
+  <section class="pt-20 sm:pt-28 pb-20 sm:pb-28">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div id="solutions-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      </div>
+    </div>
+  </section>
+
+  <!-- Swrmers callout -->
+  <section class="pb-16 sm:pb-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <a href="/solutions/swrmers" class="reveal card group flex flex-col sm:flex-row items-start sm:items-center gap-6 bg-bg-card border border-border rounded-2xl p-8 transition-all hover:border-border-light">
+        <div class="flex-1">
+          <div class="text-xs uppercase tracking-widest text-primary mb-2">For Swrmers</div>
+          <h2 class="text-2xl font-bold group-hover:text-primary transition-colors">Want to Earn by Completing Campaigns?</h2>
+          <p class="mt-2 text-muted leading-relaxed">Browse open campaigns, complete social tasks, and cash out to PayPal. Real money for real actions.</p>
+        </div>
+        <div class="shrink-0">
+          <span class="inline-flex items-center gap-2 text-sm text-primary font-medium group-hover:underline">Explore For Swrmers →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="py-24 sm:py-32 relative overflow-hidden">
+    <div class="absolute inset-0 hero-glow opacity-70 pointer-events-none"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-4xl sm:text-6xl font-bold tracking-tight reveal">
+        Ready to <span class="text-primary">Launch?</span>
+      </h2>
+      <p class="mt-5 text-muted text-lg max-w-xl mx-auto reveal">
+        Free to sign up. Your first campaign in under a minute.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center reveal">
+        <a href="https://lets.swrmit.com/signup" class="btn-primary bg-primary text-bg px-8 py-4 rounded-lg font-semibold hover:bg-primary-hover transition-all text-lg">
+          Get started — it's free
+        </a>
+        <a href="https://lets.swrmit.com/login" class="btn-ghost border border-border text-gray-200 px-8 py-4 rounded-lg font-medium hover:bg-white/[0.03] transition-all text-lg">
+          I already have an account
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-border py-12 bg-bg-card/40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row gap-8 justify-between items-start">
+      <div>
+        <img src="/assets/logo-full.svg" alt="Swrm" width="78" height="25">
+        <p class="mt-4 text-sm text-muted max-w-xs leading-relaxed">The social media task marketplace.</p>
+      </div>
+      <div class="grid grid-cols-3 gap-10 text-sm">
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted mb-3">For Brands</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="/solutions/brands" class="hover:text-primary transition-colors">All Solutions</a></li>
+            <li><a href="/solutions/brands/music-entertainment" class="hover:text-primary transition-colors">Music & Entertainment</a></li>
+            <li><a href="/solutions/brands/ecommerce-retail" class="hover:text-primary transition-colors">Ecommerce & Retail</a></li>
+            <li><a href="/solutions/brands/gaming-esports" class="hover:text-primary transition-colors">Gaming & Esports</a></li>
+            <li><a href="/solutions/brands/events-festivals" class="hover:text-primary transition-colors">Events & Festivals</a></li>
+            <li><a href="/solutions/brands/creators-influencers" class="hover:text-primary transition-colors">Creators & Influencers</a></li>
+            <li><a href="/solutions/brands/tech-apps" class="hover:text-primary transition-colors">Tech & Apps</a></li>
+            <li><a href="/solutions/brands/sports-fitness" class="hover:text-primary transition-colors">Sports & Fitness</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted mb-3">For Swrmers</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="/solutions/swrmers" class="hover:text-primary transition-colors">Overview</a></li>
+            <li><a href="/solutions/swrmers/how-it-works" class="hover:text-primary transition-colors">How It Works</a></li>
+            <li><a href="/solutions/swrmers/ways-to-earn" class="hover:text-primary transition-colors">Ways to Earn</a></li>
+            <li><a href="/solutions/swrmers/campaigns" class="hover:text-primary transition-colors">Campaigns</a></li>
+            <li><a href="/solutions/swrmers/payouts" class="hover:text-primary transition-colors">Payouts</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted mb-3">Account</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="https://lets.swrmit.com/login" class="hover:text-primary transition-colors">Log in</a></li>
+            <li><a href="https://lets.swrmit.com/signup" class="hover:text-primary transition-colors">Sign up</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mt-10 max-w-6xl mx-auto px-4 sm:px-6 text-xs text-muted/70 flex flex-col sm:flex-row gap-3 justify-between">
+      <span>© <span id="year"></span> Swrm. All rights reserved.</span>
+      <span>The social media task marketplace</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+
+    (function () {
+      var grid = document.getElementById('solutions-grid');
+      var solutions = window.SOLUTIONS || [];
+
+      grid.innerHTML = solutions.map(function (s) {
+        var useCasePills = s.cardUseCases.map(function (uc) {
+          return '<span class="inline-block text-xs bg-bg-elevated border border-border text-muted rounded-full px-2.5 py-1">' + uc + '</span>';
+        }).join('');
+
+        return '<a href="/solutions/brands/' + s.slug + '" class="reveal card group bg-bg-card border border-border rounded-2xl p-7 flex flex-col gap-5 transition-all hover:border-border-light">'
+          + '<div>'
+          + '<div class="text-xs uppercase tracking-widest text-primary mb-2">' + s.eyebrow + '</div>'
+          + '<h2 class="text-xl font-bold leading-snug group-hover:text-primary transition-colors">' + s.title + '</h2>'
+          + '<p class="mt-2 text-sm text-muted leading-relaxed">' + s.shortDescription + '</p>'
+          + '</div>'
+          + '<div class="flex flex-wrap gap-2">' + useCasePills + '</div>'
+          + '<div class="mt-auto pt-2">'
+          + '<span class="text-sm text-primary font-medium group-hover:underline">Explore solution →</span>'
+          + '</div>'
+          + '</a>';
+      }).join('');
+
+      document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SWRM Product — The platform for scalable social buzz</title>
+  <meta name="description" content="SWRM connects brands with creators and fans through reward-based social campaigns. Launch campaigns, complete tasks, and build real social momentum across 10 platforms.">
+  <meta property="og:title" content="SWRM Product — The platform for scalable social buzz">
+  <meta property="og:description" content="Launch engagement campaigns and reward real people for participating across Instagram, TikTok, YouTube, X, and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://swrmit.com/product">
+  <meta property="og:image" content="https://swrmit.com/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://swrmit.com/assets/og.png">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#C5E309', 'primary-hover': '#b3d008',
+            bg: '#090909', 'bg-elevated': '#1a1a1a', 'bg-card': '#000000',
+            border: '#2a2a2a', 'border-light': '#333333', muted: '#737373',
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .btn-primary:hover { box-shadow: 0 0 0 1px rgba(197,227,9,0.4), 0 0 24px rgba(197,227,9,0.25); }
+    .btn-ghost:hover { box-shadow: 0 0 0 1px rgba(197,227,9,0.2), 0 0 16px rgba(197,227,9,0.1); }
+    .card:hover { box-shadow: 0 0 0 1px rgba(197,227,9,0.25), 0 0 28px rgba(197,227,9,0.10); }
+    .hero-glow {
+      background:
+        radial-gradient(60% 50% at 50% 0%, rgba(197,227,9,0.18) 0%, rgba(197,227,9,0) 70%),
+        radial-gradient(40% 40% at 80% 60%, rgba(197,227,9,0.08) 0%, rgba(197,227,9,0) 70%);
+    }
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .text-glow {
+      background: linear-gradient(180deg, #FFFFFF 0%, #B8B8B8 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hive-card {
+      background: linear-gradient(135deg, #0a0a0a 0%, #050505 100%);
+      border: 1px solid rgba(197,227,9,0.3);
+      box-shadow: 0 0 0 1px rgba(197,227,9,0.06), 0 0 80px rgba(197,227,9,0.09), inset 0 1px 0 rgba(197,227,9,0.06);
+      transition: box-shadow .4s ease, border-color .4s ease;
+    }
+    .hive-card:hover {
+      box-shadow: 0 0 0 1px rgba(197,227,9,0.08), 0 0 120px rgba(197,227,9,0.14), inset 0 1px 0 rgba(197,227,9,0.08);
+      border-color: rgba(197,227,9,0.45);
+    }
+    @keyframes floatA { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    @keyframes floatB { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+    @keyframes floatC { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    @keyframes floatD { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+    .float-a { animation: floatA 4s ease-in-out infinite; }
+    .float-b { animation: floatB 5.5s ease-in-out infinite; }
+    .float-c { animation: floatC 6s ease-in-out infinite; }
+    .float-d { animation: floatD 4.8s ease-in-out infinite; }
+    .platform-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #c8c8c8;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .platform-badge:hover {
+      border-color: rgba(197,227,9,0.4);
+      color: #f5f5f5;
+      background: rgba(197,227,9,0.04);
+    }
+    .feat-icon {
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      background: rgba(197,227,9,0.08);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-bottom: 16px;
+    }
+    .feat-icon svg { width: 20px; height: 20px; stroke-width: 1.75; color: rgba(197,227,9,0.85); }
+    svg[data-lucide] { stroke-width: 1.75; }
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(197,227,9,0.2), transparent);
+    }
+  </style>
+</head>
+<body class="bg-bg text-gray-100 min-h-screen antialiased selection:bg-primary selection:text-bg">
+
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-bg/70 border-b border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+      <a href="/" class="flex items-center" aria-label="Swrm home">
+        <img src="/assets/logo-full.svg" alt="Swrm" width="78" height="25">
+      </a>
+      <nav class="hidden md:flex items-center gap-7 text-sm text-muted">
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href="https://lets.swrmit.com/login" class="hidden sm:inline-block text-sm text-gray-300 px-3 py-2 rounded-lg hover:text-gray-100 transition-colors">Log in</a>
+        <a href="https://lets.swrmit.com/signup" class="btn-primary text-sm bg-primary text-bg px-4 py-2 rounded-lg font-medium hover:bg-primary-hover transition-all">Get started</a>
+      </div>
+    </div>
+  </header>
+  <script src="/assets/mega-nav.js"></script>
+
+  <!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
+  <section class="relative overflow-hidden pt-32 pb-16 sm:pt-44 sm:pb-20">
+    <img src="/assets/hero-bee-desk.png" class="absolute inset-0 w-full h-full object-cover object-right pointer-events-none select-none" style="opacity:0.13;" alt="" aria-hidden="true">
+    <div class="absolute inset-0 grid-bg opacity-50 pointer-events-none"></div>
+    <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal max-w-3xl">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">SWRM Platform</p>
+        <h1 class="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight leading-[1.02]">
+          <span class="text-glow">The platform for</span><br>
+          <span class="text-primary">scalable social buzz.</span>
+        </h1>
+        <p class="mt-7 text-lg sm:text-xl text-muted leading-relaxed max-w-2xl">
+          SWRM helps brands launch engagement campaigns while rewarding real people for participating across today's biggest social platforms.
+        </p>
+        <div class="mt-10 flex flex-wrap gap-3">
+          <a href="https://lets.swrmit.com/signup" class="btn-primary bg-primary text-bg px-6 py-3.5 rounded-lg font-semibold hover:bg-primary-hover transition-all">Launch a campaign →</a>
+          <a href="https://lets.swrmit.com/signup" class="btn-ghost border border-border text-gray-200 px-6 py-3.5 rounded-lg font-medium hover:bg-white/[0.03] transition-all">Start earning</a>
+        </div>
+      </div>
+
+      <!-- Floating activity indicators (desktop only) -->
+      <div class="mt-14 hidden sm:flex items-end gap-3 reveal">
+        <div class="float-a inline-flex items-center gap-2.5 bg-bg-card border border-border rounded-xl px-4 py-2.5 mb-4">
+          <span class="w-2 h-2 rounded-full bg-primary flex-shrink-0"></span>
+          <span class="text-sm font-medium">Campaign live</span>
+        </div>
+        <div class="float-b inline-flex items-center gap-2.5 bg-bg-card border border-border rounded-xl px-4 py-2.5 mb-8">
+          <span class="text-primary text-sm font-bold leading-none">✓</span>
+          <span class="text-sm text-gray-300">Task verified · <span class="text-primary font-semibold">+$0.75</span></span>
+        </div>
+        <div class="float-c inline-flex items-center gap-2.5 bg-bg-card border border-border rounded-xl px-4 py-2.5 mb-2">
+          <span class="text-primary text-sm leading-none">↑</span>
+          <span class="text-sm text-gray-300">3.2k actions this week</span>
+        </div>
+        <div class="float-d inline-flex items-center gap-2.5 bg-bg-card border border-border rounded-xl px-4 py-2.5 mb-6">
+          <span class="w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
+          <span class="text-sm text-gray-300">Reward released · PayPal</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════════════════ WHAT IS SWRM ═══════════════════════════════════ -->
+  <section class="py-24 sm:py-32 bg-bg-card/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+        <div class="reveal">
+          <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">What is SWRM</p>
+          <h2 class="text-3xl sm:text-5xl font-bold tracking-tight leading-tight">A marketplace built for modern social engagement.</h2>
+          <p class="mt-6 text-muted text-lg leading-relaxed">
+            SWRM connects brands with creators, fans, and online communities through reward-based social campaigns. Brands launch campaigns asking for actions like comments, follows, shares, views, and more. Swrmers complete tasks, submit proof, and earn rewards for participating.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-6 pt-6 border-t border-border">
+            <div>
+              <div class="text-2xl font-bold text-primary">10</div>
+              <div class="text-xs text-muted mt-0.5">platforms</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-primary">7</div>
+              <div class="text-xs text-muted mt-0.5">task types</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-primary">$20</div>
+              <div class="text-xs text-muted mt-0.5">cashout minimum</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-primary">PayPal</div>
+              <div class="text-xs text-muted mt-0.5">payout method</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <p class="text-xs uppercase tracking-widest text-muted mb-5">Supported platforms</p>
+          <div class="grid grid-cols-2 gap-2">
+            <div class="platform-badge">
+              <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#E1306C"></span>
+              Instagram
+            </div>
+            <div class="platform-badge">
+              <span class="w-2 h-2 rounded-full bg-white flex-shrink-0"></span>
+              TikTok
+            </div>
+            <div class="platform-badge">
+              <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#888"></span>
+              X
+            </div>
+            <div class="platform-badge">
+              <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#FF0000"></span>
+              YouTube
+            </div>
+            <div class="platform-badge">
+              <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#0A66C2"></span>
+              LinkedIn
+            </div>
+            <div class="platform-badge">
+              <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#1877F2"></span>
+              Facebook
+            </div>
+            <div class="platform-badge">
+              <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#666"></span>
+              Threads
+            </div>
+            <div class="platform-badge">
+              <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#E60023"></span>
+              Pinterest
+            </div>
+            <div class="platform-badge">
+              <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#FFFC00"></span>
+              Snapchat
+            </div>
+            <div class="platform-badge">
+              <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#9146FF"></span>
+              Twitch
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════════════════ HOW IT WORKS ═══════════════════════════════════ -->
+  <section class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal text-center max-w-2xl mx-auto mb-14">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">How it works</p>
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight">Four steps. Real engagement.</h2>
+        <p class="mt-4 text-muted text-lg">From campaign launch to verified engagement — the full flow in under a minute.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-7 transition-all flex flex-col gap-5">
+          <div class="text-primary text-sm font-mono">01</div>
+          <div class="feat-icon"><i data-lucide="rocket"></i></div>
+          <div>
+            <h3 class="font-semibold text-lg">Brands launch campaigns</h3>
+            <p class="mt-2 text-sm text-muted leading-relaxed">Set a task type, reward amount, and target audience. Go live in minutes with full control over budget and reach.</p>
+          </div>
+        </div>
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-7 transition-all flex flex-col gap-5">
+          <div class="text-primary text-sm font-mono">02</div>
+          <div class="feat-icon"><i data-lucide="search"></i></div>
+          <div>
+            <h3 class="font-semibold text-lg">Swrmers discover opportunities</h3>
+            <p class="mt-2 text-sm text-muted leading-relaxed">Creators and fans browse live campaigns matched to their platforms, interests, and follower profile.</p>
+          </div>
+        </div>
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-7 transition-all flex flex-col gap-5">
+          <div class="text-primary text-sm font-mono">03</div>
+          <div class="feat-icon"><i data-lucide="check-circle"></i></div>
+          <div>
+            <h3 class="font-semibold text-lg">Tasks are completed</h3>
+            <p class="mt-2 text-sm text-muted leading-relaxed">Swrmers complete the social action, submit a screenshot as proof, and wait for verification.</p>
+          </div>
+        </div>
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-7 transition-all flex flex-col gap-5">
+          <div class="text-primary text-sm font-mono">04</div>
+          <div class="feat-icon"><i data-lucide="trending-up"></i></div>
+          <div>
+            <h3 class="font-semibold text-lg">Engagement and rewards scale</h3>
+            <p class="mt-2 text-sm text-muted leading-relaxed">Verified actions release credits to Swrmers. Brands gain real social momentum across every platform.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════════════════ FOR BRANDS ═══════════════════════════════════ -->
+  <section class="py-24 sm:py-32 bg-bg-card/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="reveal mb-14">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">For Brands</p>
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+          <div>
+            <h2 class="text-3xl sm:text-5xl font-bold tracking-tight">Built for brands that want momentum.</h2>
+            <p class="mt-4 text-muted text-lg max-w-xl leading-relaxed">Launch campaigns that reward real participation across social platforms.</p>
+          </div>
+          <a href="https://lets.swrmit.com/signup" class="btn-primary bg-primary text-bg px-5 py-3 rounded-lg font-semibold hover:bg-primary-hover transition-all text-sm whitespace-nowrap flex-shrink-0">Launch a campaign →</a>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all">
+          <div class="feat-icon"><i data-lucide="rocket"></i></div>
+          <h3 class="font-semibold text-base mb-3">Campaign Creation</h3>
+          <ul class="space-y-2 text-sm text-muted">
+            <li>• Launch campaigns for comments, follows, shares, likes, and views</li>
+            <li>• Set reward amounts and activation limits</li>
+            <li>• Add targeting filters and creator requirements</li>
+          </ul>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all">
+          <div class="feat-icon"><i data-lucide="target"></i></div>
+          <h3 class="font-semibold text-base mb-3">Audience Targeting</h3>
+          <ul class="space-y-2 text-sm text-muted">
+            <li>• Filter by niche and creator category</li>
+            <li>• Platform-specific targeting</li>
+            <li>• Minimum follower thresholds</li>
+            <li>• Creator quality scoring</li>
+          </ul>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all">
+          <div class="feat-icon"><i data-lucide="message-circle"></i></div>
+          <h3 class="font-semibold text-base mb-3">Comment Campaigns</h3>
+          <ul class="space-y-2 text-sm text-muted">
+            <li>• Drive authentic comment activity on your posts</li>
+            <li>• Brand-safe guidance built into every campaign</li>
+            <li>• Live comment liveness verification</li>
+          </ul>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all">
+          <div class="feat-icon"><i data-lucide="sparkles"></i></div>
+          <h3 class="font-semibold text-base mb-3">AI Comment Copilot</h3>
+          <ul class="space-y-2 text-sm text-muted">
+            <li>• AI-assisted comment suggestions for participating Swrmers</li>
+            <li>• Context-aware, brand-safe recommendations</li>
+            <li>• Editable before submission</li>
+          </ul>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all">
+          <div class="feat-icon"><i data-lucide="shield-check"></i></div>
+          <h3 class="font-semibold text-base mb-3">Review & Verification</h3>
+          <ul class="space-y-2 text-sm text-muted">
+            <li>• Submission review queue</li>
+            <li>• AI-assisted proof analysis</li>
+            <li>• Handle matching verification</li>
+            <li>• Comment liveness checks</li>
+          </ul>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all">
+          <div class="feat-icon"><i data-lucide="bar-chart-2"></i></div>
+          <h3 class="font-semibold text-base mb-3">Campaign Analytics</h3>
+          <ul class="space-y-2 text-sm text-muted">
+            <li>• Spend tracking and engagement metrics</li>
+            <li>• Cost per action insights</li>
+            <li>• Platform breakdowns</li>
+            <li>• CSV export support</li>
+          </ul>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all">
+          <div class="feat-icon"><i data-lucide="users"></i></div>
+          <h3 class="font-semibold text-base mb-3">Team Collaboration</h3>
+          <ul class="space-y-2 text-sm text-muted">
+            <li>• Invite teammates to your workspace</li>
+            <li>• Role-based access controls</li>
+            <li>• Shared notifications and activity feeds</li>
+          </ul>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all">
+          <div class="feat-icon"><i data-lucide="credit-card"></i></div>
+          <h3 class="font-semibold text-base mb-3">Wallet Funding</h3>
+          <ul class="space-y-2 text-sm text-muted">
+            <li>• Secure wallet funding</li>
+            <li>• Per-campaign budget management</li>
+            <li>• Transparent per-task spend tracking</li>
+          </ul>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all">
+          <div class="feat-icon"><i data-lucide="bell"></i></div>
+          <h3 class="font-semibold text-base mb-3">Notifications</h3>
+          <ul class="space-y-2 text-sm text-muted">
+            <li>• Real-time campaign activity alerts</li>
+            <li>• Team-wide notifications</li>
+            <li>• Live submission and completion updates</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ HIVE MIND FEATURED ═══════════════════════════════════ -->
+  <section class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal hive-card rounded-3xl p-8 sm:p-14">
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+
+          <!-- Left: main content -->
+          <div class="flex-1 min-w-0">
+            <div class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary border border-primary/30 rounded-full px-3 py-1.5 mb-6">
+              ⚡ Featured — Hive Mind Automation
+            </div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">Your campaigns, on autopilot.</h2>
+            <p class="mt-5 text-muted text-lg leading-relaxed max-w-xl">
+              Hive Mind automatically monitors your connected social accounts and converts new posts into live SWRM campaigns — so every time you publish, real engagement starts flowing immediately.
+            </p>
+            <div class="mt-8 grid sm:grid-cols-2 gap-3">
+              <div class="bg-white/[0.03] border border-white/[0.06] rounded-xl p-4">
+                <div class="text-sm font-semibold mb-1.5">Automatic post detection</div>
+                <p class="text-xs text-muted leading-relaxed">Monitors connected accounts for new posts and queues them for campaign activation automatically.</p>
+              </div>
+              <div class="bg-white/[0.03] border border-white/[0.06] rounded-xl p-4">
+                <div class="text-sm font-semibold mb-1.5">Draft or auto-launch modes</div>
+                <p class="text-xs text-muted leading-relaxed">Review before going live or let campaigns launch automatically the moment a post is detected.</p>
+              </div>
+              <div class="bg-white/[0.03] border border-white/[0.06] rounded-xl p-4">
+                <div class="text-sm font-semibold mb-1.5">AI-assisted workflows</div>
+                <p class="text-xs text-muted leading-relaxed">AI fills in campaign details, task instructions, and targeting context based on your post content.</p>
+              </div>
+              <div class="bg-white/[0.03] border border-white/[0.06] rounded-xl p-4">
+                <div class="text-sm font-semibold mb-1.5">Monthly spend caps</div>
+                <p class="text-xs text-muted leading-relaxed">Set monthly budget limits so Hive Mind never exceeds your planned spend — ever.</p>
+              </div>
+            </div>
+            <div class="mt-8 flex flex-wrap items-center gap-5">
+              <a href="https://lets.swrmit.com/signup" class="btn-primary bg-primary text-bg px-6 py-3 rounded-lg font-semibold hover:bg-primary-hover transition-all text-sm">Get Hive Mind →</a>
+              <span class="text-sm text-muted">$99 / mo per monitored social platform</span>
+            </div>
+          </div>
+
+          <!-- Right: feature checklist + pricing -->
+          <div class="lg:w-64 flex-shrink-0 w-full">
+            <div class="text-xs uppercase tracking-widest text-muted mb-5">What's included</div>
+            <ul class="space-y-3.5">
+              <li class="flex items-start gap-3 text-sm text-gray-300">
+                <span class="text-primary mt-0.5 flex-shrink-0 font-bold">✓</span>
+                Automatic post detection across monitored platforms
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-300">
+                <span class="text-primary mt-0.5 flex-shrink-0 font-bold">✓</span>
+                Draft and auto-launch campaign modes
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-300">
+                <span class="text-primary mt-0.5 flex-shrink-0 font-bold">✓</span>
+                AI-powered campaign setup
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-300">
+                <span class="text-primary mt-0.5 flex-shrink-0 font-bold">✓</span>
+                Monthly spend caps and budget controls
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-300">
+                <span class="text-primary mt-0.5 flex-shrink-0 font-bold">✓</span>
+                Per-platform subscription management
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-300">
+                <span class="text-primary mt-0.5 flex-shrink-0 font-bold">✓</span>
+                Real-time launch notifications
+              </li>
+            </ul>
+            <div class="mt-8 bg-primary/5 border border-primary/20 rounded-2xl p-5 text-center">
+              <div class="text-3xl font-bold text-primary">$99</div>
+              <div class="text-xs text-muted mt-1.5">per month<br>per monitored platform</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════════════════ FOR SWRMERS ═══════════════════════════════════ -->
+  <section class="py-24 sm:py-32 bg-bg-card/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="reveal mb-14">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">For Swrmers</p>
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+          <div>
+            <h2 class="text-3xl sm:text-5xl font-bold tracking-tight">Built for the people who create the buzz.</h2>
+            <p class="mt-4 text-muted text-lg max-w-xl leading-relaxed">Discover campaigns, complete tasks, and earn rewards for participating across social platforms.</p>
+          </div>
+          <a href="https://lets.swrmit.com/signup" class="btn-ghost border border-border text-gray-200 px-5 py-3 rounded-lg font-semibold hover:bg-white/[0.03] transition-all text-sm whitespace-nowrap flex-shrink-0">Start earning →</a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-5 transition-all flex flex-col gap-3">
+          <i data-lucide="map" class="w-6 h-6 text-primary"></i>
+          <h3 class="font-semibold text-sm">Guided Onboarding</h3>
+          <p class="text-xs text-muted leading-relaxed">Step-by-step setup, tutorial campaigns, and interest selection to get you earning fast.</p>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-5 transition-all flex flex-col gap-3">
+          <i data-lucide="link-2" class="w-6 h-6 text-primary"></i>
+          <h3 class="font-semibold text-sm">Social Connections</h3>
+          <p class="text-xs text-muted leading-relaxed">Connect your social profiles to unlock relevant campaigns and improve your matching.</p>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-5 transition-all flex flex-col gap-3">
+          <i data-lucide="compass" class="w-6 h-6 text-primary"></i>
+          <h3 class="font-semibold text-sm">Campaign Discovery</h3>
+          <p class="text-xs text-muted leading-relaxed">Browse live campaigns with filtering by platform, task type, payout, and niche.</p>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-5 transition-all flex flex-col gap-3">
+          <i data-lucide="zap" class="w-6 h-6 text-primary"></i>
+          <h3 class="font-semibold text-sm">Smart Matching</h3>
+          <p class="text-xs text-muted leading-relaxed">Campaign invitations and creator matching based on your profile, platforms, and audience.</p>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-5 transition-all flex flex-col gap-3">
+          <i data-lucide="sparkles" class="w-6 h-6 text-primary"></i>
+          <h3 class="font-semibold text-sm">Comment Copilot</h3>
+          <p class="text-xs text-muted leading-relaxed">AI-assisted comment suggestions you can edit and personalize before submitting.</p>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-5 transition-all flex flex-col gap-3">
+          <i data-lucide="wallet" class="w-6 h-6 text-primary"></i>
+          <h3 class="font-semibold text-sm">Earnings & Wallet</h3>
+          <p class="text-xs text-muted leading-relaxed">Real-time reward tracking, transaction history, and full earnings visibility.</p>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-5 transition-all flex flex-col gap-3">
+          <i data-lucide="banknote" class="w-6 h-6 text-primary"></i>
+          <h3 class="font-semibold text-sm">Cashouts</h3>
+          <p class="text-xs text-muted leading-relaxed">Cash out via PayPal, Venmo, or Stripe Connect once you hit the $20 minimum.</p>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-5 transition-all flex flex-col gap-3">
+          <i data-lucide="star" class="w-6 h-6 text-primary"></i>
+          <h3 class="font-semibold text-sm">Reputation System</h3>
+          <p class="text-xs text-muted leading-relaxed">Quality scores and completion tracking unlock better campaigns and higher payouts over time.</p>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-5 transition-all flex flex-col gap-3">
+          <i data-lucide="user-plus" class="w-6 h-6 text-primary"></i>
+          <h3 class="font-semibold text-sm">Referrals</h3>
+          <p class="text-xs text-muted leading-relaxed">Invite friends to SWRM and earn referral rewards when they join and complete tasks.</p>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-5 transition-all flex flex-col gap-3">
+          <i data-lucide="bell" class="w-6 h-6 text-primary"></i>
+          <h3 class="font-semibold text-sm">Notifications</h3>
+          <p class="text-xs text-muted leading-relaxed">Alerts for submission approvals, payouts, campaign invitations, and platform updates.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════════════════ CAMPAIGN TYPES ═══════════════════════════════════ -->
+  <section class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal text-center max-w-2xl mx-auto mb-14">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">Campaign Types</p>
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight">Campaigns built for every type of engagement.</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all flex flex-col gap-4">
+          <i data-lucide="user-plus" class="w-7 h-7 text-primary"></i>
+          <div>
+            <h3 class="font-semibold mb-1.5">Follow Campaigns</h3>
+            <p class="text-sm text-muted leading-relaxed">Grow real followers across Instagram, TikTok, X, YouTube, and more. Every follow is from a real, verified account.</p>
+          </div>
+          <div class="mt-auto pt-3 border-t border-border">
+            <div class="text-xs text-muted/70">Reward per follow · Account-based</div>
+          </div>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all flex flex-col gap-4">
+          <i data-lucide="message-circle" class="w-7 h-7 text-primary"></i>
+          <div>
+            <h3 class="font-semibold mb-1.5">Comment Campaigns</h3>
+            <p class="text-sm text-muted leading-relaxed">Drive authentic, AI-guided comments on specific posts. Verified live before credits release.</p>
+          </div>
+          <div class="mt-auto pt-3 border-t border-border">
+            <div class="text-xs text-muted/70">Reward per verified comment · Post-based</div>
+          </div>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all flex flex-col gap-4">
+          <i data-lucide="share-2" class="w-7 h-7 text-primary"></i>
+          <div>
+            <h3 class="font-semibold mb-1.5">Share Campaigns</h3>
+            <p class="text-sm text-muted leading-relaxed">Amplify reach with story shares, reposts, and link shares across all supported platforms.</p>
+          </div>
+          <div class="mt-auto pt-3 border-t border-border">
+            <div class="text-xs text-muted/70">Reward per share · Story or feed-based</div>
+          </div>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all flex flex-col gap-4">
+          <i data-lucide="rocket" class="w-7 h-7 text-primary"></i>
+          <div>
+            <h3 class="font-semibold mb-1.5">Launch Campaigns</h3>
+            <p class="text-sm text-muted leading-relaxed">Coordinated day-one engagement bursts for album drops, app launches, and product releases.</p>
+          </div>
+          <div class="mt-auto pt-3 border-t border-border">
+            <div class="text-xs text-muted/70">Multi-action · Time-sensitive</div>
+          </div>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all flex flex-col gap-4">
+          <i data-lucide="smartphone" class="w-7 h-7 text-primary"></i>
+          <div>
+            <h3 class="font-semibold mb-1.5">UGC Campaigns</h3>
+            <p class="text-sm text-muted leading-relaxed">User-generated content tasks — creators post, tag, or reference your brand in their own voice.</p>
+          </div>
+          <div class="mt-auto pt-3 border-t border-border">
+            <div class="text-xs text-muted/70">Reward per verified UGC submission</div>
+          </div>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all flex flex-col gap-4">
+          <i data-lucide="megaphone" class="w-7 h-7 text-primary"></i>
+          <div>
+            <h3 class="font-semibold mb-1.5">Awareness Campaigns</h3>
+            <p class="text-sm text-muted leading-relaxed">Drive brand visibility with multi-platform like, save, and broader engagement tasks.</p>
+          </div>
+          <div class="mt-auto pt-3 border-t border-border">
+            <div class="text-xs text-muted/70">Like, save, or engage · Brand-based</div>
+          </div>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all flex flex-col gap-4">
+          <i data-lucide="globe" class="w-7 h-7 text-primary"></i>
+          <div>
+            <h3 class="font-semibold mb-1.5">Community Campaigns</h3>
+            <p class="text-sm text-muted leading-relaxed">Build presence across Discord, Twitch, and community-first platforms. Grow where your audience lives.</p>
+          </div>
+          <div class="mt-auto pt-3 border-t border-border">
+            <div class="text-xs text-muted/70">Reward per community action</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════════════════ INDUSTRIES ═══════════════════════════════════ -->
+  <section class="py-24 sm:py-32 bg-bg-card/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal text-center max-w-2xl mx-auto mb-14">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">Industries</p>
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight">Built for modern internet culture.</h2>
+        <p class="mt-4 text-muted text-lg">Tailored campaign solutions for the industries that live on social.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+        <a href="/solutions/brands/music-entertainment" class="reveal card group bg-bg-card border border-border rounded-2xl p-6 transition-all hover:border-border-light flex flex-col gap-3">
+          <i data-lucide="music" class="w-7 h-7 text-primary"></i>
+          <div class="font-semibold group-hover:text-primary transition-colors">Music & Entertainment</div>
+          <p class="text-sm text-muted leading-relaxed">Album drops, tour announcements, and channel growth.</p>
+          <span class="text-xs text-primary font-medium mt-auto">Explore →</span>
+        </a>
+
+        <a href="/solutions/brands/ecommerce-retail" class="reveal card group bg-bg-card border border-border rounded-2xl p-6 transition-all hover:border-border-light flex flex-col gap-3">
+          <i data-lucide="shopping-bag" class="w-7 h-7 text-primary"></i>
+          <div class="font-semibold group-hover:text-primary transition-colors">Ecommerce & Retail</div>
+          <p class="text-sm text-muted leading-relaxed">Product launches, TikTok Shop, and retail brand awareness.</p>
+          <span class="text-xs text-primary font-medium mt-auto">Explore →</span>
+        </a>
+
+        <a href="/solutions/brands/gaming-esports" class="reveal card group bg-bg-card border border-border rounded-2xl p-6 transition-all hover:border-border-light flex flex-col gap-3">
+          <i data-lucide="gamepad-2" class="w-7 h-7 text-primary"></i>
+          <div class="font-semibold group-hover:text-primary transition-colors">Gaming & Esports</div>
+          <p class="text-sm text-muted leading-relaxed">Game launches, tournament promotion, and streamer growth.</p>
+          <span class="text-xs text-primary font-medium mt-auto">Explore →</span>
+        </a>
+
+        <a href="/solutions/brands/events-festivals" class="reveal card group bg-bg-card border border-border rounded-2xl p-6 transition-all hover:border-border-light flex flex-col gap-3">
+          <i data-lucide="calendar-days" class="w-7 h-7 text-primary"></i>
+          <div class="font-semibold group-hover:text-primary transition-colors">Events & Festivals</div>
+          <p class="text-sm text-muted leading-relaxed">Ticket launches, lineup drops, and pre-event buzz.</p>
+          <span class="text-xs text-primary font-medium mt-auto">Explore →</span>
+        </a>
+
+        <a href="/solutions/brands/creators-influencers" class="reveal card group bg-bg-card border border-border rounded-2xl p-6 transition-all hover:border-border-light flex flex-col gap-3">
+          <i data-lucide="camera" class="w-7 h-7 text-primary"></i>
+          <div class="font-semibold group-hover:text-primary transition-colors">Creators & Influencers</div>
+          <p class="text-sm text-muted leading-relaxed">Channel growth, cross-platform building, and monetization.</p>
+          <span class="text-xs text-primary font-medium mt-auto">Explore →</span>
+        </a>
+
+        <a href="/solutions/brands/tech-apps" class="reveal card group bg-bg-card border border-border rounded-2xl p-6 transition-all hover:border-border-light flex flex-col gap-3">
+          <i data-lucide="monitor" class="w-7 h-7 text-primary"></i>
+          <div class="font-semibold group-hover:text-primary transition-colors">Tech & Apps</div>
+          <p class="text-sm text-muted leading-relaxed">App launches, SaaS growth, and early community building.</p>
+          <span class="text-xs text-primary font-medium mt-auto">Explore →</span>
+        </a>
+
+        <a href="/solutions/brands/sports-fitness" class="reveal card group bg-bg-card border border-border rounded-2xl p-6 transition-all hover:border-border-light flex flex-col gap-3">
+          <i data-lucide="activity" class="w-7 h-7 text-primary"></i>
+          <div class="font-semibold group-hover:text-primary transition-colors">Sports & Fitness</div>
+          <p class="text-sm text-muted leading-relaxed">Game day campaigns, athlete collabs, and product launches.</p>
+          <span class="text-xs text-primary font-medium mt-auto">Explore →</span>
+        </a>
+
+        <a href="/solutions/brands" class="reveal card group bg-bg-card border border-dashed border-border rounded-2xl p-6 transition-all hover:border-border-light flex items-center justify-center text-center">
+          <span class="text-sm text-muted group-hover:text-gray-300 transition-colors">View all brand solutions →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════════════════ TRUST & SAFETY ═══════════════════════════════════ -->
+  <section class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl mx-auto">
+
+        <div class="reveal text-center mb-12">
+          <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">Platform Trust</p>
+          <h2 class="text-3xl sm:text-5xl font-bold tracking-tight">Built with verification and trust in mind.</h2>
+          <p class="mt-5 text-muted text-lg leading-relaxed max-w-xl mx-auto">Every submission goes through a verification layer designed to protect brands and reward quality participation.</p>
+        </div>
+
+        <div class="reveal grid sm:grid-cols-2 gap-4">
+
+          <div class="bg-bg-card border border-border rounded-2xl p-6">
+            <i data-lucide="bot" class="w-6 h-6 text-primary mb-4 block"></i>
+            <h3 class="font-semibold mb-2">AI-assisted verification</h3>
+            <p class="text-sm text-muted leading-relaxed">Every screenshot submission is analyzed automatically before brand review — checking for authenticity signals and quality indicators.</p>
+          </div>
+
+          <div class="bg-bg-card border border-border rounded-2xl p-6">
+            <i data-lucide="at-sign" class="w-6 h-6 text-primary mb-4 block"></i>
+            <h3 class="font-semibold mb-2">Handle matching</h3>
+            <p class="text-sm text-muted leading-relaxed">Connected social accounts are matched against submitted screenshots to verify the action came from a real, linked profile.</p>
+          </div>
+
+          <div class="bg-bg-card border border-border rounded-2xl p-6">
+            <i data-lucide="check-circle" class="w-6 h-6 text-primary mb-4 block"></i>
+            <h3 class="font-semibold mb-2">Submission quality checks</h3>
+            <p class="text-sm text-muted leading-relaxed">Submissions are reviewed for completeness, relevance, and quality before credits are released to the Swrmer's wallet.</p>
+          </div>
+
+          <div class="bg-bg-card border border-border rounded-2xl p-6">
+            <i data-lucide="message-circle" class="w-6 h-6 text-primary mb-4 block"></i>
+            <h3 class="font-semibold mb-2">Comment liveness verification</h3>
+            <p class="text-sm text-muted leading-relaxed">Comments are checked to confirm they remain live on the platform at review time — not deleted after submission.</p>
+          </div>
+
+          <div class="bg-bg-card border border-border rounded-2xl p-6 sm:col-span-2">
+            <i data-lucide="shield" class="w-6 h-6 text-primary mb-4 block"></i>
+            <h3 class="font-semibold mb-2">Account protection systems</h3>
+            <p class="text-sm text-muted leading-relaxed">Bot detection runs on every submission. Accounts that consistently fail quality checks are flagged and removed from the platform — protecting brands and rewarding Swrmers who participate honestly.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ FINAL CTA ═══════════════════════════════════ -->
+  <section class="py-24 sm:py-32 relative overflow-hidden">
+    <div class="absolute inset-0 hero-glow opacity-70 pointer-events-none"></div>
+    <div class="absolute inset-0 grid-bg opacity-20 pointer-events-none"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-4xl sm:text-6xl font-bold tracking-tight reveal">Ready to launch your <span class="text-primary">first campaign?</span></h2>
+      <p class="mt-5 text-muted text-lg max-w-xl mx-auto reveal leading-relaxed">Start building real social momentum with reward-based engagement campaigns.</p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4 reveal">
+        <a href="https://lets.swrmit.com/signup" class="btn-primary bg-primary text-bg px-8 py-4 rounded-lg font-semibold hover:bg-primary-hover transition-all text-lg">Launch a campaign</a>
+        <a href="https://lets.swrmit.com/signup" class="btn-ghost border border-border text-gray-200 px-8 py-4 rounded-lg font-medium hover:bg-white/[0.03] transition-all text-lg">Start earning</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ FOOTER ═══════════════════════════════════ -->
+  <footer class="border-t border-border py-12 bg-bg-card/40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row gap-8 justify-between items-start">
+      <div>
+        <img src="/assets/logo-full.svg" alt="Swrm" width="78" height="25">
+        <p class="mt-4 text-sm text-muted max-w-xs leading-relaxed">The social media task marketplace.</p>
+      </div>
+      <div class="grid grid-cols-3 gap-10 text-sm">
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted mb-3">For Brands</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="/solutions/brands" class="hover:text-primary transition-colors">All Solutions</a></li>
+            <li><a href="/solutions/brands/music-entertainment" class="hover:text-primary transition-colors">Music & Entertainment</a></li>
+            <li><a href="/solutions/brands/ecommerce-retail" class="hover:text-primary transition-colors">Ecommerce & Retail</a></li>
+            <li><a href="/solutions/brands/gaming-esports" class="hover:text-primary transition-colors">Gaming & Esports</a></li>
+            <li><a href="/solutions/brands/events-festivals" class="hover:text-primary transition-colors">Events & Festivals</a></li>
+            <li><a href="/solutions/brands/sports-fitness" class="hover:text-primary transition-colors">Sports & Fitness</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted mb-3">For Swrmers</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="/solutions/swrmers" class="hover:text-primary transition-colors">Overview</a></li>
+            <li><a href="/solutions/swrmers/how-it-works" class="hover:text-primary transition-colors">How It Works</a></li>
+            <li><a href="/solutions/swrmers/ways-to-earn" class="hover:text-primary transition-colors">Ways to Earn</a></li>
+            <li><a href="/solutions/swrmers/campaigns" class="hover:text-primary transition-colors">Campaigns</a></li>
+            <li><a href="/solutions/swrmers/payouts" class="hover:text-primary transition-colors">Payouts</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted mb-3">Account</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="/product" class="hover:text-primary transition-colors">Product</a></li>
+            <li><a href="/pricing" class="hover:text-primary transition-colors">Pricing</a></li>
+            <li><a href="https://lets.swrmit.com/login" class="hover:text-primary transition-colors">Log in</a></li>
+            <li><a href="https://lets.swrmit.com/signup" class="hover:text-primary transition-colors">Sign up</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mt-10 max-w-6xl mx-auto px-4 sm:px-6 text-xs text-muted/70 flex flex-col sm:flex-row gap-3 justify-between">
+      <span>© <span class="year"></span> Swrm. All rights reserved.</span>
+      <span>The social media task marketplace</span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.year').forEach(function(el){el.textContent=new Date().getFullYear();});
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+
+    lucide.createIcons();
+  </script>
+</body>
+</html>

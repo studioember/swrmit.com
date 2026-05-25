@@ -18,7 +18,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://swrmit.com/assets/og.png">
   <meta name="twitter:image:alt" content="Swrm - the social media task marketplace">
-  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -162,20 +162,18 @@
       -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
       mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
     }
+    svg[data-lucide] { stroke-width: 1.75; }
   </style>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body class="bg-bg text-gray-100 min-h-screen antialiased selection:bg-primary selection:text-bg">
 
   <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-bg/70 border-b border-border">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
       <a href="#top" class="flex items-center" aria-label="Swrm home">
-        <img src="assets/logo-full.svg" alt="Swrm" width="78" height="25">
+        <img src="/assets/logo-full.svg" alt="Swrm" width="78" height="25">
       </a>
       <nav class="hidden md:flex items-center gap-7 text-sm text-muted">
-        <a href="#how" class="hover:text-gray-100 transition-colors">How it works</a>
-        <a href="#brands" class="hover:text-gray-100 transition-colors">For brands</a>
-        <a href="#swrmers" class="hover:text-gray-100 transition-colors">For Swrmers</a>
-        <a href="#faq" class="hover:text-gray-100 transition-colors">FAQ</a>
       </nav>
       <div class="flex items-center gap-2">
         <a href="https://lets.swrmit.com/login" class="hidden sm:inline-block text-sm text-gray-300 px-3 py-2 rounded-lg hover:text-gray-100 transition-colors">Log in</a>
@@ -183,9 +181,12 @@
       </div>
     </div>
   </header>
+  <script src="/assets/mega-nav.js"></script>
 
   <section id="top" class="relative overflow-hidden pt-32 sm:pt-40 pb-8 sm:pb-12">
-    <div class="absolute inset-0 grid-bg opacity-50 pointer-events-none"></div>
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover pointer-events-none" src="/assets/videos/hero-bg.mp4"></video>
+    <div class="absolute inset-0 bg-bg/70 pointer-events-none"></div>
+    <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-bg to-transparent pointer-events-none"></div>
     <div class="absolute inset-0 hero-glow pointer-events-none"></div>
 
     <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
@@ -199,12 +200,12 @@
       </div>
 
       <h1 class="text-center font-bold tracking-tight text-5xl sm:text-7xl md:text-8xl leading-[1.02]">
-        <span class="text-glow">The social media</span><br>
-        <span class="text-primary">task marketplace</span>
+        <span class="text-glow">Get paid to</span><br>
+        <span class="text-primary">create buzz online</span>
       </h1>
 
       <p class="mt-7 max-w-2xl mx-auto text-center text-lg sm:text-xl text-muted leading-relaxed">
-        Get paid to create buzz online.
+        The social media task marketplace.
 
       <div class="mt-10 flex justify-center">
         <a href="https://lets.swrmit.com/signup" class="btn-primary bg-primary text-bg px-6 py-3.5 rounded-lg font-semibold hover:bg-primary-hover transition-all text-center">
@@ -224,24 +225,24 @@
       <div class="phone-ticker-track">
 
         <!-- set 1 -->
-        <div class="phone-frame w-[260px] flex-shrink-0" data-video="assets/videos/video-1.mp4"><div class="placeholder">▶</div></div>
-        <div class="phone-frame w-[260px] flex-shrink-0" data-video="assets/videos/video-2.mp4"><div class="placeholder">▶</div></div>
-        <div class="phone-frame w-[260px] flex-shrink-0" data-video="assets/videos/video-3.mp4"><div class="placeholder">▶</div></div>
-        <div class="phone-frame w-[260px] flex-shrink-0" data-video="assets/videos/video-4.mp4"><div class="placeholder">▶</div></div>
-        <div class="phone-frame w-[260px] flex-shrink-0" data-video="assets/videos/video-5.mp4"><div class="placeholder">▶</div></div>
-        <div class="phone-frame w-[260px] flex-shrink-0" data-video="assets/videos/video-1.mp4"><div class="placeholder">▶</div></div>
-        <div class="phone-frame w-[260px] flex-shrink-0" data-video="assets/videos/video-2.mp4"><div class="placeholder">▶</div></div>
-        <div class="phone-frame w-[260px] flex-shrink-0" data-video="assets/videos/video-3.mp4"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-6.mp4"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-7.mp4"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-8.mp4"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-9.mp4"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-10.mp4"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-6.mp4"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-7.mp4"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-8.mp4"><div class="placeholder">▶</div></div>
 
         <!-- set 2 — duplicate for seamless loop -->
-        <div class="phone-frame w-[260px] flex-shrink-0" data-video="assets/videos/video-1.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
-        <div class="phone-frame w-[260px] flex-shrink-0" data-video="assets/videos/video-2.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
-        <div class="phone-frame w-[260px] flex-shrink-0" data-video="assets/videos/video-3.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
-        <div class="phone-frame w-[260px] flex-shrink-0" data-video="assets/videos/video-4.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
-        <div class="phone-frame w-[260px] flex-shrink-0" data-video="assets/videos/video-5.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
-        <div class="phone-frame w-[260px] flex-shrink-0" data-video="assets/videos/video-1.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
-        <div class="phone-frame w-[260px] flex-shrink-0" data-video="assets/videos/video-2.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
-        <div class="phone-frame w-[260px] flex-shrink-0" data-video="assets/videos/video-3.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-6.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-7.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-8.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-9.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-10.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-6.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-7.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
+        <div class="phone-frame w-[260px] flex-shrink-0" data-video="/assets/videos/video-8.mp4" aria-hidden="true"><div class="placeholder">▶</div></div>
 
       </div>
     </div>
@@ -528,7 +529,7 @@
         <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#2563eb;color:#fff">BM</div><div><div class="text-sm font-semibold text-white leading-none">@brandboostmeg</div><div class="text-xs text-gray-500 mt-0.5">Instagram</div></div></div><p class="text-sm text-gray-300 leading-snug">Followed from 3 accounts lol. Can't get enough 🙌</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 33</div></div>
         <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#dc2626;color:#fff">RM</div><div><div class="text-sm font-semibold text-white leading-none">@ryanfrommarketing</div><div class="text-xs text-gray-500 mt-0.5">X</div></div></div><p class="text-sm text-gray-300 leading-snug">Finally a brand that actually pays for real engagement</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 41</div></div>
         <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#059669;color:#fff">CK</div><div><div class="text-sm font-semibold text-white leading-none">@contentcreatorkai</div><div class="text-xs text-gray-500 mt-0.5">TikTok</div></div></div><p class="text-sm text-gray-300 leading-snug">Left a comment and liked. This blew up my FYP 🤩</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 15</div></div>
-        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#d97706;color:#fff">SG</div><div><div class="text-sm font-semibold text-white leading-none">@sophiagrowthco</div><div class="text-xs text-gray-500 mt-0.5">YouTube</div></div></div><p class="text-sm text-gray-300 leading-snug">Watched the full video twice. Worth every second</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 28</div></div>
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#d97706;color:#fff">SG</div><div><div class="text-sm font-semibold text-white leading-none">@sophiagrowthco</div><div class="text-xs text-gray-500 mt-0.5">YouTube</div></div></div><p class="text-sm text-gray-300 leading-snug">Subscribed and never looked back. Worth every second</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 28</div></div>
         <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#7c3aed;color:#fff">MD</div><div><div class="text-sm font-semibold text-white leading-none">@marcusdigital_</div><div class="text-xs text-gray-500 mt-0.5">YouTube</div></div></div><p class="text-sm text-gray-300 leading-snug">Subscribed and shared to my community. 10/10</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 9</div></div>
         <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#0891b2;color:#fff">NS</div><div><div class="text-sm font-semibold text-white leading-none">@niasocialmedia</div><div class="text-xs text-gray-500 mt-0.5">Instagram</div></div></div><p class="text-sm text-gray-300 leading-snug">Followed and liked the last 5 posts. Addicted now 😍</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 44</div></div>
         <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#be185d;color:#fff">TC</div><div><div class="text-sm font-semibold text-white leading-none">@trevorcreates_</div><div class="text-xs text-gray-500 mt-0.5">Threads</div></div></div><p class="text-sm text-gray-300 leading-snug">Reposted to my followers. This needs to be seen</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 17</div></div>
@@ -539,7 +540,7 @@
         <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#2563eb;color:#fff">BM</div><div><div class="text-sm font-semibold text-white leading-none">@brandboostmeg</div><div class="text-xs text-gray-500 mt-0.5">Instagram</div></div></div><p class="text-sm text-gray-300 leading-snug">Followed from 3 accounts lol. Can't get enough 🙌</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 33</div></div>
         <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#dc2626;color:#fff">RM</div><div><div class="text-sm font-semibold text-white leading-none">@ryanfrommarketing</div><div class="text-xs text-gray-500 mt-0.5">X</div></div></div><p class="text-sm text-gray-300 leading-snug">Finally a brand that actually pays for real engagement</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 41</div></div>
         <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#059669;color:#fff">CK</div><div><div class="text-sm font-semibold text-white leading-none">@contentcreatorkai</div><div class="text-xs text-gray-500 mt-0.5">TikTok</div></div></div><p class="text-sm text-gray-300 leading-snug">Left a comment and liked. This blew up my FYP 🤩</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 15</div></div>
-        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#d97706;color:#fff">SG</div><div><div class="text-sm font-semibold text-white leading-none">@sophiagrowthco</div><div class="text-xs text-gray-500 mt-0.5">YouTube</div></div></div><p class="text-sm text-gray-300 leading-snug">Watched the full video twice. Worth every second</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 28</div></div>
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#d97706;color:#fff">SG</div><div><div class="text-sm font-semibold text-white leading-none">@sophiagrowthco</div><div class="text-xs text-gray-500 mt-0.5">YouTube</div></div></div><p class="text-sm text-gray-300 leading-snug">Subscribed and never looked back. Worth every second</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 28</div></div>
         <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#7c3aed;color:#fff">MD</div><div><div class="text-sm font-semibold text-white leading-none">@marcusdigital_</div><div class="text-xs text-gray-500 mt-0.5">YouTube</div></div></div><p class="text-sm text-gray-300 leading-snug">Subscribed and shared to my community. 10/10</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 9</div></div>
         <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#0891b2;color:#fff">NS</div><div><div class="text-sm font-semibold text-white leading-none">@niasocialmedia</div><div class="text-xs text-gray-500 mt-0.5">Instagram</div></div></div><p class="text-sm text-gray-300 leading-snug">Followed and liked the last 5 posts. Addicted now 😍</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 44</div></div>
         <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#be185d;color:#fff">TC</div><div><div class="text-sm font-semibold text-white leading-none">@trevorcreates_</div><div class="text-xs text-gray-500 mt-0.5">Threads</div></div></div><p class="text-sm text-gray-300 leading-snug">Reposted to my followers. This needs to be seen</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 17</div></div>
@@ -556,7 +557,7 @@
         <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#3b82f6;color:#fff">LC</div><div><div class="text-sm font-semibold text-white leading-none">@liamcreative.io</div><div class="text-xs text-gray-500 mt-0.5">TikTok</div></div></div><p class="text-sm text-gray-300 leading-snug">New follower here. You earned it with this content</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 21</div></div>
         <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#ef4444;color:#fff">AA</div><div><div class="text-sm font-semibold text-white leading-none">@abby_runs_ads</div><div class="text-xs text-gray-500 mt-0.5">X</div></div></div><p class="text-sm text-gray-300 leading-snug">Screenshot submitted. Already seeing results 📈</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 14</div></div>
         <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#10b981;color:#fff">DS</div><div><div class="text-sm font-semibold text-white leading-none">@diegosocial_</div><div class="text-xs text-gray-500 mt-0.5">Threads</div></div></div><p class="text-sm text-gray-300 leading-snug">Dropped a genuine comment. This is the future of marketing</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 47</div></div>
-        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#f59e0b;color:#fff">HG</div><div><div class="text-sm font-semibold text-white leading-none">@hannahgrows</div><div class="text-xs text-gray-500 mt-0.5">YouTube</div></div></div><p class="text-sm text-gray-300 leading-snug">Watched the whole series. New sub for life 🎬</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 35</div></div>
+        <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#f59e0b;color:#fff">HG</div><div><div class="text-sm font-semibold text-white leading-none">@hannahgrows</div><div class="text-xs text-gray-500 mt-0.5">YouTube</div></div></div><p class="text-sm text-gray-300 leading-snug">Loved every upload. New sub for life 🎬</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 35</div></div>
         <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#6366f1;color:#fff">CM</div><div><div class="text-sm font-semibold text-white leading-none">@carlosmarket</div><div class="text-xs text-gray-500 mt-0.5">Instagram</div></div></div><p class="text-sm text-gray-300 leading-snug">Liked every post this week. Incredible content strategy</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 11</div></div>
         <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#06b6d4;color:#fff">EB</div><div><div class="text-sm font-semibold text-white leading-none">@emilybuiltbrand</div><div class="text-xs text-gray-500 mt-0.5">TikTok</div></div></div><p class="text-sm text-gray-300 leading-snug">Shared to LinkedIn AND TikTok. You're welcome 😂</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 53</div></div>
         <div class="comment-card"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#ec4899;color:#fff">NS</div><div><div class="text-sm font-semibold text-white leading-none">@noahstrategy</div><div class="text-xs text-gray-500 mt-0.5">Instagram</div></div></div><p class="text-sm text-gray-300 leading-snug">Followed and already have ideas for a collab 💡</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 26</div></div>
@@ -567,7 +568,7 @@
         <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#3b82f6;color:#fff">LC</div><div><div class="text-sm font-semibold text-white leading-none">@liamcreative.io</div><div class="text-xs text-gray-500 mt-0.5">TikTok</div></div></div><p class="text-sm text-gray-300 leading-snug">New follower here. You earned it with this content</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 21</div></div>
         <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#ef4444;color:#fff">AA</div><div><div class="text-sm font-semibold text-white leading-none">@abby_runs_ads</div><div class="text-xs text-gray-500 mt-0.5">X</div></div></div><p class="text-sm text-gray-300 leading-snug">Screenshot submitted. Already seeing results 📈</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 14</div></div>
         <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#10b981;color:#fff">DS</div><div><div class="text-sm font-semibold text-white leading-none">@diegosocial_</div><div class="text-xs text-gray-500 mt-0.5">Threads</div></div></div><p class="text-sm text-gray-300 leading-snug">Dropped a genuine comment. This is the future of marketing</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 47</div></div>
-        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#f59e0b;color:#fff">HG</div><div><div class="text-sm font-semibold text-white leading-none">@hannahgrows</div><div class="text-xs text-gray-500 mt-0.5">YouTube</div></div></div><p class="text-sm text-gray-300 leading-snug">Watched the whole series. New sub for life 🎬</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 35</div></div>
+        <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#f59e0b;color:#fff">HG</div><div><div class="text-sm font-semibold text-white leading-none">@hannahgrows</div><div class="text-xs text-gray-500 mt-0.5">YouTube</div></div></div><p class="text-sm text-gray-300 leading-snug">Loved every upload. New sub for life 🎬</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 35</div></div>
         <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#6366f1;color:#fff">CM</div><div><div class="text-sm font-semibold text-white leading-none">@carlosmarket</div><div class="text-xs text-gray-500 mt-0.5">Instagram</div></div></div><p class="text-sm text-gray-300 leading-snug">Liked every post this week. Incredible content strategy</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 11</div></div>
         <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#06b6d4;color:#fff">EB</div><div><div class="text-sm font-semibold text-white leading-none">@emilybuiltbrand</div><div class="text-xs text-gray-500 mt-0.5">TikTok</div></div></div><p class="text-sm text-gray-300 leading-snug">Shared to LinkedIn AND TikTok. You're welcome 😂</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 53</div></div>
         <div class="comment-card" aria-hidden="true"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0" style="background:#ec4899;color:#fff">NS</div><div><div class="text-sm font-semibold text-white leading-none">@noahstrategy</div><div class="text-xs text-gray-500 mt-0.5">Instagram</div></div></div><p class="text-sm text-gray-300 leading-snug">Followed and already have ideas for a collab 💡</p><div class="mt-3 flex items-center gap-1 text-xs text-gray-500"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 26</div></div>
@@ -608,7 +609,7 @@
           <div class="text-primary text-sm font-mono">01</div>
           <h3 class="mt-3 text-xl font-semibold">Post a campaign</h3>
           <p class="mt-2 text-muted text-sm leading-relaxed">
-            Brands set the task - follow, like, share, comment, watch - fund credits, and publish.
+            Brands set the task - follow, like, share, comment - fund credits, and publish.
             Live in minutes.
           </p>
         </div>
@@ -641,7 +642,7 @@
         </h2>
         <p class="mt-5 text-muted text-lg leading-relaxed">
           Skip the ad-platform black box. Spin up a campaign, set a per-task rate,
-          and watch real users follow, share, or comment - with screenshot proof on every submission.
+          and see real users follow, share, or comment - with screenshot proof on every submission.
         </p>
 
         <ul class="mt-8 space-y-4">
@@ -660,7 +661,7 @@
             </span>
             <div>
               <div class="font-medium">Any platform, any task</div>
-              <div class="text-sm text-muted">Follow, like, share, comment, watch. Mix and match.</div>
+              <div class="text-sm text-muted">Follow, like, share, comment. Mix and match.</div>
             </div>
           </li>
           <li class="flex items-start gap-3">
@@ -698,7 +699,7 @@
           <div class="grid grid-cols-3 gap-px bg-border rounded-xl overflow-hidden border border-border mb-5">
             <div class="bg-bg-card p-3 text-center">
               <div class="text-xs uppercase tracking-wider text-muted">Rate</div>
-              <div class="text-base font-semibold mt-0.5">$0.18</div>
+              <div class="text-base font-semibold mt-0.5">$0.50</div>
             </div>
             <div class="bg-bg-card p-3 text-center">
               <div class="text-xs uppercase tracking-wider text-muted">Cap</div>
@@ -715,7 +716,7 @@
           </div>
           <div class="mt-2 text-xs text-muted flex justify-between">
             <span>48% complete</span>
-            <span>$435.24 spent of $900</span>
+            <span>$1,209.00 spent of $2,500</span>
           </div>
         </div>
       </div>
@@ -744,7 +745,7 @@
                   <div class="text-xs text-muted">@taylorswift</div>
                 </div>
               </div>
-              <div class="text-sm font-semibold text-primary">+$0.12</div>
+              <div class="text-sm font-semibold text-primary">+$0.50</div>
             </div>
             <div class="flex items-center justify-between bg-bg-elevated/60 border border-border rounded-lg px-4 py-3">
               <div class="flex items-center gap-3">
@@ -754,17 +755,17 @@
                   <div class="text-xs text-muted">@champagnepapi</div>
                 </div>
               </div>
-              <div class="text-sm font-semibold text-primary">+$0.20</div>
+              <div class="text-sm font-semibold text-primary">+$0.75</div>
             </div>
             <div class="flex items-center justify-between bg-bg-elevated/60 border border-border rounded-lg px-4 py-3">
               <div class="flex items-center gap-3">
-                <div class="h-8 w-8 rounded-md bg-primary/15 flex items-center justify-center text-primary text-sm font-bold">▶</div>
+                <div class="h-8 w-8 rounded-md bg-primary/15 flex items-center justify-center text-primary text-sm font-bold">❝</div>
                 <div>
-                  <div class="text-sm font-medium">Watch on YouTube</div>
+                  <div class="text-sm font-medium">Comment on YouTube</div>
                   <div class="text-xs text-muted">@coachella</div>
                 </div>
               </div>
-              <div class="text-sm font-semibold text-primary">+$0.08</div>
+              <div class="text-sm font-semibold text-primary">+$1.00</div>
             </div>
           </div>
 
@@ -781,7 +782,7 @@
           <span class="text-primary">you already do.</span>
         </h2>
         <p class="mt-5 text-muted text-lg leading-relaxed">
-          Follow, like, share, watch - turn your scroll into income.
+          Follow, like, share, comment - turn your scroll into income.
           Real campaigns from real brands, paid out in real money.
         </p>
 
@@ -829,32 +830,84 @@
         <h2 class="text-3xl sm:text-5xl font-bold tracking-tight">Every action that <span class="text-primary">moves the needle.</span></h2>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="reveal card bg-bg-card border border-border rounded-xl p-6 transition-all">
-          <div class="text-primary text-3xl mb-4">＋</div>
+          <i data-lucide="user-plus" class="w-7 h-7 text-primary mb-4 block"></i>
           <div class="font-semibold text-base">Follow</div>
           <div class="text-sm text-muted mt-2 leading-relaxed">Grow your audience with real people who genuinely chose to follow.</div>
         </div>
         <div class="reveal card bg-bg-card border border-border rounded-xl p-6 transition-all">
-          <div class="text-primary text-3xl mb-4">♡</div>
+          <i data-lucide="heart" class="w-7 h-7 text-primary mb-4 block"></i>
           <div class="font-semibold text-base">Like</div>
           <div class="text-sm text-muted mt-2 leading-relaxed">Signal content quality to algorithms with genuine likes from real accounts.</div>
         </div>
         <div class="reveal card bg-bg-card border border-border rounded-xl p-6 transition-all">
-          <div class="text-primary text-3xl mb-4">↗</div>
+          <i data-lucide="share-2" class="w-7 h-7 text-primary mb-4 block"></i>
           <div class="font-semibold text-base">Share</div>
           <div class="text-sm text-muted mt-2 leading-relaxed">Reach new audiences organically through reposts and shares.</div>
         </div>
         <div class="reveal card bg-bg-card border border-border rounded-xl p-6 transition-all">
-          <div class="text-primary text-3xl mb-4">❝</div>
+          <i data-lucide="message-circle" class="w-7 h-7 text-primary mb-4 block"></i>
           <div class="font-semibold text-base">Comment</div>
           <div class="text-sm text-muted mt-2 leading-relaxed">Drive authentic conversation that boosts engagement signals for the algorithm.</div>
         </div>
-        <div class="reveal card bg-bg-card border border-border rounded-xl p-6 transition-all">
-          <div class="text-primary text-3xl mb-4">▶</div>
-          <div class="font-semibold text-base">Watch</div>
-          <div class="text-sm text-muted mt-2 leading-relaxed">Improve algorithmic ranking with real watch time from real viewers.</div>
-        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="solutions" class="py-24 sm:py-32 bg-bg-card/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal text-center max-w-2xl mx-auto mb-14">
+        <div class="text-xs uppercase tracking-[0.25em] text-primary mb-4">Solutions</div>
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight">Built for every <span class="text-primary">kind of buzz</span></h2>
+        <p class="mt-5 text-muted text-lg leading-relaxed">
+          From music drops and game launches to product releases and live events, SWRM helps brands turn social attention into action.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a href="/solutions/brands/music-entertainment" class="reveal card group bg-bg-card border border-border rounded-2xl p-6 transition-all hover:border-border-light flex flex-col gap-4">
+          <div class="text-xs uppercase tracking-widest text-primary">For Artists & Labels</div>
+          <div class="font-semibold text-lg group-hover:text-primary transition-colors">Music &amp; Entertainment</div>
+          <p class="text-muted text-sm leading-relaxed">Album drops, tour announcements, release-day engagement.</p>
+          <span class="text-sm text-primary font-medium mt-auto group-hover:underline">Explore →</span>
+        </a>
+        <a href="/solutions/brands/ecommerce-retail" class="reveal card group bg-bg-card border border-border rounded-2xl p-6 transition-all hover:border-border-light flex flex-col gap-4">
+          <div class="text-xs uppercase tracking-widest text-primary">For Online & Retail Brands</div>
+          <div class="font-semibold text-lg group-hover:text-primary transition-colors">Ecommerce &amp; Retail</div>
+          <p class="text-muted text-sm leading-relaxed">Product launches, TikTok Shop, retail brand awareness.</p>
+          <span class="text-sm text-primary font-medium mt-auto group-hover:underline">Explore →</span>
+        </a>
+        <a href="/solutions/brands/gaming-esports" class="reveal card group bg-bg-card border border-border rounded-2xl p-6 transition-all hover:border-border-light flex flex-col gap-4">
+          <div class="text-xs uppercase tracking-widest text-primary">For Game Studios & Esports Orgs</div>
+          <div class="font-semibold text-lg group-hover:text-primary transition-colors">Gaming &amp; Esports</div>
+          <p class="text-muted text-sm leading-relaxed">Game launches, tournament promotion, streamer growth.</p>
+          <span class="text-sm text-primary font-medium mt-auto group-hover:underline">Explore →</span>
+        </a>
+        <a href="/solutions/brands/events-festivals" class="reveal card group bg-bg-card border border-border rounded-2xl p-6 transition-all hover:border-border-light flex flex-col gap-4">
+          <div class="text-xs uppercase tracking-widest text-primary">For Event Organizers</div>
+          <div class="font-semibold text-lg group-hover:text-primary transition-colors">Events &amp; Festivals</div>
+          <p class="text-muted text-sm leading-relaxed">Ticket launches, lineup drops, pre-event buzz.</p>
+          <span class="text-sm text-primary font-medium mt-auto group-hover:underline">Explore →</span>
+        </a>
+        <a href="/solutions/brands/creators-influencers" class="reveal card group bg-bg-card border border-border rounded-2xl p-6 transition-all hover:border-border-light flex flex-col gap-4">
+          <div class="text-xs uppercase tracking-widest text-primary">For Creators & Influencers</div>
+          <div class="font-semibold text-lg group-hover:text-primary transition-colors">Creators &amp; Influencers</div>
+          <p class="text-muted text-sm leading-relaxed">Grow your channel, earn on the side, build cross-platform.</p>
+          <span class="text-sm text-primary font-medium mt-auto group-hover:underline">Explore →</span>
+        </a>
+        <a href="/solutions/brands/tech-apps" class="reveal card group bg-bg-card border border-border rounded-2xl p-6 transition-all hover:border-border-light flex flex-col gap-4">
+          <div class="text-xs uppercase tracking-widest text-primary">For Tech Brands & Product Teams</div>
+          <div class="font-semibold text-lg group-hover:text-primary transition-colors">Tech &amp; Apps</div>
+          <p class="text-muted text-sm leading-relaxed">App launches, SaaS growth, early community building.</p>
+          <span class="text-sm text-primary font-medium mt-auto group-hover:underline">Explore →</span>
+        </a>
+      </div>
+
+      <div class="mt-10 text-center reveal">
+        <a href="/solutions" class="btn-ghost border border-border text-gray-200 px-6 py-3 rounded-lg font-medium hover:bg-white/[0.03] transition-all">
+          Explore all solutions →
+        </a>
       </div>
     </div>
   </section>
@@ -947,19 +1000,42 @@
   <footer class="border-t border-border py-12 bg-bg-card/40">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row gap-8 justify-between items-start">
       <div>
-        <img src="assets/logo-full.svg" alt="Swrm" width="78" height="25">
+        <img src="/assets/logo-full.svg" alt="Swrm" width="78" height="25">
         <p class="mt-4 text-sm text-muted max-w-xs leading-relaxed">
           The social media task marketplace.
         </p>
       </div>
-      <div class="grid grid-cols-2 gap-10 text-sm">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-10 text-sm">
         <div>
           <div class="text-xs uppercase tracking-widest text-muted mb-3">Product</div>
           <ul class="space-y-2 text-gray-300">
             <li><a href="#how" class="hover:text-primary transition-colors">How it works</a></li>
-            <li><a href="#brands" class="hover:text-primary transition-colors">For brands</a></li>
-            <li><a href="#swrmers" class="hover:text-primary transition-colors">For Swrmers</a></li>
+            <li><a href="/pricing" class="hover:text-primary transition-colors">Pricing</a></li>
+            <li><a href="/product" class="hover:text-primary transition-colors">Product</a></li>
             <li><a href="#faq" class="hover:text-primary transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted mb-3">For Brands</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="/solutions/brands" class="hover:text-primary transition-colors">All solutions</a></li>
+            <li><a href="/solutions/brands/music-entertainment" class="hover:text-primary transition-colors">Music & Entertainment</a></li>
+            <li><a href="/solutions/brands/ecommerce-retail" class="hover:text-primary transition-colors">Ecommerce & Retail</a></li>
+            <li><a href="/solutions/brands/gaming-esports" class="hover:text-primary transition-colors">Gaming & Esports</a></li>
+            <li><a href="/solutions/brands/events-festivals" class="hover:text-primary transition-colors">Events & Festivals</a></li>
+            <li><a href="/solutions/brands/creators-influencers" class="hover:text-primary transition-colors">Creators & Influencers</a></li>
+            <li><a href="/solutions/brands/tech-apps" class="hover:text-primary transition-colors">Tech & Apps</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted mb-3">For Swrmers</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="/solutions/swrmers" class="hover:text-primary transition-colors">Overview</a></li>
+            <li><a href="/solutions/swrmers/how-it-works" class="hover:text-primary transition-colors">How it works</a></li>
+            <li><a href="/solutions/swrmers/task-types" class="hover:text-primary transition-colors">Task types</a></li>
+            <li><a href="/solutions/swrmers/ways-to-earn" class="hover:text-primary transition-colors">Ways to earn</a></li>
+            <li><a href="/solutions/swrmers/campaigns" class="hover:text-primary transition-colors">Campaigns</a></li>
+            <li><a href="/solutions/swrmers/payouts" class="hover:text-primary transition-colors">Payouts</a></li>
           </ul>
         </div>
         <div>
@@ -1002,6 +1078,7 @@
       frame.innerHTML = '';
       frame.appendChild(video);
     });
+    lucide.createIcons();
   </script>
 </body>
 </html>

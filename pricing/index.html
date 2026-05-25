@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing & Earnings — SWRM</title>
+  <meta name="description" content="Flexible campaign pricing for brands and real earning opportunities for Swrmers. Pay for participation, not bloated retainers.">
+  <meta property="og:title" content="Pricing & Earnings — SWRM">
+  <meta property="og:description" content="Flexible campaign pricing. Reward-based participation. Social-first engagement.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://swrmit.com/pricing">
+  <meta property="og:image" content="https://swrmit.com/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://swrmit.com/assets/og.png">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#C5E309', 'primary-hover': '#b3d008',
+            bg: '#090909', 'bg-elevated': '#1a1a1a', 'bg-card': '#000000',
+            border: '#2a2a2a', 'border-light': '#333333', muted: '#737373',
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .btn-primary:hover { box-shadow: 0 0 0 1px rgba(197,227,9,0.4), 0 0 24px rgba(197,227,9,0.25); }
+    .btn-ghost:hover { box-shadow: 0 0 0 1px rgba(197,227,9,0.2), 0 0 16px rgba(197,227,9,0.1); }
+    .card:hover { box-shadow: 0 0 0 1px rgba(197,227,9,0.25), 0 0 28px rgba(197,227,9,0.10); }
+    .hero-glow {
+      background:
+        radial-gradient(60% 50% at 50% 0%, rgba(197,227,9,0.18) 0%, rgba(197,227,9,0) 70%),
+        radial-gradient(40% 40% at 80% 60%, rgba(197,227,9,0.08) 0%, rgba(197,227,9,0) 70%);
+    }
+    .grid-bg {
+      background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .text-glow {
+      background: linear-gradient(180deg, #FFFFFF 0%, #B8B8B8 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    /* Hive Mind featured glow card */
+    .hive-card {
+      background: linear-gradient(135deg, #0a0a0a 0%, #050505 100%);
+      border: 1px solid rgba(197,227,9,0.3);
+      box-shadow: 0 0 0 1px rgba(197,227,9,0.06), 0 0 80px rgba(197,227,9,0.09), inset 0 1px 0 rgba(197,227,9,0.06);
+      transition: box-shadow .4s ease, border-color .4s ease;
+    }
+    .hive-card:hover {
+      border-color: rgba(197,227,9,0.5);
+      box-shadow: 0 0 0 1px rgba(197,227,9,0.12), 0 0 120px rgba(197,227,9,0.14), inset 0 1px 0 rgba(197,227,9,0.1);
+    }
+    /* Floating engagement indicators */
+    @keyframes floatA { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-8px)} }
+    @keyframes floatB { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-6px)} }
+    @keyframes floatC { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-10px)} }
+    .float-a { animation: floatA 4s ease-in-out infinite; }
+    .float-b { animation: floatB 5s ease-in-out 0.8s infinite; }
+    .float-c { animation: floatC 3.8s ease-in-out 1.6s infinite; }
+    .float-d { animation: floatA 4.5s ease-in-out 2.2s infinite; }
+    /* Range sliders */
+    input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; background: #2a2a2a; border-radius: 2px; outline: none; cursor: pointer; }
+    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; background: #C5E309; border-radius: 50%; cursor: pointer; transition: box-shadow .15s; }
+    input[type=range]::-webkit-slider-thumb:hover { box-shadow: 0 0 0 5px rgba(197,227,9,0.18); }
+    input[type=range]::-moz-range-thumb { width: 20px; height: 20px; background: #C5E309; border-radius: 50%; cursor: pointer; border: none; }
+    /* Calc inputs */
+    .calc-num { background: #0d0d0d; border: 1px solid #2a2a2a; border-radius: 8px; color: #f0f0f0; padding: 6px 10px; width: 80px; text-align: right; font-size: 14px; font-family: inherit; }
+    .calc-num:focus { outline: none; border-color: rgba(197,227,9,0.35); }
+    select.calc-select { -webkit-appearance: none; appearance: none; background: #0d0d0d; border: 1px solid #2a2a2a; border-radius: 8px; color: #d0d0d0; padding: 9px 32px 9px 12px; font-size: 14px; font-family: inherit; width: 100%; cursor: pointer; }
+    select.calc-select:focus { outline: none; border-color: rgba(197,227,9,0.35); }
+    /* Output stat big number */
+    .stat-num { font-size: 2.25rem; font-weight: 800; color: #C5E309; line-height: 1; }
+  </style>
+</head>
+<body class="bg-bg text-gray-100 min-h-screen antialiased selection:bg-primary selection:text-bg">
+
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-bg/70 border-b border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+      <a href="/" class="flex items-center" aria-label="Swrm home">
+        <img src="/assets/logo-full.svg" alt="Swrm" width="78" height="25">
+      </a>
+      <nav class="hidden md:flex items-center gap-7 text-sm text-muted"></nav>
+      <div class="flex items-center gap-2">
+        <a href="https://lets.swrmit.com/login" class="hidden sm:inline-block text-sm text-gray-300 px-3 py-2 rounded-lg hover:text-gray-100 transition-colors">Log in</a>
+        <a href="https://lets.swrmit.com/signup" class="btn-primary text-sm bg-primary text-bg px-4 py-2 rounded-lg font-medium hover:bg-primary-hover transition-all">Get started</a>
+      </div>
+    </div>
+  </header>
+  <script src="/assets/mega-nav.js"></script>
+
+  <!-- ── HERO ─────────────────────────────────────────────────────────── -->
+  <section class="relative overflow-hidden pt-32 sm:pt-40 pb-16 sm:pb-24">
+    <img src="/assets/hero-bee-park.png" class="absolute inset-0 w-full h-full object-cover object-right pointer-events-none select-none" style="opacity:0.13;" alt="" aria-hidden="true">
+    <div class="absolute inset-0 grid-bg opacity-50 pointer-events-none"></div>
+    <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+
+    <!-- Floating indicators -->
+    <div class="absolute inset-0 pointer-events-none hidden lg:block">
+      <div class="float-a absolute right-[7%] top-[22%] flex items-center gap-2 bg-bg-card/90 border border-border rounded-full px-3.5 py-2 text-xs text-muted">
+        <span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>Follow · +847
+      </div>
+      <div class="float-b absolute right-[12%] top-[54%] flex items-center gap-2 bg-bg-card/90 border border-border rounded-full px-3.5 py-2 text-xs text-muted opacity-80">
+        <span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>Comment · +312
+      </div>
+      <div class="float-c absolute left-[5%] top-[35%] flex items-center gap-2 bg-bg-card/90 border border-border rounded-full px-3.5 py-2 text-xs text-muted opacity-70">
+        <span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>Share · +1,204
+      </div>
+      <div class="float-d absolute left-[9%] top-[62%] flex items-center gap-2 bg-bg-card/90 border border-border rounded-full px-3.5 py-2 text-xs text-muted opacity-50">
+        <span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>Like · +5,600
+      </div>
+    </div>
+
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <div class="reveal">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">Pricing & Earnings</p>
+        <h1 class="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight leading-[1.02]">
+          <span class="text-glow">Flexible Pricing</span><br>
+          <span class="text-primary">Built for Social Buzz.</span>
+        </h1>
+        <p class="mt-7 max-w-2xl mx-auto text-lg sm:text-xl text-muted leading-relaxed">
+          Launch campaigns, automate engagement workflows, and reward real participation across every major social platform.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="https://lets.swrmit.com/signup" class="btn-primary bg-primary text-bg px-6 py-3.5 rounded-lg font-semibold hover:bg-primary-hover transition-all">Launch a campaign →</a>
+          <a href="https://lets.swrmit.com/signup" class="btn-ghost border border-border text-gray-200 px-6 py-3.5 rounded-lg font-medium hover:bg-white/[0.03] transition-all">Start earning</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 1: MARKETPLACE PRICING ───────────────────────────────── -->
+  <section class="py-20 sm:py-28 bg-bg-card/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="lg:grid lg:grid-cols-2 lg:gap-20 items-start">
+
+        <!-- Left: copy -->
+        <div class="reveal">
+          <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">Campaign Pricing</p>
+          <h2 class="text-3xl sm:text-5xl font-bold tracking-tight leading-tight">
+            Pay for Participation,<br>Not Bloated Retainers.
+          </h2>
+          <p class="mt-5 text-muted text-lg leading-relaxed max-w-md">
+            Set your own campaign budgets and reward real social engagement at any scale.
+          </p>
+          <ul class="mt-8 space-y-3.5">
+            <li class="flex items-center gap-3 text-gray-300">
+              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Flexible campaign budgets
+            </li>
+            <li class="flex items-center gap-3 text-gray-300">
+              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Set custom reward amounts per action
+            </li>
+            <li class="flex items-center gap-3 text-gray-300">
+              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Launch anytime, no scheduling required
+            </li>
+            <li class="flex items-center gap-3 text-gray-300">
+              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              No long-term contracts or commitments
+            </li>
+            <li class="flex items-center gap-3 text-gray-300">
+              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Scale campaigns up or down as needed
+            </li>
+            <li class="flex items-center gap-3 text-gray-300">
+              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Only pay for verified completions
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: example campaign cards -->
+        <div class="mt-12 lg:mt-0 grid grid-cols-2 gap-4 reveal">
+          <div class="card bg-bg-card border border-border rounded-2xl p-6 transition-all">
+            <div class="text-xs uppercase tracking-widest text-primary mb-3">Follow</div>
+            <div class="text-sm text-muted mb-4">500 activations × <span class="text-gray-200">$0.50</span></div>
+            <div class="border-t border-border pt-4 flex items-end justify-between">
+              <span class="text-xs text-muted">Est. budget</span>
+              <span class="text-xl font-bold text-gray-100">$250</span>
+            </div>
+          </div>
+
+          <div class="card bg-bg-card border border-border rounded-2xl p-6 transition-all">
+            <div class="text-xs uppercase tracking-widest text-primary mb-3">Comment</div>
+            <div class="text-sm text-muted mb-4">100 actions × <span class="text-gray-200">$2.00</span></div>
+            <div class="border-t border-border pt-4 flex items-end justify-between">
+              <span class="text-xs text-muted">Est. budget</span>
+              <span class="text-xl font-bold text-gray-100">$200</span>
+            </div>
+          </div>
+
+          <div class="card bg-bg-card border border-border rounded-2xl p-6 transition-all">
+            <div class="text-xs uppercase tracking-widest text-primary mb-3">Like</div>
+            <div class="text-sm text-muted mb-4">1,000 likes × <span class="text-gray-200">$0.50</span></div>
+            <div class="border-t border-border pt-4 flex items-end justify-between">
+              <span class="text-xs text-muted">Est. budget</span>
+              <span class="text-xl font-bold text-gray-100">$500</span>
+            </div>
+          </div>
+
+          <div class="card bg-bg-card border border-border rounded-2xl p-6 transition-all">
+            <div class="text-xs uppercase tracking-widest text-primary mb-3">UGC</div>
+            <div class="text-sm text-muted mb-4">Custom creator<br><span class="text-gray-200">payouts</span></div>
+            <div class="border-t border-border pt-4 flex items-end justify-between">
+              <span class="text-xs text-muted">Est. budget</span>
+              <span class="text-xl font-bold text-gray-100">Flexible</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 2: HIVE MIND AUTOMATION ──────────────────────────────── -->
+  <section class="py-20 sm:py-28">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center reveal mb-12">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">Premium Automation</p>
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight">Hive Mind Automation</h2>
+        <p class="mt-5 text-muted text-lg max-w-xl mx-auto leading-relaxed">
+          Automatically turn every social post into a live engagement campaign.
+        </p>
+      </div>
+
+      <!-- Featured card -->
+      <div class="hive-card rounded-3xl p-8 sm:p-12 reveal">
+        <div class="lg:grid lg:grid-cols-[1fr_auto] lg:gap-12 items-start">
+
+          <!-- Left content -->
+          <div>
+            <!-- Price -->
+            <div class="flex items-baseline gap-3 mb-2">
+              <span class="text-6xl sm:text-7xl font-bold text-primary">$99</span>
+              <div>
+                <span class="text-lg font-medium text-gray-200">/mo</span>
+                <div class="text-xs text-muted">per monitored social platform</div>
+              </div>
+            </div>
+
+            <p class="text-muted leading-relaxed mt-4 max-w-lg">
+              Automatically monitor social accounts and convert new posts into live SWRM campaigns — without lifting a finger.
+            </p>
+
+            <!-- Features grid -->
+            <div class="mt-8 grid sm:grid-cols-2 gap-3">
+              <div class="flex items-center gap-2.5 text-sm text-gray-300">
+                <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Automatic post detection
+              </div>
+              <div class="flex items-center gap-2.5 text-sm text-gray-300">
+                <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Monthly spend caps
+              </div>
+              <div class="flex items-center gap-2.5 text-sm text-gray-300">
+                <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Campaign auto-creation
+              </div>
+              <div class="flex items-center gap-2.5 text-sm text-gray-300">
+                <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Wallet-based billing
+              </div>
+              <div class="flex items-center gap-2.5 text-sm text-gray-300">
+                <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Draft or auto-launch workflows
+              </div>
+              <div class="flex items-center gap-2.5 text-sm text-gray-300">
+                <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Team notifications
+              </div>
+              <div class="flex items-center gap-2.5 text-sm text-gray-300">
+                <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                AI-assisted comment campaigns
+              </div>
+              <div class="flex items-center gap-2.5 text-sm text-gray-300">
+                <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Engagement automation workflows
+              </div>
+            </div>
+
+            <!-- Platforms -->
+            <div class="mt-8">
+              <div class="text-xs uppercase tracking-widest text-muted mb-3">Supported Platforms</div>
+              <div class="flex flex-wrap gap-2">
+                <span class="inline-flex items-center gap-1.5 bg-bg-elevated border border-border rounded-full px-3 py-1.5 text-xs text-gray-300">
+                  <svg class="w-3 h-3 text-muted" viewBox="0 0 24 24" fill="currentColor"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+                  Instagram
+                </span>
+                <span class="inline-flex items-center gap-1.5 bg-bg-elevated border border-border rounded-full px-3 py-1.5 text-xs text-gray-300">
+                  <svg class="w-3 h-3 text-muted" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                  TikTok
+                </span>
+                <span class="inline-flex items-center gap-1.5 bg-bg-elevated border border-border rounded-full px-3 py-1.5 text-xs text-gray-300">
+                  <svg class="w-3 h-3 text-muted" viewBox="0 0 24 24" fill="currentColor"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg>
+                  X
+                </span>
+                <span class="inline-flex items-center gap-1.5 bg-bg-elevated border border-border rounded-full px-3 py-1.5 text-xs text-gray-300">
+                  <svg class="w-3 h-3 text-muted" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  YouTube
+                </span>
+                <span class="inline-flex items-center bg-bg-elevated border border-border rounded-full px-3 py-1.5 text-xs text-gray-300">LinkedIn</span>
+                <span class="inline-flex items-center bg-bg-elevated border border-border rounded-full px-3 py-1.5 text-xs text-gray-300">Facebook</span>
+                <span class="inline-flex items-center bg-bg-elevated border border-border rounded-full px-3 py-1.5 text-xs text-gray-300">Threads</span>
+                <span class="inline-flex items-center bg-bg-elevated border border-border rounded-full px-3 py-1.5 text-xs text-gray-300">Pinterest</span>
+                <span class="inline-flex items-center bg-bg-elevated border border-border rounded-full px-3 py-1.5 text-xs text-gray-300">Snapchat</span>
+                <span class="inline-flex items-center bg-bg-elevated border border-border rounded-full px-3 py-1.5 text-xs text-gray-300">Twitch</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: CTA + how it works -->
+          <div class="mt-10 lg:mt-0 flex flex-col items-start gap-6 lg:min-w-[220px]">
+            <a href="https://lets.swrmit.com/signup" class="btn-primary w-full sm:w-auto text-center bg-primary text-bg px-6 py-3.5 rounded-lg font-semibold hover:bg-primary-hover transition-all">
+              Activate Hive Mind →
+            </a>
+            <div class="text-xs text-muted leading-relaxed">
+              Cancel anytime.<br>Billed monthly per platform.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- How it works steps -->
+      <div class="mt-16 reveal">
+        <p class="text-xs uppercase tracking-[0.25em] text-muted mb-8 text-center">How Hive Mind Works</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-bg-card border border-border rounded-2xl p-6">
+            <div class="text-primary font-mono text-sm mb-3">01</div>
+            <h3 class="font-semibold text-gray-100 mb-2">Connect an Account</h3>
+            <p class="text-sm text-muted leading-relaxed">Link a social account you want to monitor for new content.</p>
+          </div>
+          <div class="bg-bg-card border border-border rounded-2xl p-6">
+            <div class="text-primary font-mono text-sm mb-3">02</div>
+            <h3 class="font-semibold text-gray-100 mb-2">SWRM Monitors</h3>
+            <p class="text-sm text-muted leading-relaxed">Hive Mind continuously monitors your account for new posts.</p>
+          </div>
+          <div class="bg-bg-card border border-border rounded-2xl p-6">
+            <div class="text-primary font-mono text-sm mb-3">03</div>
+            <h3 class="font-semibold text-gray-100 mb-2">Posts Become Campaigns</h3>
+            <p class="text-sm text-muted leading-relaxed">New posts are automatically converted into live engagement campaigns.</p>
+          </div>
+          <div class="bg-bg-card border border-border rounded-2xl p-6">
+            <div class="text-primary font-mono text-sm mb-3">04</div>
+            <h3 class="font-semibold text-gray-100 mb-2">Swrmers Participate</h3>
+            <p class="text-sm text-muted leading-relaxed">Real people complete social tasks and earn rewards for engagement.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SECTION 3: ENGAGEMENT CALCULATOR ─────────────────────────────── -->
+  <section class="py-20 sm:py-28 bg-bg-card/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal mb-12 text-center">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">For Brands</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Estimate Your Campaign.</h2>
+        <p class="mt-4 text-muted text-lg leading-relaxed">See how reward amounts and participation scale campaign budgets.</p>
+      </div>
+
+      <div class="reveal bg-bg-card border border-border rounded-3xl p-8 sm:p-10">
+        <div class="grid lg:grid-cols-2 gap-10">
+
+          <!-- Inputs -->
+          <div class="space-y-7">
+            <!-- Platform -->
+            <div>
+              <label class="block text-xs uppercase tracking-widest text-muted mb-2">Platform</label>
+              <div class="relative">
+                <select id="cc-platform" class="calc-select">
+                  <option>Instagram</option>
+                  <option>TikTok</option>
+                  <option>YouTube</option>
+                  <option>X</option>
+                  <option>Threads</option>
+                </select>
+                <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </div>
+            </div>
+
+            <!-- Campaign Type -->
+            <div>
+              <label class="block text-xs uppercase tracking-widest text-muted mb-2">Campaign Type</label>
+              <div class="relative">
+                <select id="cc-type" class="calc-select" onchange="ccTypeChange()">
+                  <option value="0.50">Follow Campaign</option>
+                  <option value="2.00">Comment Campaign</option>
+                  <option value="0.75">Share Campaign</option>
+                  <option value="3.00">UGC Campaign</option>
+                  <option value="1.00">Launch Campaign</option>
+                </select>
+                <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </div>
+            </div>
+
+            <!-- Reward per action -->
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <label class="text-xs uppercase tracking-widest text-muted">Reward Per Action</label>
+                <div class="flex items-center gap-1.5">
+                  <span class="text-muted text-sm">$</span>
+                  <input type="number" id="cc-reward-num" class="calc-num" value="0.50" min="0.50" max="5.00" step="0.25" oninput="ccSyncNum('reward')">
+                </div>
+              </div>
+              <input type="range" id="cc-reward" min="0.50" max="5.00" step="0.25" value="0.50" oninput="ccSyncSlider('reward')">
+              <div class="flex justify-between text-xs text-muted mt-1.5"><span>$0.50</span><span>$5.00</span></div>
+            </div>
+
+            <!-- Activations -->
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <label class="text-xs uppercase tracking-widest text-muted">Number of Activations</label>
+                <input type="number" id="cc-act-num" class="calc-num" value="500" min="100" max="10000" step="100" oninput="ccSyncNum('act')">
+              </div>
+              <input type="range" id="cc-act" min="100" max="10000" step="100" value="500" oninput="ccSyncSlider('act')">
+              <div class="flex justify-between text-xs text-muted mt-1.5"><span>100</span><span>10,000</span></div>
+            </div>
+          </div>
+
+          <!-- Outputs -->
+          <div class="flex flex-col gap-5">
+            <div class="bg-bg-elevated border border-border rounded-2xl p-6 flex flex-col gap-1">
+              <div class="text-xs uppercase tracking-widest text-muted">Estimated Campaign Budget</div>
+              <div class="stat-num mt-3" id="cc-out-budget">$250</div>
+              <div class="text-xs text-muted mt-1">total campaign spend</div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-bg-elevated border border-border rounded-2xl p-5">
+                <div class="text-xs uppercase tracking-widest text-muted mb-3">Cost Per Action</div>
+                <div class="text-2xl font-bold text-primary" id="cc-out-cpa">$0.50</div>
+              </div>
+              <div class="bg-bg-elevated border border-border rounded-2xl p-5">
+                <div class="text-xs uppercase tracking-widest text-muted mb-3">Engagement Volume</div>
+                <div class="text-2xl font-bold text-primary" id="cc-out-vol">500</div>
+              </div>
+            </div>
+            <p class="text-xs text-muted leading-relaxed px-1">Estimates are illustrative. Actual results vary based on campaign settings, platform, and Swrmer availability.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 4: EARNINGS CALCULATOR ───────────────────────────────── -->
+  <section class="py-20 sm:py-28">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal mb-12 text-center">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">For Swrmers</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Estimate Your Earnings.</h2>
+        <p class="mt-4 text-muted text-lg leading-relaxed">Turn participation into rewards through social engagement campaigns.</p>
+      </div>
+
+      <div class="reveal bg-bg-card border border-border rounded-3xl p-8 sm:p-10">
+        <div class="grid lg:grid-cols-2 gap-10">
+
+          <!-- Inputs -->
+          <div class="space-y-7">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <label class="text-xs uppercase tracking-widest text-muted">Tasks Completed Per Day</label>
+                <input type="number" id="ec-tasks-num" class="calc-num" value="25" min="1" max="50" step="1" oninput="ecSyncNum('tasks')">
+              </div>
+              <input type="range" id="ec-tasks" min="1" max="50" step="1" value="25" oninput="ecSyncSlider('tasks')">
+              <div class="flex justify-between text-xs text-muted mt-1.5"><span>1</span><span>50</span></div>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <label class="text-xs uppercase tracking-widest text-muted">Average Reward Amount</label>
+                <div class="flex items-center gap-1.5">
+                  <span class="text-muted text-sm">$</span>
+                  <input type="number" id="ec-reward-num" class="calc-num" value="1.50" min="0.50" max="5.00" step="0.25" oninput="ecSyncNum('reward')">
+                </div>
+              </div>
+              <input type="range" id="ec-reward" min="0.50" max="5.00" step="0.25" value="1.50" oninput="ecSyncSlider('reward')">
+              <div class="flex justify-between text-xs text-muted mt-1.5"><span>$0.50</span><span>$5.00</span></div>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <label class="text-xs uppercase tracking-widest text-muted">Days Active Per Week</label>
+                <input type="number" id="ec-days-num" class="calc-num" value="5" min="1" max="7" step="1" oninput="ecSyncNum('days')">
+              </div>
+              <input type="range" id="ec-days" min="1" max="7" step="1" value="5" oninput="ecSyncSlider('days')">
+              <div class="flex justify-between text-xs text-muted mt-1.5"><span>1 day</span><span>7 days</span></div>
+            </div>
+
+            <div class="bg-bg-elevated border border-border rounded-xl p-4 text-xs text-muted leading-relaxed">
+              Earnings depend on available campaigns, task completion, and verification. Results vary. Rewards are participation-based — not guaranteed income.
+            </div>
+          </div>
+
+          <!-- Outputs -->
+          <div class="flex flex-col gap-5">
+            <div class="bg-bg-elevated border border-border rounded-2xl p-6 flex flex-col gap-1">
+              <div class="text-xs uppercase tracking-widest text-muted">Estimated Monthly Earnings</div>
+              <div class="stat-num mt-3" id="ec-out-monthly">~$812</div>
+              <div class="text-xs text-muted mt-1">based on your inputs</div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-bg-elevated border border-border rounded-2xl p-5">
+                <div class="text-xs uppercase tracking-widest text-muted mb-3">Daily Earnings</div>
+                <div class="text-2xl font-bold text-primary" id="ec-out-daily">$37.50</div>
+              </div>
+              <div class="bg-bg-elevated border border-border rounded-2xl p-5">
+                <div class="text-xs uppercase tracking-widest text-muted mb-3">Weekly Earnings</div>
+                <div class="text-2xl font-bold text-primary" id="ec-out-weekly">$187.50</div>
+              </div>
+            </div>
+            <div class="text-xs text-muted px-1 leading-relaxed">
+              These are estimated figures based on your inputs. Actual earnings are participation-based and vary with campaign availability and verification.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 5: FREE TO START ──────────────────────────────────────── -->
+  <section class="py-20 sm:py-28 bg-bg-card/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal text-center mb-12">
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight">Simple. Flexible. <span class="text-primary">Free to Start.</span></h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6 reveal">
+        <!-- Brands card -->
+        <div class="card bg-bg-card border border-border rounded-3xl p-8 sm:p-10 transition-all flex flex-col">
+          <div class="text-xs uppercase tracking-widest text-primary mb-3">For Brands</div>
+          <h3 class="text-2xl font-bold mb-6">Launch Campaigns<br>on Your Terms.</h3>
+          <ul class="space-y-3 flex-1">
+            <li class="flex items-center gap-3 text-gray-300 text-sm">
+              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Launch campaigns anytime
+            </li>
+            <li class="flex items-center gap-3 text-gray-300 text-sm">
+              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Flexible budgets, no minimums
+            </li>
+            <li class="flex items-center gap-3 text-gray-300 text-sm">
+              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Reward-based engagement
+            </li>
+            <li class="flex items-center gap-3 text-gray-300 text-sm">
+              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              No contracts or commitments
+            </li>
+            <li class="flex items-center gap-3 text-gray-300 text-sm">
+              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Scale participation as needed
+            </li>
+          </ul>
+          <div class="mt-8">
+            <a href="https://lets.swrmit.com/signup" class="btn-primary inline-block bg-primary text-bg px-6 py-3 rounded-lg font-semibold hover:bg-primary-hover transition-all text-sm">Launch a campaign →</a>
+          </div>
+        </div>
+
+        <!-- Swrmers card -->
+        <div class="card bg-bg-card border border-border rounded-3xl p-8 sm:p-10 transition-all flex flex-col">
+          <div class="text-xs uppercase tracking-widest text-primary mb-3">For Swrmers</div>
+          <h3 class="text-2xl font-bold mb-6">Earn Through Social<br>Participation.</h3>
+          <ul class="space-y-3 flex-1">
+            <li class="flex items-center gap-3 text-gray-300 text-sm">
+              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Free to join, always
+            </li>
+            <li class="flex items-center gap-3 text-gray-300 text-sm">
+              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Browse available campaigns
+            </li>
+            <li class="flex items-center gap-3 text-gray-300 text-sm">
+              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Complete social tasks
+            </li>
+            <li class="flex items-center gap-3 text-gray-300 text-sm">
+              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Earn rewards to your wallet
+            </li>
+            <li class="flex items-center gap-3 text-gray-300 text-sm">
+              <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Flexible — participate on your schedule
+            </li>
+          </ul>
+          <div class="mt-8">
+            <a href="https://lets.swrmit.com/signup" class="btn-ghost inline-block border border-border text-gray-200 px-6 py-3 rounded-lg font-semibold hover:bg-white/[0.03] transition-all text-sm">Start earning →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 6: CAMPAIGN EXAMPLES ─────────────────────────────────── -->
+  <section class="py-20 sm:py-28">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal mb-12">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">Examples</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Built for Every Kind of Buzz.</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 reveal">
+        <div class="card bg-bg-card border border-border rounded-2xl p-7 transition-all">
+          <div class="text-xs uppercase tracking-widest text-primary mb-2">Music Release</div>
+          <h3 class="text-lg font-semibold mb-1">Album Drop Campaign</h3>
+          <div class="text-sm text-muted leading-relaxed mb-5">Follows, saves, and shares across Instagram and TikTok to amplify a new release.</div>
+          <div class="border-t border-border pt-4 grid grid-cols-2 gap-3">
+            <div><div class="text-xs text-muted mb-0.5">Participants</div><div class="text-sm font-medium text-gray-200">2,000+</div></div>
+            <div><div class="text-xs text-muted mb-0.5">Reward range</div><div class="text-sm font-medium text-gray-200">$0.50–$2.00</div></div>
+          </div>
+        </div>
+
+        <div class="card bg-bg-card border border-border rounded-2xl p-7 transition-all">
+          <div class="text-xs uppercase tracking-widest text-primary mb-2">Product Launch</div>
+          <h3 class="text-lg font-semibold mb-1">Ecommerce Launch Campaign</h3>
+          <div class="text-sm text-muted leading-relaxed mb-5">Comments, follows, and shares driving visibility for a new product drop.</div>
+          <div class="border-t border-border pt-4 grid grid-cols-2 gap-3">
+            <div><div class="text-xs text-muted mb-0.5">Participants</div><div class="text-sm font-medium text-gray-200">1,500+</div></div>
+            <div><div class="text-xs text-muted mb-0.5">Reward range</div><div class="text-sm font-medium text-gray-200">$0.75–$1.50</div></div>
+          </div>
+        </div>
+
+        <div class="card bg-bg-card border border-border rounded-2xl p-7 transition-all">
+          <div class="text-xs uppercase tracking-widest text-primary mb-2">Events & Festivals</div>
+          <h3 class="text-lg font-semibold mb-1">Festival Announcement Campaign</h3>
+          <div class="text-sm text-muted leading-relaxed mb-5">Mass share and comment campaigns to build event awareness fast.</div>
+          <div class="border-t border-border pt-4 grid grid-cols-2 gap-3">
+            <div><div class="text-xs text-muted mb-0.5">Participants</div><div class="text-sm font-medium text-gray-200">5,000+</div></div>
+            <div><div class="text-xs text-muted mb-0.5">Reward range</div><div class="text-sm font-medium text-gray-200">$0.50–$1.00</div></div>
+          </div>
+        </div>
+
+        <div class="card bg-bg-card border border-border rounded-2xl p-7 transition-all">
+          <div class="text-xs uppercase tracking-widest text-primary mb-2">App Launch</div>
+          <h3 class="text-lg font-semibold mb-1">Mobile App Launch Campaign</h3>
+          <div class="text-sm text-muted leading-relaxed mb-5">Follows, comments, and shares to build launch-day social momentum.</div>
+          <div class="border-t border-border pt-4 grid grid-cols-2 gap-3">
+            <div><div class="text-xs text-muted mb-0.5">Participants</div><div class="text-sm font-medium text-gray-200">1,000+</div></div>
+            <div><div class="text-xs text-muted mb-0.5">Reward range</div><div class="text-sm font-medium text-gray-200">$1.00–$3.00</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ──────────────────────────────────────────────────────── -->
+  <section class="py-24 sm:py-32 relative overflow-hidden">
+    <div class="absolute inset-0 hero-glow opacity-70 pointer-events-none"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-4xl sm:text-6xl font-bold tracking-tight reveal">
+        Ready to Launch Your<br><span class="text-primary">First Campaign?</span>
+      </h2>
+      <p class="mt-5 text-muted text-lg max-w-xl mx-auto reveal">
+        Start creating real social buzz through reward-based engagement.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center reveal">
+        <a href="https://lets.swrmit.com/signup" class="btn-primary bg-primary text-bg px-8 py-4 rounded-lg font-semibold hover:bg-primary-hover transition-all text-lg">Launch a campaign →</a>
+        <a href="https://lets.swrmit.com/signup" class="btn-ghost border border-border text-gray-200 px-8 py-4 rounded-lg font-medium hover:bg-white/[0.03] transition-all text-lg">Start earning</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-border py-12 bg-bg-card/40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row gap-8 justify-between items-start">
+      <div>
+        <img src="/assets/logo-full.svg" alt="Swrm" width="78" height="25">
+        <p class="mt-4 text-sm text-muted max-w-xs leading-relaxed">The social media task marketplace.</p>
+      </div>
+      <div class="grid grid-cols-3 gap-10 text-sm">
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted mb-3">For Brands</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="/solutions/brands" class="hover:text-primary transition-colors">All Solutions</a></li>
+            <li><a href="/solutions/brands/music-entertainment" class="hover:text-primary transition-colors">Music & Entertainment</a></li>
+            <li><a href="/solutions/brands/ecommerce-retail" class="hover:text-primary transition-colors">Ecommerce & Retail</a></li>
+            <li><a href="/solutions/brands/gaming-esports" class="hover:text-primary transition-colors">Gaming & Esports</a></li>
+            <li><a href="/solutions/brands/events-festivals" class="hover:text-primary transition-colors">Events & Festivals</a></li>
+            <li><a href="/solutions/brands/sports-fitness" class="hover:text-primary transition-colors">Sports & Fitness</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted mb-3">For Swrmers</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="/solutions/swrmers" class="hover:text-primary transition-colors">Overview</a></li>
+            <li><a href="/solutions/swrmers/how-it-works" class="hover:text-primary transition-colors">How It Works</a></li>
+            <li><a href="/solutions/swrmers/ways-to-earn" class="hover:text-primary transition-colors">Ways to Earn</a></li>
+            <li><a href="/solutions/swrmers/campaigns" class="hover:text-primary transition-colors">Campaigns</a></li>
+            <li><a href="/solutions/swrmers/payouts" class="hover:text-primary transition-colors">Payouts</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted mb-3">Account</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="/pricing" class="hover:text-primary transition-colors">Pricing</a></li>
+            <li><a href="https://lets.swrmit.com/login" class="hover:text-primary transition-colors">Log in</a></li>
+            <li><a href="https://lets.swrmit.com/signup" class="hover:text-primary transition-colors">Sign up</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mt-10 max-w-6xl mx-auto px-4 sm:px-6 text-xs text-muted/70 flex flex-col sm:flex-row gap-3 justify-between">
+      <span>© <span id="year"></span> Swrm. All rights reserved.</span>
+      <span>The social media task marketplace</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+
+    // ── Slider fill ──────────────────────────────────────────────────────
+    function fillSlider(el) {
+      var min = parseFloat(el.min), max = parseFloat(el.max), val = parseFloat(el.value);
+      var pct = ((val - min) / (max - min) * 100).toFixed(1);
+      el.style.background = 'linear-gradient(to right,#C5E309 0%,#C5E309 ' + pct + '%,#2a2a2a ' + pct + '%,#2a2a2a 100%)';
+    }
+    document.querySelectorAll('input[type=range]').forEach(function(r) { fillSlider(r); });
+
+    // ── Campaign calculator ──────────────────────────────────────────────
+    function ccCalc() {
+      var reward = parseFloat(document.getElementById('cc-reward').value) || 0.50;
+      var act    = parseInt(document.getElementById('cc-act').value)    || 500;
+      var budget = reward * act;
+      document.getElementById('cc-out-budget').textContent = '$' + (budget >= 1000 ? (budget/1000).toFixed(1) + 'k' : budget.toFixed(0));
+      document.getElementById('cc-out-cpa').textContent    = '$' + reward.toFixed(2);
+      document.getElementById('cc-out-vol').textContent    = act.toLocaleString();
+    }
+
+    function ccSyncSlider(field) {
+      if (field === 'reward') {
+        var s = document.getElementById('cc-reward');
+        document.getElementById('cc-reward-num').value = parseFloat(s.value).toFixed(2);
+        fillSlider(s);
+      } else {
+        var s = document.getElementById('cc-act');
+        document.getElementById('cc-act-num').value = s.value;
+        fillSlider(s);
+      }
+      ccCalc();
+    }
+
+    function ccSyncNum(field) {
+      if (field === 'reward') {
+        var n = parseFloat(document.getElementById('cc-reward-num').value) || 0.50;
+        n = Math.min(5, Math.max(0.50, n));
+        var s = document.getElementById('cc-reward');
+        s.value = n;
+        fillSlider(s);
+      } else {
+        var n = parseInt(document.getElementById('cc-act-num').value) || 500;
+        n = Math.min(10000, Math.max(100, n));
+        var s = document.getElementById('cc-act');
+        s.value = n;
+        fillSlider(s);
+      }
+      ccCalc();
+    }
+
+    function ccTypeChange() {
+      var sel = document.getElementById('cc-type');
+      var defaultReward = parseFloat(sel.value);
+      var s = document.getElementById('cc-reward');
+      s.value = defaultReward;
+      document.getElementById('cc-reward-num').value = defaultReward.toFixed(2);
+      fillSlider(s);
+      ccCalc();
+    }
+
+    ccCalc();
+
+    // ── Earnings calculator ──────────────────────────────────────────────
+    function ecCalc() {
+      var tasks  = parseInt(document.getElementById('ec-tasks').value)  || 25;
+      var reward = parseFloat(document.getElementById('ec-reward').value) || 1.50;
+      var days   = parseInt(document.getElementById('ec-days').value)   || 5;
+      var daily   = tasks * reward;
+      var weekly  = daily * days;
+      var monthly = weekly * 4.33;
+      document.getElementById('ec-out-daily').textContent   = '$' + daily.toFixed(2);
+      document.getElementById('ec-out-weekly').textContent  = '$' + weekly.toFixed(2);
+      document.getElementById('ec-out-monthly').textContent = '~$' + Math.round(monthly);
+    }
+
+    function ecSyncSlider(field) {
+      if (field === 'tasks') {
+        var s = document.getElementById('ec-tasks');
+        document.getElementById('ec-tasks-num').value = s.value;
+        fillSlider(s);
+      } else if (field === 'reward') {
+        var s = document.getElementById('ec-reward');
+        document.getElementById('ec-reward-num').value = parseFloat(s.value).toFixed(2);
+        fillSlider(s);
+      } else {
+        var s = document.getElementById('ec-days');
+        document.getElementById('ec-days-num').value = s.value;
+        fillSlider(s);
+      }
+      ecCalc();
+    }
+
+    function ecSyncNum(field) {
+      if (field === 'tasks') {
+        var n = parseInt(document.getElementById('ec-tasks-num').value) || 20;
+        n = Math.min(50, Math.max(1, n));
+        var s = document.getElementById('ec-tasks');
+        s.value = n; fillSlider(s);
+      } else if (field === 'reward') {
+        var n = parseFloat(document.getElementById('ec-reward-num').value) || 0.75;
+        n = Math.min(5, Math.max(0.50, n));
+        var s = document.getElementById('ec-reward');
+        s.value = n; fillSlider(s);
+      } else {
+        var n = parseInt(document.getElementById('ec-days-num').value) || 5;
+        n = Math.min(7, Math.max(1, n));
+        var s = document.getElementById('ec-days');
+        s.value = n; fillSlider(s);
+      }
+      ecCalc();
+    }
+
+    ecCalc();
+  </script>
+</body>
+</html>

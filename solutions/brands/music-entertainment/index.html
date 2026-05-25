@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SWRM for Music & Entertainment — Build buzz on every drop</title>
+  <meta name="description" content="SWRM helps artists, labels, and entertainment brands activate real social engagement for album drops, tour announcements, and channel growth.">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#C5E309', 'primary-hover': '#b3d008',
+            bg: '#090909', 'bg-elevated': '#1a1a1a', 'bg-card': '#000000',
+            border: '#2a2a2a', 'border-light': '#333333', muted: '#737373',
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .btn-primary:hover { box-shadow: 0 0 0 1px rgba(197,227,9,0.4), 0 0 24px rgba(197,227,9,0.25); }
+    .btn-ghost:hover { box-shadow: 0 0 0 1px rgba(197,227,9,0.2), 0 0 16px rgba(197,227,9,0.1); }
+    .card:hover { box-shadow: 0 0 0 1px rgba(197,227,9,0.25), 0 0 28px rgba(197,227,9,0.10); }
+    .hero-glow {
+      background: radial-gradient(60% 50% at 50% 0%, rgba(197,227,9,0.18) 0%, rgba(197,227,9,0) 70%),
+        radial-gradient(40% 40% at 80% 60%, rgba(197,227,9,0.08) 0%, rgba(197,227,9,0) 70%);
+    }
+    .grid-bg {
+      background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .text-glow {
+      background: linear-gradient(180deg, #FFFFFF 0%, #B8B8B8 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+  </style>
+  <script>var SOLUTION_SLUG = 'music-entertainment';</script>
+</head>
+<body class="bg-bg text-gray-100 min-h-screen antialiased selection:bg-primary selection:text-bg">
+
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-bg/70 border-b border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+      <a href="/" class="flex items-center" aria-label="Swrm home">
+        <img src="/assets/logo-full.svg" alt="Swrm" width="78" height="25">
+      </a>
+      <nav class="hidden md:flex items-center gap-7 text-sm text-muted">
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href="https://lets.swrmit.com/login" class="hidden sm:inline-block text-sm text-gray-300 px-3 py-2 rounded-lg hover:text-gray-100 transition-colors">Log in</a>
+        <a href="https://lets.swrmit.com/signup" class="btn-primary text-sm bg-primary text-bg px-4 py-2 rounded-lg font-medium hover:bg-primary-hover transition-all">Get started</a>
+      </div>
+    </div>
+  </header>
+  <script src="/assets/mega-nav.js"></script>
+
+  <div id="page-content">
+    <div class="flex items-center justify-center min-h-screen">
+      <div class="text-muted text-sm">Loading…</div>
+    </div>
+  </div>
+
+  <footer class="border-t border-border py-12 bg-bg-card/40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row gap-8 justify-between items-start">
+      <div>
+        <img src="/assets/logo-full.svg" alt="Swrm" width="78" height="25">
+        <p class="mt-4 text-sm text-muted max-w-xs leading-relaxed">The social media task marketplace.</p>
+      </div>
+      <div class="grid grid-cols-2 gap-10 text-sm">
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted mb-3">Product</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="/#how" class="hover:text-primary transition-colors">How it works</a></li>
+            <li><a href="/#brands" class="hover:text-primary transition-colors">For brands</a></li>
+            <li><a href="/solutions/swrmers" class="hover:text-primary transition-colors">For Swrmers</a></li>
+            <li><a href="/solutions" class="hover:text-primary transition-colors">Solutions</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted mb-3">Account</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="https://lets.swrmit.com/login" class="hover:text-primary transition-colors">Log in</a></li>
+            <li><a href="https://lets.swrmit.com/signup" class="hover:text-primary transition-colors">Sign up</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mt-10 max-w-6xl mx-auto px-4 sm:px-6 text-xs text-muted/70 flex flex-col sm:flex-row gap-3 justify-between">
+      <span>© <span class="year"></span> Swrm. All rights reserved.</span>
+      <span>The social media task marketplace</span>
+    </div>
+  </footer>
+
+  <script>document.querySelectorAll('.year').forEach(function(el){el.textContent=new Date().getFullYear();});</script>
+  <script src="/solutions/solutions-data.js"></script>
+  <script src="/solutions/solution-page.js"></script>
+</body>
+</html>

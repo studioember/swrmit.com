@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ways to Earn — SWRM for Swrmers</title>
+  <meta name="description" content="Every campaign type available on SWRM — from follows and likes to sports and gaming campaigns, event promotion, and brand growth.">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#C5E309', 'primary-hover': '#b3d008',
+            bg: '#090909', 'bg-elevated': '#1a1a1a', 'bg-card': '#000000',
+            border: '#2a2a2a', 'border-light': '#333333', muted: '#737373',
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .btn-primary:hover { box-shadow: 0 0 0 1px rgba(197,227,9,0.4), 0 0 24px rgba(197,227,9,0.25); }
+    .btn-ghost:hover { box-shadow: 0 0 0 1px rgba(197,227,9,0.2), 0 0 16px rgba(197,227,9,0.1); }
+    .card:hover { box-shadow: 0 0 0 1px rgba(197,227,9,0.25), 0 0 28px rgba(197,227,9,0.10); }
+    .hero-glow {
+      background: radial-gradient(60% 50% at 50% 0%, rgba(197,227,9,0.18) 0%, rgba(197,227,9,0) 70%),
+        radial-gradient(40% 40% at 80% 60%, rgba(197,227,9,0.08) 0%, rgba(197,227,9,0) 70%);
+    }
+    .grid-bg {
+      background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .text-glow {
+      background: linear-gradient(180deg, #FFFFFF 0%, #B8B8B8 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    svg[data-lucide] { stroke-width: 1.75; }
+  </style>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body class="bg-bg text-gray-100 min-h-screen antialiased selection:bg-primary selection:text-bg">
+
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-bg/70 border-b border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+      <a href="/" class="flex items-center" aria-label="Swrm home">
+        <img src="/assets/logo-full.svg" alt="Swrm" width="78" height="25">
+      </a>
+      <nav class="hidden md:flex items-center gap-7 text-sm text-muted">
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href="https://lets.swrmit.com/login" class="hidden sm:inline-block text-sm text-gray-300 px-3 py-2 rounded-lg hover:text-gray-100 transition-colors">Log in</a>
+        <a href="https://lets.swrmit.com/signup" class="btn-primary text-sm bg-primary text-bg px-4 py-2 rounded-lg font-medium hover:bg-primary-hover transition-all">Get started</a>
+      </div>
+    </div>
+  </header>
+  <script src="/assets/mega-nav.js"></script>
+
+
+
+
+  <div>
+  <div id="swrm-snav" class="hidden sm:block sticky z-30 mt-14 py-3" style="top:56px">
+    <div class="flex justify-center px-4">
+      <div class="bg-bg-card border border-border rounded-full px-2 py-1.5 flex items-center gap-1">
+        <a href="/solutions/swrmers" class="text-sm text-muted hover:text-gray-100 px-3 py-1.5 rounded-xl whitespace-nowrap flex-shrink-0 transition-colors">Overview</a>
+        <a href="/solutions/swrmers/how-it-works" class="text-sm text-muted hover:text-gray-100 px-3 py-1.5 rounded-xl whitespace-nowrap flex-shrink-0 transition-colors">How It Works</a>
+        <a href="/solutions/swrmers/ways-to-earn" class="text-sm font-medium text-primary px-3 py-1.5 rounded-xl whitespace-nowrap flex-shrink-0">Ways to Earn</a>
+        <a href="/solutions/swrmers/task-types" class="text-sm text-muted hover:text-gray-100 px-3 py-1.5 rounded-xl whitespace-nowrap flex-shrink-0 transition-colors">Task Types</a>
+        <a href="/solutions/swrmers/campaigns" class="text-sm text-muted hover:text-gray-100 px-3 py-1.5 rounded-xl whitespace-nowrap flex-shrink-0 transition-colors">Campaigns</a>
+        <a href="/solutions/swrmers/payouts" class="text-sm text-muted hover:text-gray-100 px-3 py-1.5 rounded-xl whitespace-nowrap flex-shrink-0 transition-colors">Payouts</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="relative z-0 overflow-hidden sm:-mt-[126px] pt-32 sm:pt-44 pb-24 sm:pb-32 min-h-[660px] sm:min-h-[820px]">
+    <img src="/assets/hero-bee-ways-to-earn.png" class="absolute inset-0 w-full h-full object-cover object-right pointer-events-none select-none" style="opacity:0.20;" alt="" aria-hidden="true">
+    <div class="absolute inset-0 grid-bg opacity-50 pointer-events-none"></div>
+    <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal max-w-3xl">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">Ways to earn</p>
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.04]">
+          <span class="text-glow">Every Way to</span><br>
+          <span class="text-primary">Earn on SWRM.</span>
+        </h1>
+        <p class="mt-6 text-lg sm:text-xl text-muted leading-relaxed max-w-2xl">
+          From a quick follow to a full campaign share — here's every type of earning opportunity available.
+        </p>
+        <div class="mt-10 flex flex-wrap gap-3">
+          <a href="https://lets.swrmit.com/signup" class="btn-primary bg-primary text-bg px-6 py-3.5 rounded-lg font-semibold hover:bg-primary-hover transition-all">Start earning →</a>
+          <a href="/solutions/swrmers/how-it-works" class="btn-ghost border border-border text-gray-200 px-6 py-3.5 rounded-lg font-medium hover:bg-white/[0.03] transition-all">See how it works</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Campaign types -->
+  <section class="py-16 sm:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-7 transition-all flex flex-col gap-4">
+          <div class="text-primary text-2xl">＋</div>
+          <div>
+            <h3 class="text-lg font-semibold">Follow Campaigns</h3>
+            <p class="mt-1 text-xs uppercase tracking-widest text-muted">Most common · $0.50–$0.75</p>
+          </div>
+          <div class="space-y-3 text-sm border-t border-border pt-4">
+            <div><span class="text-gray-200 font-medium">What:</span> <span class="text-muted">Follow a brand's account on Instagram, TikTok, X, or YouTube.</span></div>
+            <div><span class="text-gray-200 font-medium">How:</span> <span class="text-muted">Follow the account, take a screenshot showing you're now following, submit.</span></div>
+            <div><span class="text-gray-200 font-medium">Why brands run these:</span> <span class="text-muted">Growing a real follower base signals credibility to algorithms and to new visitors.</span></div>
+          </div>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-7 transition-all flex flex-col gap-4">
+          <i data-lucide="heart" class="w-6 h-6 text-primary"></i>
+          <div>
+            <h3 class="text-lg font-semibold">Like Campaigns</h3>
+            <p class="mt-1 text-xs uppercase tracking-widest text-muted">Quick · $0.50</p>
+          </div>
+          <div class="space-y-3 text-sm border-t border-border pt-4">
+            <div><span class="text-gray-200 font-medium">What:</span> <span class="text-muted">Like a post, reel, or video on Instagram, TikTok, YouTube, or X.</span></div>
+            <div><span class="text-gray-200 font-medium">How:</span> <span class="text-muted">Like the content, screenshot, submit.</span></div>
+            <div><span class="text-gray-200 font-medium">Why brands run these:</span> <span class="text-muted">Likes boost algorithmic reach. More likes = more organic visibility across the platform.</span></div>
+          </div>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-7 transition-all flex flex-col gap-4">
+          <i data-lucide="message-circle" class="w-6 h-6 text-primary"></i>
+          <div>
+            <h3 class="text-lg font-semibold">Comment Campaigns</h3>
+            <p class="mt-1 text-xs uppercase tracking-widest text-muted">Higher effort · $1.00–$1.50</p>
+          </div>
+          <div class="space-y-3 text-sm border-t border-border pt-4">
+            <div><span class="text-gray-200 font-medium">What:</span> <span class="text-muted">Leave a genuine comment on a brand's post, reel, or video.</span></div>
+            <div><span class="text-gray-200 font-medium">How:</span> <span class="text-muted">Comment something real and on-topic, screenshot the thread, submit.</span></div>
+            <div><span class="text-gray-200 font-medium">Why brands run these:</span> <span class="text-muted">Comments are the highest-value engagement signal. They drive conversations and send strong ranking signals to the algorithm.</span></div>
+          </div>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-7 transition-all flex flex-col gap-4">
+          <i data-lucide="share-2" class="w-6 h-6 text-primary"></i>
+          <div>
+            <h3 class="text-lg font-semibold">Share Campaigns</h3>
+            <p class="mt-1 text-xs uppercase tracking-widest text-muted">High reach · $0.75–$1.00</p>
+          </div>
+          <div class="space-y-3 text-sm border-t border-border pt-4">
+            <div><span class="text-gray-200 font-medium">What:</span> <span class="text-muted">Repost or share a brand's content to your story or feed.</span></div>
+            <div><span class="text-gray-200 font-medium">How:</span> <span class="text-muted">Share the post, screenshot your story or repost, submit.</span></div>
+            <div><span class="text-gray-200 font-medium">Why brands run these:</span> <span class="text-muted">Every share reaches a new real audience. Real shares extend reach organically to your network.</span></div>
+          </div>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-7 transition-all flex flex-col gap-4">
+          <i data-lucide="bookmark" class="w-6 h-6 text-primary"></i>
+          <div>
+            <h3 class="text-lg font-semibold">Save &amp; Interaction Campaigns</h3>
+            <p class="mt-1 text-xs uppercase tracking-widest text-muted">Signal-heavy · $0.50–$0.75</p>
+          </div>
+          <div class="space-y-3 text-sm border-t border-border pt-4">
+            <div><span class="text-gray-200 font-medium">What:</span> <span class="text-muted">Save a post, bookmark content, or interact with a specific piece of media.</span></div>
+            <div><span class="text-gray-200 font-medium">How:</span> <span class="text-muted">Interact with the content, screenshot, submit.</span></div>
+            <div><span class="text-gray-200 font-medium">Why brands run these:</span> <span class="text-muted">Saves signal that content is valuable. High save rates push content to non-followers organically.</span></div>
+          </div>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-7 transition-all flex flex-col gap-4">
+          <i data-lucide="ticket" class="w-6 h-6 text-primary"></i>
+          <div>
+            <h3 class="text-lg font-semibold">Event Promotion Campaigns</h3>
+            <p class="mt-1 text-xs uppercase tracking-widest text-muted">Buzz-driven · $0.75–$1.00</p>
+          </div>
+          <div class="space-y-3 text-sm border-t border-border pt-4">
+            <div><span class="text-gray-200 font-medium">What:</span> <span class="text-muted">Share event announcements, ticket launches, or lineup drops.</span></div>
+            <div><span class="text-gray-200 font-medium">How:</span> <span class="text-muted">Share or repost the event content, screenshot, submit.</span></div>
+            <div><span class="text-gray-200 font-medium">Why brands run these:</span> <span class="text-muted">Events live or die by buzz. Real shares create urgency and make tickets feel worth buying.</span></div>
+          </div>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-7 transition-all flex flex-col gap-4">
+          <i data-lucide="gamepad-2" class="w-6 h-6 text-primary"></i>
+          <div>
+            <h3 class="text-lg font-semibold">Sports & Gaming Campaigns</h3>
+            <p class="mt-1 text-xs uppercase tracking-widest text-muted">Community-driven · $0.75–$1.00</p>
+          </div>
+          <div class="space-y-3 text-sm border-t border-border pt-4">
+            <div><span class="text-gray-200 font-medium">What:</span> <span class="text-muted">Engage with sports teams, esports orgs, fitness brands, and game studios.</span></div>
+            <div><span class="text-gray-200 font-medium">How:</span> <span class="text-muted">Follow, like, or share a game day post or tournament announcement, screenshot, submit.</span></div>
+            <div><span class="text-gray-200 font-medium">Why brands run these:</span> <span class="text-muted">Gaming and sports communities are highly social. Real engagement at the moment of launch or game day drives algorithmic reach and fan participation.</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Coming soon -->
+  <section class="py-16 sm:py-24 border-t border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal mb-10">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">On the roadmap</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Coming Soon</h2>
+        <p class="mt-4 text-muted leading-relaxed max-w-lg">New ways to earn we're building right now — not live yet, but on the way.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <div class="reveal card bg-bg-card border border-border border-dashed rounded-2xl p-7 transition-all flex flex-col gap-4">
+          <div class="flex items-center justify-between">
+            <i data-lucide="sparkles" class="w-6 h-6 text-primary"></i>
+            <span class="text-[10px] uppercase tracking-widest font-semibold text-primary bg-primary/10 border border-primary/30 rounded-full px-2.5 py-1">Coming soon</span>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold">UGC Participation</h3>
+            <p class="mt-1 text-xs uppercase tracking-widest text-muted">Creative</p>
+          </div>
+          <div class="space-y-3 text-sm border-t border-border pt-4">
+            <div><span class="text-gray-200 font-medium">What:</span> <span class="text-muted">Participate in branded hashtag challenges, creative prompts, or content campaigns.</span></div>
+            <div><span class="text-gray-200 font-medium">How:</span> <span class="text-muted">Create or share content per the brief, screenshot or link, submit.</span></div>
+            <div><span class="text-gray-200 font-medium">Why brands run these:</span> <span class="text-muted">User-generated content is more trusted than ads. Real participation extends reach authentically.</span></div>
+          </div>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border border-dashed rounded-2xl p-7 transition-all flex flex-col gap-4">
+          <div class="flex items-center justify-between">
+            <i data-lucide="calendar-check" class="w-6 h-6 text-primary"></i>
+            <span class="text-[10px] uppercase tracking-widest font-semibold text-primary bg-primary/10 border border-primary/30 rounded-full px-2.5 py-1">Coming soon</span>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold">Attend Events</h3>
+            <p class="mt-1 text-xs uppercase tracking-widest text-muted">In person</p>
+          </div>
+          <div class="space-y-3 text-sm border-t border-border pt-4">
+            <div><span class="text-gray-200 font-medium">What:</span> <span class="text-muted">Show up to sponsored events, pop-ups, launches, or meetups and check in on-site.</span></div>
+            <div><span class="text-gray-200 font-medium">How:</span> <span class="text-muted">Attend the event, capture a photo or check-in screenshot, submit.</span></div>
+            <div><span class="text-gray-200 font-medium">Why brands run these:</span> <span class="text-muted">Real-world turnout creates authentic content and social proof no online metric can fake.</span></div>
+          </div>
+        </div>
+
+        <div class="reveal card bg-bg-card border border-border border-dashed rounded-2xl p-7 transition-all flex flex-col gap-4">
+          <div class="flex items-center justify-between">
+            <i data-lucide="radio" class="w-6 h-6 text-primary"></i>
+            <span class="text-[10px] uppercase tracking-widest font-semibold text-primary bg-primary/10 border border-primary/30 rounded-full px-2.5 py-1">Coming soon</span>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold">Live Streams & Watch Parties</h3>
+            <p class="mt-1 text-xs uppercase tracking-widest text-muted">Live</p>
+          </div>
+          <div class="space-y-3 text-sm border-t border-border pt-4">
+            <div><span class="text-gray-200 font-medium">What:</span> <span class="text-muted">Join brand live streams, Twitch drops, or community watch parties in real time.</span></div>
+            <div><span class="text-gray-200 font-medium">How:</span> <span class="text-muted">Tune in to the live session, screenshot your participation, submit.</span></div>
+            <div><span class="text-gray-200 font-medium">Why brands run these:</span> <span class="text-muted">Live audiences drive real-time momentum and signal an active, engaged community.</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  </div>
+
+  <!-- CTA -->
+  <section class="py-24 sm:py-32 relative overflow-hidden">
+    <div class="absolute inset-0 hero-glow opacity-70 pointer-events-none"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-4xl sm:text-6xl font-bold tracking-tight reveal">Start <span class="text-primary">Earning Today.</span></h2>
+      <p class="mt-5 text-muted text-lg max-w-xl mx-auto reveal">Browse live campaigns and complete your first task in minutes.</p>
+      <div class="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center reveal">
+        <a href="https://lets.swrmit.com/signup" class="btn-primary bg-primary text-bg px-8 py-4 rounded-lg font-semibold hover:bg-primary-hover transition-all text-lg">Get started — it's free</a>
+        <a href="/solutions/swrmers/payouts" class="btn-ghost border border-border text-gray-200 px-8 py-4 rounded-lg font-medium hover:bg-white/[0.03] transition-all text-lg">How payouts work →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-border py-12 bg-bg-card/40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row gap-8 justify-between items-start">
+      <div>
+        <img src="/assets/logo-full.svg" alt="Swrm" width="78" height="25">
+        <p class="mt-4 text-sm text-muted max-w-xs leading-relaxed">The social media task marketplace.</p>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-10 text-sm">
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted mb-3">For Swrmers</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="/solutions/swrmers" class="hover:text-primary transition-colors">Overview</a></li>
+            <li><a href="/solutions/swrmers/how-it-works" class="hover:text-primary transition-colors">How It Works</a></li>
+            <li><a href="/solutions/swrmers/ways-to-earn" class="hover:text-primary transition-colors">Ways to Earn</a></li>
+            <li><a href="/solutions/swrmers/task-types" class="hover:text-primary transition-colors">Task Types</a></li>
+            <li><a href="/solutions/swrmers/campaigns" class="hover:text-primary transition-colors">Campaigns</a></li>
+            <li><a href="/solutions/swrmers/payouts" class="hover:text-primary transition-colors">Payouts</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted mb-3">For Brands</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="/solutions" class="hover:text-primary transition-colors">All solutions</a></li>
+            <li><a href="/#how" class="hover:text-primary transition-colors">How it works</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted mb-3">Account</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="https://lets.swrmit.com/login" class="hover:text-primary transition-colors">Log in</a></li>
+            <li><a href="https://lets.swrmit.com/signup" class="hover:text-primary transition-colors">Sign up</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mt-10 max-w-6xl mx-auto px-4 sm:px-6 text-xs text-muted/70 flex flex-col sm:flex-row gap-3 justify-between">
+      <span>© <span class="year"></span> Swrm. All rights reserved.</span>
+      <span>The social media task marketplace</span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.year').forEach(function(el){el.textContent=new Date().getFullYear();});
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}});
+    },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el);});
+    lucide.createIcons();
+  </script>
+</body>

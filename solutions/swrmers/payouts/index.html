@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payouts — SWRM for Swrmers</title>
+  <meta name="description" content="How earnings and payouts work on SWRM — credits, PayPal cashouts, task completion, and what to expect from every campaign.">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#C5E309', 'primary-hover': '#b3d008',
+            bg: '#090909', 'bg-elevated': '#1a1a1a', 'bg-card': '#000000',
+            border: '#2a2a2a', 'border-light': '#333333', muted: '#737373',
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .btn-primary:hover { box-shadow: 0 0 0 1px rgba(197,227,9,0.4), 0 0 24px rgba(197,227,9,0.25); }
+    .btn-ghost:hover { box-shadow: 0 0 0 1px rgba(197,227,9,0.2), 0 0 16px rgba(197,227,9,0.1); }
+    .card:hover { box-shadow: 0 0 0 1px rgba(197,227,9,0.25), 0 0 28px rgba(197,227,9,0.10); }
+    .hero-glow {
+      background: radial-gradient(60% 50% at 50% 0%, rgba(197,227,9,0.18) 0%, rgba(197,227,9,0) 70%),
+        radial-gradient(40% 40% at 80% 60%, rgba(197,227,9,0.08) 0%, rgba(197,227,9,0) 70%);
+    }
+    .grid-bg {
+      background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .text-glow {
+      background: linear-gradient(180deg, #FFFFFF 0%, #B8B8B8 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-bg text-gray-100 min-h-screen antialiased selection:bg-primary selection:text-bg">
+
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-bg/70 border-b border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+      <a href="/" class="flex items-center" aria-label="Swrm home">
+        <img src="/assets/logo-full.svg" alt="Swrm" width="78" height="25">
+      </a>
+      <nav class="hidden md:flex items-center gap-7 text-sm text-muted">
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href="https://lets.swrmit.com/login" class="hidden sm:inline-block text-sm text-gray-300 px-3 py-2 rounded-lg hover:text-gray-100 transition-colors">Log in</a>
+        <a href="https://lets.swrmit.com/signup" class="btn-primary text-sm bg-primary text-bg px-4 py-2 rounded-lg font-medium hover:bg-primary-hover transition-all">Get started</a>
+      </div>
+    </div>
+  </header>
+  <script src="/assets/mega-nav.js"></script>
+
+
+
+
+  <div>
+  <div id="swrm-snav" class="hidden sm:block sticky z-30 mt-14 py-3" style="top:56px">
+    <div class="flex justify-center px-4">
+      <div class="bg-bg-card border border-border rounded-full px-2 py-1.5 flex items-center gap-1">
+        <a href="/solutions/swrmers" class="text-sm text-muted hover:text-gray-100 px-3 py-1.5 rounded-xl whitespace-nowrap flex-shrink-0 transition-colors">Overview</a>
+        <a href="/solutions/swrmers/how-it-works" class="text-sm text-muted hover:text-gray-100 px-3 py-1.5 rounded-xl whitespace-nowrap flex-shrink-0 transition-colors">How It Works</a>
+        <a href="/solutions/swrmers/ways-to-earn" class="text-sm text-muted hover:text-gray-100 px-3 py-1.5 rounded-xl whitespace-nowrap flex-shrink-0 transition-colors">Ways to Earn</a>
+        <a href="/solutions/swrmers/task-types" class="text-sm text-muted hover:text-gray-100 px-3 py-1.5 rounded-xl whitespace-nowrap flex-shrink-0 transition-colors">Task Types</a>
+        <a href="/solutions/swrmers/campaigns" class="text-sm text-muted hover:text-gray-100 px-3 py-1.5 rounded-xl whitespace-nowrap flex-shrink-0 transition-colors">Campaigns</a>
+        <a href="/solutions/swrmers/payouts" class="text-sm font-medium text-primary px-3 py-1.5 rounded-xl whitespace-nowrap flex-shrink-0">Payouts</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="relative z-0 overflow-hidden sm:-mt-[126px] pt-32 sm:pt-44 pb-24 sm:pb-32 min-h-[660px] sm:min-h-[820px]">
+    <img src="/assets/hero-bee-earnings.png" class="absolute inset-0 w-full h-full object-cover object-right pointer-events-none select-none" style="opacity:0.20;" alt="" aria-hidden="true">
+    <div class="absolute inset-0 grid-bg opacity-50 pointer-events-none"></div>
+    <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal max-w-3xl">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">Payouts</p>
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.04]">
+          <span class="text-glow">Earnings,</span><br>
+          <span class="text-primary">Explained.</span>
+        </h1>
+        <p class="mt-6 text-lg sm:text-xl text-muted leading-relaxed max-w-2xl">
+          Here's exactly how you earn and get paid on SWRM. Simple, transparent, and straightforward.
+        </p>
+        <div class="mt-10 flex flex-wrap gap-3">
+          <a href="https://lets.swrmit.com/signup" class="btn-primary bg-primary text-bg px-6 py-3.5 rounded-lg font-semibold hover:bg-primary-hover transition-all">Start earning →</a>
+          <a href="/solutions/swrmers/how-it-works" class="btn-ghost border border-border text-gray-200 px-6 py-3.5 rounded-lg font-medium hover:bg-white/[0.03] transition-all">See how it works</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Key facts -->
+  <section class="py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 reveal">
+        <div class="bg-bg-card border border-border rounded-2xl p-6 text-center">
+          <div class="text-3xl font-bold text-primary">$20</div>
+          <div class="text-sm text-muted mt-2">Minimum cashout</div>
+        </div>
+        <div class="bg-bg-card border border-border rounded-2xl p-6 text-center">
+          <div class="text-3xl font-bold text-primary">PayPal</div>
+          <div class="text-sm text-muted mt-2">Only payout method</div>
+        </div>
+        <div class="bg-bg-card border border-border rounded-2xl p-6 text-center">
+          <div class="text-3xl font-bold text-primary">24h</div>
+          <div class="text-sm text-muted mt-2">Typical approval time</div>
+        </div>
+        <div class="bg-bg-card border border-border rounded-2xl p-6 text-center">
+          <div class="text-3xl font-bold text-primary">Free</div>
+          <div class="text-sm text-muted mt-2">To join, no fees</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How payouts work -->
+  <section class="py-8 sm:py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal mb-10">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">The flow</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">How Payouts Work.</h2>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-7 transition-all">
+          <div class="text-primary text-sm font-mono mb-4">01</div>
+          <h3 class="text-lg font-semibold">Complete a Task</h3>
+          <p class="mt-2 text-muted text-sm leading-relaxed">Do the social action. Take a screenshot. Submit it through SWRM.</p>
+        </div>
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-7 transition-all">
+          <div class="text-primary text-sm font-mono mb-4">02</div>
+          <h3 class="text-lg font-semibold">Earn Credits</h3>
+          <p class="mt-2 text-muted text-sm leading-relaxed">Once approved, the task's credit value lands in your wallet. Approvals usually happen within 24 hours.</p>
+        </div>
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-7 transition-all">
+          <div class="text-primary text-sm font-mono mb-4">03</div>
+          <h3 class="text-lg font-semibold">Cash Out</h3>
+          <p class="mt-2 text-muted text-sm leading-relaxed">Hit $20 and request a transfer to PayPal. No payment windows. Cash out when you want.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rates -->
+  <section class="py-16 sm:py-24 bg-bg-card/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal mb-10">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">Rates</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">What Tasks Pay.</h2>
+        <p class="mt-4 text-muted leading-relaxed max-w-lg">Rates vary by task type. Higher-effort tasks always pay more. The rate is always shown before you take a campaign — no surprises.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="reveal card bg-bg-card border border-border rounded-xl p-6 transition-all flex items-center justify-between">
+          <div>
+            <div class="font-medium">Follow</div>
+            <div class="text-xs text-muted mt-1">Quick, one-time action</div>
+          </div>
+          <div class="text-primary font-semibold text-right">$0.50–$0.75</div>
+        </div>
+        <div class="reveal card bg-bg-card border border-border rounded-xl p-6 transition-all flex items-center justify-between">
+          <div>
+            <div class="font-medium">Like</div>
+            <div class="text-xs text-muted mt-1">Quickest task type</div>
+          </div>
+          <div class="text-primary font-semibold text-right">$0.50</div>
+        </div>
+        <div class="reveal card bg-bg-card border border-border rounded-xl p-6 transition-all flex items-center justify-between">
+          <div>
+            <div class="font-medium">Share</div>
+            <div class="text-xs text-muted mt-1">Story or feed repost</div>
+          </div>
+          <div class="text-primary font-semibold text-right">$0.75–$1.00</div>
+        </div>
+        <div class="reveal card bg-bg-card border border-border rounded-xl p-6 transition-all flex items-center justify-between">
+          <div>
+            <div class="font-medium">Comment</div>
+            <div class="text-xs text-muted mt-1">Higher effort, higher pay</div>
+          </div>
+          <div class="text-primary font-semibold text-right">$1.00–$1.50</div>
+        </div>
+        <div class="reveal card bg-bg-card border border-border rounded-xl p-6 transition-all flex items-center justify-between">
+          <div>
+            <div class="font-medium">UGC / creative</div>
+            <div class="text-xs text-muted mt-1">Content participation</div>
+          </div>
+          <div class="text-primary font-semibold text-right">$2.00–$5.00</div>
+        </div>
+      </div>
+      <p class="mt-6 text-xs text-muted reveal">Rates are set by brands and may vary. The rate shown on any campaign is what you'll earn per approved completion.</p>
+    </div>
+  </section>
+
+  <!-- Payment timing -->
+  <section class="py-16 sm:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal mb-10">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">Timing</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">When You Get Paid.</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-7 transition-all">
+          <h3 class="font-semibold mb-3">After Submission Approval</h3>
+          <p class="text-muted text-sm leading-relaxed">Credits appear in your wallet as soon as your submission is approved. Most approvals happen within 24 hours. You'll see your balance update in real time.</p>
+        </div>
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-7 transition-all">
+          <h3 class="font-semibold mb-3">Cash Out Anytime at $20</h3>
+          <p class="text-muted text-sm leading-relaxed">Once you hit the $20 minimum, you can request a PayPal transfer whenever you want. No monthly windows. No queues. Cash out on your schedule.</p>
+        </div>
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-7 transition-all">
+          <h3 class="font-semibold mb-3">PayPal Transfer Within 48 Hours</h3>
+          <p class="text-muted text-sm leading-relaxed">Once you request a cashout, the transfer to your PayPal account is processed within 48 hours. No bank account details needed — just your PayPal.</p>
+        </div>
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-7 transition-all">
+          <h3 class="font-semibold mb-3">No Fees, No Conversions</h3>
+          <p class="text-muted text-sm leading-relaxed">What you earn is what you get. No platform fees deducted from your earnings. No credit-to-dollar conversion rates to navigate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust & safety -->
+  <section class="py-16 sm:py-24 bg-bg-card/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="reveal mb-10">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary mb-4">Trust & safety</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">How We Protect You.</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all">
+          <h3 class="font-semibold mb-2">Brands Pay Upfront</h3>
+          <p class="text-muted text-sm leading-relaxed">Campaigns are funded before they go live. You'll never complete work that isn't already paid for.</p>
+        </div>
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all">
+          <h3 class="font-semibold mb-2">No Account Access</h3>
+          <p class="text-muted text-sm leading-relaxed">SWRM never connects to or logs into your social accounts. Only your screenshots are used for verification.</p>
+        </div>
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all">
+          <h3 class="font-semibold mb-2">Bot Detection on Every Task</h3>
+          <p class="text-muted text-sm leading-relaxed">Every submission is reviewed. Suspicious activity gets flagged. Real accounts only — that's the only way this works.</p>
+        </div>
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all">
+          <h3 class="font-semibold mb-2">You Skip Anything</h3>
+          <p class="text-muted text-sm leading-relaxed">No campaign is mandatory. If a task doesn't feel right, skip it. No penalty, no explanation needed.</p>
+        </div>
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all">
+          <h3 class="font-semibold mb-2">Rate Shown Before You Commit</h3>
+          <p class="text-muted text-sm leading-relaxed">You see exactly what a task pays before you take it. No hidden rates, no bait-and-switch.</p>
+        </div>
+        <div class="reveal card bg-bg-card border border-border rounded-2xl p-6 transition-all">
+          <h3 class="font-semibold mb-2">Free to Join, Always</h3>
+          <p class="text-muted text-sm leading-relaxed">No subscription. No sign-up fee. No pay-to-earn scheme. SWRM is free and earns you money, not the other way around.</p>
+        </div>
+      </div>
+
+      <!-- What SWRM is not -->
+      <div class="reveal bg-bg-card border border-border rounded-2xl p-8">
+        <h3 class="text-lg font-semibold mb-6">What SWRM Is Not.</h3>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="flex items-start gap-3">
+            <span class="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-border text-muted flex-shrink-0 text-xs">✕</span>
+            <div>
+              <div class="font-medium text-sm">Not a "make thousands fast" scheme</div>
+              <div class="text-xs text-muted mt-1 leading-relaxed">SWRM pays fairly for real social tasks. It's supplemental income, not a replacement salary.</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-border text-muted flex-shrink-0 text-xs">✕</span>
+            <div>
+              <div class="font-medium text-sm">Not an MLM or referral pyramid</div>
+              <div class="text-xs text-muted mt-1 leading-relaxed">You earn by completing tasks. Not by recruiting other people. No downlines, no tiers.</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-border text-muted flex-shrink-0 text-xs">✕</span>
+            <div>
+              <div class="font-medium text-sm">Not fake engagement</div>
+              <div class="text-xs text-muted mt-1 leading-relaxed">Every action is real. Real people, real accounts, real social actions. That's the entire point.</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-border text-muted flex-shrink-0 text-xs">✕</span>
+            <div>
+              <div class="font-medium text-sm">Not a subscription</div>
+              <div class="text-xs text-muted mt-1 leading-relaxed">Free to join, free to earn, free to stop. No recurring charges, no locked-in commitments.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </div>
+
+  <!-- CTA -->
+  <section class="py-24 sm:py-32 relative overflow-hidden">
+    <div class="absolute inset-0 hero-glow opacity-70 pointer-events-none"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-4xl sm:text-6xl font-bold tracking-tight reveal">Start Earning <span class="text-primary">for Real.</span></h2>
+      <p class="mt-5 text-muted text-lg max-w-xl mx-auto reveal">Free to join. Cash out when you hit $20. No catch.</p>
+      <div class="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center reveal">
+        <a href="https://lets.swrmit.com/signup" class="btn-primary bg-primary text-bg px-8 py-4 rounded-lg font-semibold hover:bg-primary-hover transition-all text-lg">Get started — it's free</a>
+        <a href="/solutions/swrmers/how-it-works" class="btn-ghost border border-border text-gray-200 px-8 py-4 rounded-lg font-medium hover:bg-white/[0.03] transition-all text-lg">How it works →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-border py-12 bg-bg-card/40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row gap-8 justify-between items-start">
+      <div>
+        <img src="/assets/logo-full.svg" alt="Swrm" width="78" height="25">
+        <p class="mt-4 text-sm text-muted max-w-xs leading-relaxed">The social media task marketplace.</p>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-10 text-sm">
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted mb-3">For Swrmers</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="/solutions/swrmers" class="hover:text-primary transition-colors">Overview</a></li>
+            <li><a href="/solutions/swrmers/how-it-works" class="hover:text-primary transition-colors">How It Works</a></li>
+            <li><a href="/solutions/swrmers/ways-to-earn" class="hover:text-primary transition-colors">Ways to Earn</a></li>
+            <li><a href="/solutions/swrmers/task-types" class="hover:text-primary transition-colors">Task Types</a></li>
+            <li><a href="/solutions/swrmers/campaigns" class="hover:text-primary transition-colors">Campaigns</a></li>
+            <li><a href="/solutions/swrmers/payouts" class="hover:text-primary transition-colors">Payouts</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted mb-3">For Brands</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="/solutions" class="hover:text-primary transition-colors">All solutions</a></li>
+            <li><a href="/#how" class="hover:text-primary transition-colors">How it works</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-widest text-muted mb-3">Account</div>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="https://lets.swrmit.com/login" class="hover:text-primary transition-colors">Log in</a></li>
+            <li><a href="https://lets.swrmit.com/signup" class="hover:text-primary transition-colors">Sign up</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mt-10 max-w-6xl mx-auto px-4 sm:px-6 text-xs text-muted/70 flex flex-col sm:flex-row gap-3 justify-between">
+      <span>© <span class="year"></span> Swrm. All rights reserved.</span>
+      <span>The social media task marketplace</span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.year').forEach(function(el){el.textContent=new Date().getFullYear();});
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}});
+    },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el);});
+  </script>
+</body>
