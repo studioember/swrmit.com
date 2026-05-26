@@ -4,11 +4,11 @@ var SOLUTIONS = [
     title: 'Music & Entertainment',
     eyebrow: 'For Artists & Labels',
     headline: 'Build the buzz before your next drop.',
-    subheadline: 'Turn your release into a moment. SWRM helps artists, labels, and entertainment brands activate real fans to follow, share, and engage — right when it counts.',
+    subheadline: 'Turn your release into a moment. SWRM helps artists, labels, and entertainment brands activate real fans to follow, share, and engage right when it counts.',
     shortDescription: 'Activate real fans for album drops, tour announcements, and release-day engagement.',
     cardUseCases: ['Album & single launches', 'Tour announcements'],
     useCases: [
-      { title: 'Album & Single Launches', description: 'Drop a campaign on release day. Real people follow, share, and comment — giving the algorithm the signal boost your track needs to take off organically.' },
+      { title: 'Album & Single Launches', description: 'Drop a campaign on release day. Real people follow, share, and comment, giving the algorithm the signal boost your track needs to take off organically.' },
       { title: 'Tour Announcements', description: 'Turn your tour drop into a social event. Get your announcement shared across Instagram, TikTok, and X by real fans in real time.' }
     ],
     exampleTasks: [
@@ -16,12 +16,12 @@ var SOLUTIONS = [
       { platform: 'TikTok', action: 'Share the single to your story', rate: '$0.75' },
       { platform: 'YouTube', action: 'Subscribe + comment on the music video', rate: '$0.50' }
     ],
-    whyItWorks: 'Social algorithms reward early engagement. A strong first wave of real activity — follows, shares, comments — signals momentum to Instagram, TikTok, and YouTube, triggering organic reach before paid media even kicks in. SWRM gives you that first wave on demand.',
+    whyItWorks: 'Social algorithms reward early engagement. A strong first wave of real follows, shares, and comments signals momentum to Instagram, TikTok, and YouTube, triggering organic reach before paid media even kicks in. SWRM gives you that first wave on demand.',
     campaignExamples: [
-      { title: 'Debut single launch', result: '3,200 new Instagram followers and 8,000+ YouTube views in 72 hours — driven entirely through SWRM tasks before a single ad dollar was spent.' },
+      { title: 'Debut single launch', result: '3,200 new Instagram followers and 8,000+ YouTube views in 72 hours, driven entirely through SWRM tasks before a single ad dollar was spent.' },
       { title: 'Tour announcement amplification', result: 'A record label pushed a major tour drop to 50,000+ real shares across TikTok and Instagram in under a week.' }
     ],
-    metaTitle: 'SWRM for Music & Entertainment — Build buzz on every drop',
+    metaTitle: 'SWRM for Music & Entertainment: Build buzz on every drop',
     metaDescription: 'SWRM helps artists, labels, and entertainment brands activate real social engagement for album drops, tour announcements, and release-day engagement.'
   },
   {
@@ -29,7 +29,7 @@ var SOLUTIONS = [
     title: 'Ecommerce & Retail',
     eyebrow: 'For Online & Retail Brands',
     headline: 'Launch products people actually talk about.',
-    subheadline: 'Drive real social proof to your product pages, TikTok Shop, and launch posts. SWRM turns social momentum into purchase intent — before the ads even run.',
+    subheadline: 'Drive real social proof to your product pages, TikTok Shop, and launch posts. SWRM turns social momentum into purchase intent before the ads even run.',
     shortDescription: 'Build social proof for product launches, TikTok Shop, and retail brand awareness.',
     cardUseCases: ['Product launches', 'TikTok Shop & Instagram Shopping', 'Brand awareness for new stores'],
     useCases: [
@@ -42,12 +42,12 @@ var SOLUTIONS = [
       { platform: 'Instagram', action: 'Share the product drop to your story', rate: '$0.75' },
       { platform: 'Instagram', action: 'Comment on the new product post', rate: '$0.50' }
     ],
-    whyItWorks: 'Social proof is purchase intent. Real follows, likes, and shares signal legitimacy to algorithms — and to shoppers. A product with visible engagement gets taken seriously. One without it gets scrolled past. SWRM makes sure your launch lands with momentum.',
+    whyItWorks: 'Social proof is purchase intent. Real follows, likes, and shares signal legitimacy to algorithms and to shoppers. A product with visible engagement gets taken seriously. One without it gets scrolled past. SWRM makes sure your launch lands with momentum.',
     campaignExamples: [
-      { title: 'Skincare brand launch week', result: '4,500+ TikTok followers and 12,000 video views before the first paid ad ran — pure SWRM-driven social proof at launch.' },
+      { title: 'Skincare brand launch week', result: '4,500+ TikTok followers and 12,000 video views before the first paid ad ran. Pure SWRM-driven social proof at launch.' },
       { title: 'New apparel brand drop', result: 'A new clothing brand used SWRM to fill their Instagram with real comments and shares on launch day, converting attention into early sales.' }
     ],
-    metaTitle: 'SWRM for Ecommerce & Retail — Social proof at launch',
+    metaTitle: 'SWRM for Ecommerce & Retail: Social proof at launch',
     metaDescription: 'SWRM helps ecommerce and retail brands build real social engagement for product launches, TikTok Shop, and brand awareness campaigns.'
   },
   {
@@ -59,7 +59,7 @@ var SOLUTIONS = [
     shortDescription: 'Drive real engagement around game drops, esports tournaments, and streaming growth.',
     cardUseCases: ['Game & DLC launches', 'Esports event promotion', 'Streamer channel growth'],
     useCases: [
-      { title: 'Game & DLC Launches', description: 'Drop a campaign on release day. Real players follow, share, and engage — giving the algorithm the signal boost your launch needs before the reviews hit.' },
+      { title: 'Game & DLC Launches', description: 'Drop a campaign on release day. Real players follow, share, and engage, giving the algorithm the signal boost your launch needs before the reviews hit.' },
       { title: 'Esports Event Promotion', description: 'Amplify tournament announcements and bracket reveals with real shares across TikTok, X, and Instagram. Build the hype that makes viewership spike.' },
       { title: 'Streamer & Channel Growth', description: 'Grow your Twitch following, YouTube subscriber count, or TikTok presence with real engagement from the gaming community.' }
     ],
@@ -68,12 +68,12 @@ var SOLUTIONS = [
       { platform: 'X', action: 'Repost the esports tournament announcement', rate: '$0.75' },
       { platform: 'YouTube', action: 'Subscribe + comment on the game launch channel', rate: '$0.50' }
     ],
-    whyItWorks: 'Gaming communities live on social. A new game or esports event needs momentum from day one — real shares, real follows, real comments that signal to the algorithm this is worth surfacing. SWRM gives game studios and esports orgs the first wave of genuine engagement they need to build from.',
+    whyItWorks: 'Gaming communities live on social. A new game or esports event needs momentum from day one. Real shares, real follows, and real comments signal to the algorithm that it is worth surfacing. SWRM gives game studios and esports orgs the first wave of genuine engagement they need to build from.',
     campaignExamples: [
-      { title: 'Indie game studio launch', result: '3,800 new TikTok followers and 9,000+ YouTube views in 72 hours — before a single paid promotion ran on the campaign.' },
-      { title: 'Esports org tournament push', result: 'An esports organization used SWRM to drive 5,000+ X reposts of their bracket reveal — tripling expected viewership for the opening round.' }
+      { title: 'Indie game studio launch', result: '3,800 new TikTok followers and 9,000+ YouTube views in 72 hours, before a single paid promotion ran on the campaign.' },
+      { title: 'Esports org tournament push', result: 'An esports organization used SWRM to drive 5,000+ X reposts of their bracket reveal, tripling expected viewership for the opening round.' }
     ],
-    metaTitle: 'SWRM for Gaming & Esports — Drop your game, build the hype',
+    metaTitle: 'SWRM for Gaming & Esports: Drop your game, build the hype',
     metaDescription: 'SWRM helps game studios, esports orgs, and streaming brands activate real social engagement around game launches, tournaments, and channel growth.'
   },
   {
@@ -96,10 +96,10 @@ var SOLUTIONS = [
     ],
     whyItWorks: 'FOMO drives tickets. Real social engagement signals that an event is popular and worth attending. When people see others sharing your lineup, they take notice. SWRM gives your announcement the initial push it needs to be taken seriously.',
     campaignExamples: [
-      { title: 'Independent music festival', result: '6,000+ Instagram followers gained in one week ahead of lineup drop — giving the announcement a built-in audience before it even posted.' },
-      { title: 'Club night ticket launch', result: 'A promoter used SWRM to push a sold-out announcement across TikTok and Instagram — 4,000+ shares in 48 hours.' }
+      { title: 'Independent music festival', result: '6,000+ Instagram followers gained in one week ahead of the lineup drop, giving the announcement a built-in audience before it even posted.' },
+      { title: 'Club night ticket launch', result: 'A promoter used SWRM to push a sold-out announcement across TikTok and Instagram. 4,000+ shares in 48 hours.' }
     ],
-    metaTitle: 'SWRM for Events & Festivals — Fill seats, build anticipation',
+    metaTitle: 'SWRM for Events & Festivals: Fill seats, build anticipation',
     metaDescription: 'SWRM helps event organizers and festival promoters build social buzz, grow followings, and drive ticket momentum through real social engagement.'
   },
   {
@@ -107,12 +107,12 @@ var SOLUTIONS = [
     title: 'Creators & Influencers',
     eyebrow: 'For Creators & Influencers',
     headline: 'Earn more. Grow faster.',
-    subheadline: 'SWRM is built for creators on both sides — earn credits by completing tasks for brands, or run your own campaigns to grow your following and reach.',
+    subheadline: 'SWRM is built for creators on both sides. Earn credits by completing tasks for brands, or run your own campaigns to grow your following and reach.',
     shortDescription: 'Grow your channel and monetize your social activity across every platform.',
     cardUseCases: ['Growing a new channel', 'Monetizing your social time', 'Cross-platform audience building'],
     useCases: [
       { title: 'Growing a New Channel', description: 'Get the early engagement boost your new channel needs. Real follows, likes, and shares tell the algorithm you\'re worth surfacing to more people.' },
-      { title: 'Monetizing Your Social Time', description: 'As a Swrmer, earn real money completing social tasks for brands. Follow, like, share, comment — and cash out to PayPal.' },
+      { title: 'Monetizing Your Social Time', description: 'As a Swrmer, earn real money completing social tasks for brands. Follow, like, share, comment, and cash out to PayPal.' },
       { title: 'Cross-Platform Audience Building', description: 'Run a SWRM campaign across multiple platforms at once. Convert your TikTok following into YouTube subscribers, or your Instagram fans into X followers.' }
     ],
     exampleTasks: [
@@ -120,12 +120,12 @@ var SOLUTIONS = [
       { platform: 'YouTube', action: 'Subscribe + comment on the channel', rate: '$0.75' },
       { platform: 'X', action: 'Repost the creator\'s pinned tweet', rate: '$0.50' }
     ],
-    whyItWorks: 'Algorithms need a first push to do their job. Real early engagement — from real accounts — gives new content the signal boost to get picked up organically. SWRM gives creators the launch velocity to start that flywheel spinning.',
+    whyItWorks: 'Algorithms need a first push to do their job. Real early engagement from real accounts gives new content the signal boost to get picked up organically. SWRM gives creators the launch velocity to start that flywheel spinning.',
     campaignExamples: [
-      { title: 'Gaming creator cross-platform push', result: '2,800 new YouTube subscribers in two weeks by running a SWRM campaign to cross-pollinate a TikTok audience — no paid ads needed.' },
-      { title: 'Lifestyle creator channel launch', result: 'A new creator used SWRM on their first three uploads — hitting the YouTube algorithm threshold in 30 days with real comments and real subscribers.' }
+      { title: 'Gaming creator cross-platform push', result: '2,800 new YouTube subscribers in two weeks by running a SWRM campaign to cross-pollinate a TikTok audience, with no paid ads needed.' },
+      { title: 'Lifestyle creator channel launch', result: 'A new creator used SWRM on their first three uploads, hitting the YouTube algorithm threshold in 30 days with real comments and real subscribers.' }
     ],
-    metaTitle: 'SWRM for Creators & Influencers — Grow faster, earn more',
+    metaTitle: 'SWRM for Creators & Influencers: Grow faster, earn more',
     metaDescription: 'SWRM helps creators grow their channels faster with real engagement campaigns, and lets them earn real money completing tasks for brands.'
   },
   {
@@ -133,12 +133,12 @@ var SOLUTIONS = [
     title: 'Tech & Apps',
     eyebrow: 'For Tech Brands & Product Teams',
     headline: 'Launch with momentum.',
-    subheadline: 'New app? New SaaS tool? New platform? SWRM helps tech brands build social proof fast — before the ads, before the press, before the growth team kicks in.',
+    subheadline: 'New app? New SaaS tool? New platform? SWRM helps tech brands build social proof fast, before the ads, before the press, before the growth team kicks in.',
     shortDescription: 'Build early social traction for app launches, SaaS tools, and tech brand growth.',
     cardUseCases: ['App & product launches', 'SaaS & platform growth', 'Building early community'],
     useCases: [
       { title: 'App & Product Launches', description: 'Hit social hard on launch day. Real follows, shares, and engagement signal that your product is real and worth paying attention to.' },
-      { title: 'SaaS & Platform Growth', description: 'Build a real social following around your tool or platform. Credibility in tech comes from visible community traction — SWRM gives you that foundation.' },
+      { title: 'SaaS & Platform Growth', description: 'Build a real social following around your tool or platform. Credibility in tech comes from visible community traction, and SWRM gives you that foundation.' },
       { title: 'Building Early Community', description: 'Start growing your audience before your product even ships. SWRM builds your social following so you have a community ready at launch.' }
     ],
     exampleTasks: [
@@ -146,13 +146,13 @@ var SOLUTIONS = [
       { platform: 'Instagram', action: 'Share the app launch post to your story', rate: '$0.75' },
       { platform: 'YouTube', action: 'Subscribe + comment on the launch video', rate: '$0.50' }
     ],
-    whyItWorks: 'Social proof is trust. Early traction — a real follower count, real comments, real shares — signals legitimacy to investors, press, and potential users. SWRM gives tech brands the social credibility of an established name, from day one.',
+    whyItWorks: 'Social proof is trust. A real follower count, real comments, and real shares signal legitimacy to investors, press, and potential users. SWRM gives tech brands the credibility of an established name from day one.',
     campaignExamples: [
-      { title: 'B2C app launch day', result: '2,000+ X followers and 1,500 story shares within 24 hours of launch — giving the press something to point to before the coverage even hit.' },
-      { title: 'SaaS tool launch', result: 'A bootstrapped team used SWRM on launch morning to drive shares and follows — helping them land top product of the day in their category.' }
+      { title: 'B2C app launch day', result: '2,000+ X followers and 1,500 story shares within 24 hours of launch, giving the press something to point to before the coverage even hit.' },
+      { title: 'SaaS tool launch', result: 'A bootstrapped team used SWRM on launch morning to drive shares and follows, helping them land top product of the day in their category.' }
     ],
-    metaTitle: 'SWRM for Tech & Apps — Launch with social momentum',
-    metaDescription: 'SWRM helps tech brands and product teams build real social proof fast — for app launches, SaaS tools, and early community building.'
+    metaTitle: 'SWRM for Tech & Apps: Launch with social momentum',
+    metaDescription: 'SWRM helps tech brands and product teams build real social proof fast for app launches, SaaS tools, and early community building.'
   },
   {
     slug: 'sports-fitness',
@@ -164,7 +164,7 @@ var SOLUTIONS = [
     cardUseCases: ['Game day campaigns', 'Product & gear launches', 'Athlete collab amplification'],
     useCases: [
       { title: 'Game Day Campaigns', description: 'Activate your fanbase around every game. Real shares, follows, and hype content that builds momentum before, during, and after match day.' },
-      { title: 'Product & Gear Launches', description: 'Drive real social proof to your new collection, supplement line, or gear drop. Real engagement signals to platforms — and to shoppers — that your product is worth noticing.' },
+      { title: 'Product & Gear Launches', description: 'Drive real social proof to your new collection, supplement line, or gear drop. Real engagement signals to platforms and shoppers that your product is worth noticing.' },
       { title: 'Athlete Collab Amplification', description: 'When you partner with an athlete, make sure the world knows it. SWRM drives real shares and follows around collab announcements across Instagram, TikTok, and X.' }
     ],
     exampleTasks: [
@@ -172,12 +172,12 @@ var SOLUTIONS = [
       { platform: 'TikTok', action: 'Share the athlete collab announcement to your story', rate: '$0.75' },
       { platform: 'X', action: 'Repost the product launch tweet', rate: '$0.50' }
     ],
-    whyItWorks: 'Sports fans are already engaged — they just need a reason to show up online. SWRM channels that passion into real social actions that grow your following, amplify your brand partnerships, and give your launches the social credibility they need to cut through.',
+    whyItWorks: 'Sports fans are already engaged. They just need a reason to show up online. SWRM channels that passion into real social actions that grow your following, amplify your brand partnerships, and give your launches the social credibility they need to cut through.',
     campaignExamples: [
-      { title: 'Fitness brand product drop', result: '2,600 new Instagram followers and 7,000+ story shares in 4 days — building real social proof ahead of their paid campaign launch.' },
-      { title: 'Sports team game day series', result: 'A sports team ran weekly SWRM campaigns through the season — consistently driving 1,200+ shares per match day and growing their social following by 40%.' }
+      { title: 'Fitness brand product drop', result: '2,600 new Instagram followers and 7,000+ story shares in 4 days, building real social proof ahead of their paid campaign launch.' },
+      { title: 'Sports team game day series', result: 'A sports team ran weekly SWRM campaigns through the season, consistently driving 1,200+ shares per match day and growing their social following by 40%.' }
     ],
-    metaTitle: 'SWRM for Sports & Fitness — Turn fans into your marketing channel',
+    metaTitle: 'SWRM for Sports & Fitness: Turn fans into your marketing channel',
     metaDescription: 'SWRM helps sports teams, fitness brands, and wellness companies drive real social engagement around game days, product launches, and athlete collabs.'
   }
 ];

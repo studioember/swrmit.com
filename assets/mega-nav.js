@@ -172,7 +172,7 @@
     + '</div>'
     + '<div class="mnd-foot">'
     + '<a href="https://lets.swrmit.com/login" class="mnd-cta-sec">Log in</a>'
-    + '<a href="https://lets.swrmit.com/signup" class="mnd-cta-pri">Get started — it\'s free</a>'
+    + '<a href="https://lets.swrmit.com/signup" class="mnd-cta-pri">Get started, it\'s free</a>'
     + '</div>'
     + '</div>';
 

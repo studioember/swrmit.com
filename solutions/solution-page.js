@@ -132,7 +132,7 @@
       + '<h2 class="text-4xl sm:text-6xl font-bold tracking-tight reveal">Ready to <span class="text-primary">Launch?</span></h2>'
       + '<p class="mt-5 text-muted text-lg max-w-xl mx-auto reveal">Set up your first SWRM campaign in minutes. No commitment, no minimums.</p>'
       + '<div class="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center reveal">'
-      + '<a href="https://lets.swrmit.com/signup" class="btn-primary bg-primary text-bg px-8 py-4 rounded-lg font-semibold hover:bg-primary-hover transition-all text-lg">Get started — it\'s free</a>'
+      + '<a href="https://lets.swrmit.com/signup" class="btn-primary bg-primary text-bg px-8 py-4 rounded-lg font-semibold hover:bg-primary-hover transition-all text-lg">Get started, it\'s free</a>'
       + '<a href="/solutions/brands" class="btn-ghost border border-border text-gray-200 px-8 py-4 rounded-lg font-medium hover:bg-white/[0.03] transition-all text-lg">Explore all solutions</a>'
       + '</div>'
       + '</div>'
